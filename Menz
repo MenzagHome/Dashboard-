@@ -1,0 +1,3853 @@
+views:
+  - theme: Caule Black Aqua Glass
+    title: Tableau de bord
+    path: domo
+    icon: mdi:home-automation
+    subview: false
+    layout:
+      type: custom:horizontal-layout
+      layout:
+        - columns: 3
+    badges:
+      - entity: light.eclairages
+        name: Lumières
+        icon: mdi:home-lightbulb
+        tap_action:
+          action: navigate
+          navigation_path: /lovelace/lumiere
+      - entity: camera.192_168_1_101
+        tap_action:
+          action: navigate
+          navigation_path: /lovelace/alarme
+      - entity: camera.192_168_1_212
+        tap_action:
+          action: navigate
+          navigation_path: /lovelace/alarme
+      - entity: camera.192_168_1_48
+        tap_action:
+          action: navigate
+          navigation_path: /lovelace/alarme
+      - entity: camera.192_168_1_37
+        tap_action:
+          action: navigate
+          navigation_path: /lovelace/alarme
+      - entity: weather.vandeins
+        name: Météo
+        tap_action:
+          action: navigate
+          navigation_path: /lovelace/meteo
+      - type: entity-filter
+        entities:
+          - entity: sensor.01_weather_alert
+            name: ALERTE !
+            tap_action:
+              action: navigate
+              navigation_path: /lovelace/meteo
+          - binary_sensor.do_chambre_paren
+          - binary_sensor.do_porte_garage
+          - binary_sensor.do_chambre_chris
+          - entity: cover.volet_chris
+            name: Chris
+            icon: mdi:window-shutter
+          - binary_sensor.do_chambre_timeo
+          - entity: cover.volet_timeo
+            name: Timéo
+            icon: mdi:window-shutter
+          - binary_sensor.do_cuisine
+          - binary_sensor.do_po_d_entree
+          - entity: binary_sensor.do_salon_trottoi
+            name: Trottoir
+          - entity: cover.volet_pf_trottoir
+            name: Trottoir
+            icon: mdi:window-shutter
+          - entity: binary_sensor.do_salon_terrass
+            name: Terrasse
+          - entity: switch.freebox_wifi
+            name: Wifi
+            image: >-
+              https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQapRk7WXXtS-n53zuYHm9IhSTRsZjn3_X5Nw&usqp=CAU
+          - entity: device_tracker.sm_a336b
+            name: Vincent
+            icon: mdi:face-man-outline
+          - entity: device_tracker.portable_ludivine
+            icon: mdi:face-woman
+          - entity: device_tracker.portable_timeo
+            icon: mdi:face-man
+          - device_tracker.portable_chris
+          - device_tracker.tablette_chris
+          - device_tracker.pc_portable_timeo
+          - device_tracker.pc_portable_maison
+          - device_tracker.pc_portable_jb_alarme
+          - entity: device_tracker.freebox_player_pop
+            image: >-
+              https://www.universfreebox.com/wp-content/uploads/2021/04/Capture-d%E2%80%99e-cran-2021-04-01-a-11_17_25.png.webp
+            tap_action:
+              action: navigate
+              navigation_path: /lovelace/telecommande
+          - entity: device_tracker.freebox_v7_r1
+            image: >-
+              https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcROZxiR9Qs6yU7NgQrtLQen9wLta0flN0RlUA&usqp=CAU
+          - entity: light.imprimante
+            icon: mdi:printer-wireless
+            name: Prise
+            tap_action:
+              action: call-service
+              service: light.turn_off
+              service_data:
+                entity_id: light.imprimante
+          - entity: device_tracker.imprimante
+            image: >-
+              https://www.cdiscount.com/pdt2/8/0/b/1/700x700/a9t80b/rw/imprimante-hp-envy-4500-compatible-instant-ink.jpg
+            tap_action:
+              action: call-service
+              service: light.turn_off
+              service_data:
+                entity_id: light.imprimante
+          - device_tracker.nintendo_3ds
+          - entity: device_tracker.nintendo_switch
+            image: >-
+              https://www.micromania.fr/dw/image/v2/BCRB_PRD/on/demandware.static/-/Sites-masterCatalog_Micromania/default/dwee743ce8/images/high-res/3196009_scrmax.jpg?sw=480&sh=480&sm=fit
+          - entity: vacuum.baymax
+            image: >-
+              https://www.researchgate.net/profile/Suraj-Sood/publication/334371307/figure/fig1/AS:806434895839232@1569280470078/Baymax-from-the-movie-Big-Hero-6.jpg
+          - entity: device_tracker.thermomix
+            image: >-
+              https://media.vorwerk.com/is/image/vorwerk/thermomix_tm6_black:1x1?wid=633&hei=633
+          - entity: light.thermomix
+            image: >-
+              https://media.vorwerk.com/is/image/vorwerk/thermomix_tm6_black:1x1?wid=633&hei=633
+            name: Prise
+            tap_action:
+              action: call-service
+              service: light.turn_off
+              service_data:
+                entity_id: light.thermomix
+          - entity: light.petit_dej
+            icon: mdi:coffee-maker
+            tap_action:
+              action: call-service
+              service: light.turn_off
+              service_data:
+                entity_id: light.petit_dej
+          - entity: light.tablette_ha
+            name: Batterie
+            icon: mdi:home-assistant
+          - entity: light.cuisine_2
+            name: Cuisine
+            icon: hue:room-dining
+            tap_action:
+              action: call-service
+              service: light.turn_off
+              service_data:
+                entity_id: light.cuisine_2
+          - entity: light.lampes_salon
+            name: Lampes
+            icon: mdi:lamps
+            tap_action:
+              action: call-service
+              service: light.turn_off
+              service_data:
+                entity_id: light.lampes_salon
+          - entity: light.lum_canape_salon
+            name: Canapé
+            icon: mdi:sofa
+            tap_action:
+              action: call-service
+              service: light.turn_off
+              service_data:
+                entity_id: light.lum_canape_salon
+          - entity: light.veilleuse
+            name: Veilleuse
+            icon: mdi:lightbulb-night
+          - entity: switch.prise_multimedia
+            name: TV
+            icon: mdi:television
+            tap_action:
+              action: call-service
+              service: light.turn_off
+              service_data:
+                entity_id: light.prise_multimedia
+          - entity: switch.lumieres_tv
+            name: Spots TV
+            icon: hue:lightstrip-tv
+            tap_action:
+              action: call-service
+              service: light.turn_off
+              service_data:
+                entity_id: light.lumieres_tv
+          - entity: light.sam
+            name: SàM
+            icon: mdi:chandelier
+            tap_action:
+              action: call-service
+              service: light.turn_off
+              service_data:
+                entity_id: light.sam
+        state_filter:
+          - 'on'
+          - home
+          - cleaning
+          - Jaune
+          - Rouge
+          - Orange
+          - closed
+    cards:
+      - type: vertical-stack
+        cards:
+          - square: false
+            columns: 3
+            type: grid
+            cards:
+              - type: custom:button-card
+                styles:
+                  card:
+                    - height: 38px
+                    - width: 117px
+                  name:
+                    - justify-self: start
+                    - font-size: 13px
+                    - font-weight: bold
+                entity: binary_sensor.do_porte_garage
+                state:
+                  - value: 'off'
+                    icon: mdi:garage-variant-lock
+                    color: teal
+                    styles:
+                      name:
+                        - color: white
+                      icon:
+                        - width: 100%
+                      card:
+                        - '-box-shadow': 0px 0px 9px 3px teal
+                        - box-shadow: 0px 0px 9px 3px teal
+                  - value: 'on'
+                    icon: mdi:garage-open-variant
+                    color: red
+                    styles:
+                      card:
+                        - '-box-shadow': 0px 0px 9px 3px aqua
+                        - box-shadow: 0px 0px 9px 3px aqua
+                        - background-color: aqua
+                        - animation: blink 2s ease infinite
+                      name:
+                        - color: red
+                      icon:
+                        - width: 100%
+                show_name: true
+                show_state: false
+                layout:
+                  - icon_name
+              - type: custom:button-card
+                styles:
+                  card:
+                    - height: 38px
+                    - width: 117px
+                  state:
+                    - justify-self: center
+                    - font-size: 13px
+                    - color: white
+                    - font-weight: bold
+                  icon:
+                    - justify-self: start
+                    - width: 100%
+                entity: sensor.temp_garage
+                show_state: true
+                show_name: false
+                state:
+                  - value: 15
+                    operator: <=
+                    color: blue
+                    icon: mdi:thermometer-minus
+                  - value: 25
+                    operator: '>='
+                    color: red
+                    icon: mdi:thermometer-plus
+                  - operator: default
+                    color: lightgreen
+                    icon: mdi:thermometer
+                layout:
+                  - icon_state
+                tap_action:
+                  action: navigate
+                  navigation_path: /lovelace/chauffage
+              - type: custom:button-card
+                styles:
+                  card:
+                    - height: 38px
+                    - width: 117px
+                  state:
+                    - justify-self: center
+                    - font-size: 13px
+                    - color: white
+                    - font-weight: bold
+                  icon:
+                    - justify-self: start
+                    - width: 100%
+                entity: sensor.hum_garage
+                state:
+                  - value: 50
+                    operator: <=
+                    color: blue
+                    icon: mdi:water-minus
+                  - value: 75
+                    operator: '>='
+                    color: red
+                    icon: mdi:water-plus
+                  - operator: default
+                    color: lightgreen
+                    icon: mdi:water
+                show_name: false
+                show_state: true
+                layout:
+                  - icon_state
+                tap_action:
+                  action: navigate
+                  navigation_path: /lovelace/chauffage
+          - square: false
+            columns: 3
+            type: grid
+            cards:
+              - type: custom:button-card
+                styles:
+                  card:
+                    - width: 117px
+                    - height: 38px
+                  name:
+                    - justify-self: start
+                    - font-size: 13px
+                    - font-weight: bold
+                entity: light.chauffage_buanderie
+                name: Buanderie
+                state:
+                  - value: 'off'
+                    icon: mdi:washing-machine
+                    color: teal
+                    styles:
+                      name:
+                        - color: white
+                      icon:
+                        - width: 100%
+                      card:
+                        - '-box-shadow': 0px 0px 9px 3px teal
+                        - box-shadow: 0px 0px 9px 3px teal
+                  - value: 'on'
+                    icon: mdi:washing-machine
+                    color: red
+                    styles:
+                      card:
+                        - '-box-shadow': 0px 0px 9px 3px aqua
+                        - box-shadow: 0px 0px 9px 3px aqua
+                        - background-color: aqua
+                        - animation: null
+                      name:
+                        - color: red
+                      icon:
+                        - width: 100%
+                show_name: true
+                show_state: false
+                layout:
+                  - icon_name
+              - type: custom:button-card
+                styles:
+                  card:
+                    - width: 117px
+                    - height: 38px
+                  state:
+                    - justify-self: center
+                    - font-size: 13px
+                    - color: white
+                    - font-weight: bold
+                  icon:
+                    - justify-self: start
+                    - width: 100%
+                entity: sensor.sonde_buanderie_temperature
+                show_state: true
+                show_name: false
+                state:
+                  - value: 15
+                    operator: <=
+                    color: blue
+                    icon: mdi:thermometer-minus
+                  - value: 25
+                    operator: '>='
+                    color: red
+                    icon: mdi:thermometer-plus
+                  - operator: default
+                    color: lightgreen
+                    icon: mdi:thermometer
+                layout:
+                  - icon_state
+                tap_action:
+                  action: navigate
+                  navigation_path: /lovelace/chauffage
+              - type: custom:button-card
+                styles:
+                  card:
+                    - width: 117px
+                    - height: 38px
+                  state:
+                    - justify-self: center
+                    - font-size: 13px
+                    - color: white
+                    - font-weight: bold
+                  icon:
+                    - justify-self: start
+                    - width: 100%
+                entity: sensor.sonde_buanderie_humidity
+                state:
+                  - value: 50
+                    operator: <=
+                    color: blue
+                    icon: mdi:water-minus
+                  - value: 75
+                    operator: '>='
+                    color: red
+                    icon: mdi:water-plus
+                  - operator: default
+                    color: lightgreen
+                    icon: mdi:water
+                show_name: false
+                show_state: true
+                layout:
+                  - icon_state
+                tap_action:
+                  action: navigate
+                  navigation_path: /lovelace/chauffage
+          - square: false
+            columns: 3
+            type: grid
+            cards:
+              - type: custom:button-card
+                styles:
+                  card:
+                    - width: 117px
+                    - height: 38px
+                  name:
+                    - justify-self: start
+                    - font-size: 13px
+                    - font-weight: bold
+                entity: binary_sensor.do_po_d_entree
+                state:
+                  - value: 'off'
+                    icon: mdi:door-closed-lock
+                    color: teal
+                    styles:
+                      name:
+                        - color: white
+                      icon:
+                        - width: 100%
+                        - animation: null
+                      card:
+                        - '-box-shadow': 0px 0px 9px 3px teal
+                        - box-shadow: 0px 0px 9px 3px teal
+                  - value: 'on'
+                    icon: mdi:door-open
+                    color: red
+                    styles:
+                      card:
+                        - background-color: aqua
+                        - '-box-shadow': 0px 0px 9px 3px aqua
+                        - box-shadow: 0px 0px 9px 3px aqua
+                      name:
+                        - color: red
+                      icon:
+                        - width: 60%
+                        - animation: null
+                show_name: true
+                show_state: false
+                layout:
+                  - icon_name
+              - type: custom:button-card
+                styles:
+                  card:
+                    - width: 117px
+                    - height: 38px
+                    - left: null
+                  state:
+                    - justify-self: center
+                    - font-size: 13px
+                    - color: white
+                    - font-weight: bold
+                  icon:
+                    - justify-self: start
+                    - width: 100%
+                entity: sensor.temp_salon
+                show_state: true
+                show_name: false
+                state:
+                  - value: 15
+                    operator: <=
+                    color: blue
+                    icon: mdi:thermometer-minus
+                  - value: 25
+                    operator: '>='
+                    color: red
+                    icon: mdi:thermometer-plus
+                  - operator: default
+                    color: lightgreen
+                    icon: mdi:thermometer
+                layout:
+                  - icon_state
+                tap_action:
+                  action: navigate
+                  navigation_path: /lovelace/chauffage
+              - type: custom:button-card
+                styles:
+                  card:
+                    - width: 117px
+                    - height: 38px
+                  state:
+                    - justify-self: center
+                    - font-size: 13px
+                    - color: white
+                    - font-weight: bold
+                  icon:
+                    - justify-self: start
+                    - width: 100%
+                state:
+                  - value: 50
+                    operator: <=
+                    color: blue
+                    icon: mdi:water-minus
+                  - value: 75
+                    operator: '>='
+                    color: red
+                    icon: mdi:water-plus
+                  - operator: default
+                    color: lightgreen
+                    icon: mdi:water
+                entity: sensor.hum_salon
+                show_name: false
+                show_state: true
+                layout:
+                  - icon_state
+                tap_action:
+                  action: navigate
+                  navigation_path: /lovelace/chauffage
+          - square: false
+            columns: 3
+            type: grid
+            cards:
+              - type: custom:button-card
+                styles:
+                  card:
+                    - width: 117px
+                    - height: 38px
+                    - '-box-shadow': 0px 0px 9px 3px teal
+                    - box-shadow: 0px 0px 9px 3px teal
+                  name:
+                    - justify-self: start
+                    - font-size: 13px
+                    - font-weight: bold
+                    - value: 'on'
+                      color: red
+                    - value: 'off'
+                      color: white
+                  icon:
+                    - width: 100%
+                state:
+                  - value: 'off'
+                    icon: mdi:bathtub-outline
+                    color: teal
+                    styles:
+                      name:
+                        - color: white
+                      icon:
+                        - width: 100%
+                        - animation: null
+                      card:
+                        - '-box-shadow': 0px 0px 9px 3px teal
+                        - box-shadow: 0px 0px 9px 3px teal
+                  - value: 'on'
+                    icon: mdi:bathtub
+                    color: red
+                    styles:
+                      card:
+                        - background-color: aqua
+                        - '-box-shadow': 0px 0px 9px 3px aqua
+                        - box-shadow: 0px 0px 9px 3px aqua
+                      name:
+                        - color: red
+                      icon:
+                        - width: 60%
+                        - animation: null
+                entity: switch.chauffage_sdb
+                name: S. De Bains
+                show_name: true
+                show_state: false
+                layout:
+                  - icon_name
+              - type: custom:button-card
+                styles:
+                  card:
+                    - width: 117px
+                    - height: 38px
+                  state:
+                    - justify-self: center
+                    - font-size: 13px
+                    - color: white
+                    - font-weight: bold
+                  icon:
+                    - justify-self: start
+                    - width: 100%
+                entity: sensor.temp_sdb
+                show_state: true
+                show_name: false
+                state:
+                  - value: 15
+                    operator: <=
+                    color: blue
+                    icon: mdi:thermometer-minus
+                  - value: 25
+                    operator: '>='
+                    color: red
+                    icon: mdi:thermometer-plus
+                  - operator: default
+                    color: lightgreen
+                    icon: mdi:thermometer
+                layout:
+                  - icon_state
+                tap_action:
+                  action: navigate
+                  navigation_path: /lovelace/chauffage
+              - type: custom:button-card
+                styles:
+                  card:
+                    - width: 117px
+                    - height: 38px
+                  state:
+                    - justify-self: center
+                    - font-size: 13px
+                    - color: white
+                    - font-weight: bold
+                  icon:
+                    - justify-self: start
+                    - width: 100%
+                state:
+                  - value: 50
+                    operator: <=
+                    color: blue
+                    icon: mdi:water-minus
+                  - value: 75
+                    operator: '>='
+                    color: red
+                    icon: mdi:water-plus
+                  - operator: default
+                    color: lightgreen
+                    icon: mdi:water
+                entity: sensor.hum_sdb
+                show_name: false
+                show_state: true
+                layout:
+                  - icon_state
+                tap_action:
+                  action: navigate
+                  navigation_path: /lovelace/chauffage
+          - type: custom:button-card
+            styles:
+              card:
+                - width: 369px
+                - height: 55px
+                - '-box-shadow': 0px 0px 9px 3px teal
+                - box-shadow: 0px 0px 9px 3px teal
+              state:
+                - justify-self: center
+                - font-weight: bold
+                - font-size: 12px
+                - color: teal
+              name:
+                - justify-self: start
+                - font-weight: bold
+                - font-size: 16px
+                - color: white
+              icon:
+                - width: 20%
+                - justify-self: center
+                - color: teal
+                - animation: null
+            entity: light.cuisine
+            tap_action:
+              action: call-service
+              service: light.toggle
+              service_data:
+                entity_id: light.cuisine_2
+            hold_action:
+              action: call-service
+              service: light.toggle
+              service_data:
+                entity_id: light.spots_cuisine
+            double_tap_action:
+              action: call-service
+              service: light.toggle
+              service_data:
+                entity_id: light.lum_bar
+            icon: hue:room-dining
+            name: Cuisine ____ 🍽
+            state:
+              - value: 'on'
+                icon: hue:room-dining
+                styles:
+                  card:
+                    - '-box-shadow': 0px 0px 9px 3px aqua
+                    - box-shadow: 0px 0px 9px 3px aqua
+                  icon:
+                    - color: aqua
+                    - animation: blink 5s ease infinite
+                  name:
+                    - color: aqua
+            show_name: true
+            show_state: false
+            layout:
+              - icon_name_state
+          - square: false
+            columns: 3
+            type: grid
+            cards:
+              - type: vertical-stack
+                cards:
+                  - type: custom:button-card
+                    styles:
+                      card:
+                        - background-color: aqua
+                        - '-box-shadow': 0px 0px 9px 3px aqua
+                        - box-shadow: 0px 0px 9px 3px aqua
+                        - '--mdc-ripple-color': red
+                        - '--mdc-ripple-press-opacity': 0.5
+                        - width: 117px
+                        - height: 38px
+                      icon:
+                        - animation: null
+                    entity: light.petit_dej
+                    icon: mdi:coffee-maker
+                    color: red
+                    state:
+                      - value: 'off'
+                        icon: mdi:coffee-maker-outline
+                        styles:
+                          card:
+                            - background-color: black
+                            - '-box-shadow': 0px 0px 9px 3px teal
+                            - box-shadow: 0px 0px 9px 3px teal
+                          icon:
+                            - color: teal
+                            - animation: null
+                    show_name: false
+                  - type: custom:button-card
+                    styles:
+                      card:
+                        - background-color: aqua
+                        - '-box-shadow': 0px 0px 9px 3px aqua
+                        - box-shadow: 0px 0px 9px 3px aqua
+                        - '--mdc-ripple-color': red
+                        - '--mdc-ripple-press-opacity': 0.5
+                        - width: 117px
+                        - height: 38px
+                      icon:
+                        - animation: null
+                    entity: light.thermomix
+                    icon: mdi:chef-hat
+                    color: red
+                    size: 25px
+                    state:
+                      - value: 'off'
+                        styles:
+                          card:
+                            - background-color: black
+                            - '-box-shadow': 0px 0px 9px 3px teal
+                            - box-shadow: 0px 0px 9px 3px teal
+                          icon:
+                            - color: teal
+                            - animation: null
+                    show_name: false
+              - square: false
+                columns: 1
+                type: grid
+                cards:
+                  - type: custom:button-card
+                    styles:
+                      card:
+                        - width: 117px
+                        - height: 38px
+                      state:
+                        - justify-self: center
+                        - font-size: 13px
+                        - color: white
+                        - font-weight: bold
+                      icon:
+                        - justify-self: start
+                        - width: 100%
+                    entity: sensor.temp_salon
+                    show_state: true
+                    show_name: false
+                    state:
+                      - value: 15
+                        operator: <=
+                        color: blue
+                        icon: mdi:thermometer-minus
+                      - value: 25
+                        operator: '>='
+                        color: red
+                        icon: mdi:thermometer-plus
+                      - operator: default
+                        color: lightgreen
+                        icon: mdi:thermometer
+                    layout:
+                      - icon_state
+                    tap_action:
+                      action: navigate
+                      navigation_path: /lovelace/chauffage
+                  - type: custom:button-card
+                    styles:
+                      card:
+                        - width: 117px
+                        - height: 38px
+                      state:
+                        - justify-self: start
+                        - font-size: 13px
+                        - font-weight: bold
+                    entity: binary_sensor.do_cuisine
+                    state:
+                      - value: 'off'
+                        icon: mdi:door-closed
+                        color: teal
+                        styles:
+                          state:
+                            - color: white
+                          icon:
+                            - width: 100%
+                            - animation: null
+                          card:
+                            - opacity: 0.5
+                      - value: 'on'
+                        icon: mdi:door-open
+                        color: red
+                        styles:
+                          card:
+                            - background-color: aqua
+                            - '-box-shadow': 0px 0px 9px 3px aqua
+                            - box-shadow: 0px 0px 9px 3px aqua
+                          state:
+                            - color: red
+                          icon:
+                            - width: 60%
+                            - animation: blink 2s ease infinite
+                    show_name: false
+                    show_state: true
+                    layout:
+                      - icon_state
+              - square: false
+                columns: 1
+                type: grid
+                cards:
+                  - type: custom:button-card
+                    styles:
+                      card:
+                        - width: 117px
+                        - height: 38px
+                      state:
+                        - justify-self: center
+                        - font-size: 13px
+                        - color: white
+                        - font-weight: bold
+                      icon:
+                        - justify-self: start
+                        - width: 100%
+                    state:
+                      - value: 50
+                        operator: <=
+                        color: blue
+                        icon: mdi:water-minus
+                      - value: 75
+                        operator: '>='
+                        color: red
+                        icon: mdi:water-plus
+                      - operator: default
+                        color: lightgreen
+                        icon: mdi:water
+                    entity: sensor.hum_salon
+                    show_name: false
+                    show_state: true
+                    layout:
+                      - icon_state
+                    tap_action:
+                      action: navigate
+                      navigation_path: /lovelace/chauffage
+                  - type: custom:button-card
+                    styles:
+                      card:
+                        - width: 117px
+                        - height: 38px
+                      name:
+                        - justify-self: center
+                        - font-size: 13px
+                        - font-weight: bold
+                      icon:
+                        - justify-self: center
+                        - width: 100%
+                    entity: light.tablette_ha
+                    state:
+                      - value: 'off'
+                        icon: mdi:home-assistant
+                        color: lightblue
+                        styles:
+                          name:
+                            - color: white
+                      - value: 'on'
+                        icon: mdi:battery-charging
+                        color: aqua
+                        styles:
+                          card:
+                            - '-box-shadow': 0px 0px 9px 3px aqua
+                            - box-shadow: 0px 0px 9px 3px aqua
+                            - background-color: black
+                          name:
+                            - color: aqua
+                    show_name: true
+                    show_state: false
+                    layout:
+                      - icon_name
+          - type: custom:button-card
+            styles:
+              card:
+                - width: 369px
+                - height: 55px
+                - '-box-shadow': 0px 0px 9px 3px teal
+                - box-shadow: 0px 0px 9px 3px teal
+              state:
+                - justify-self: center
+                - font-weight: bold
+                - font-size: 12px
+                - color: teal
+              name:
+                - justify-self: start
+                - font-weight: bold
+                - font-size: 16px
+                - color: white
+              icon:
+                - width: 20%
+                - justify-self: center
+                - color: teal
+                - animation: null
+            entity: light.salon
+            tap_action:
+              action: call-service
+              service: light.toggle
+              service_data:
+                entity_id: light.lum_canape_salon
+            hold_action:
+              action: call-service
+              service: light.toggle
+              service_data:
+                entity_id: light.canape_milieu
+            double_tap_action:
+              action: call-service
+              service: light.toggle
+              service_data:
+                entity_id: light.lum_repas
+            icon: mdi:sofa-outline
+            name: Séjour _____ 📺
+            state:
+              - value: 'on'
+                icon: mdi:sofa
+                styles:
+                  card:
+                    - '-box-shadow': 0px 0px 9px 3px aqua
+                    - box-shadow: 0px 0px 9px 3px aqua
+                  icon:
+                    - color: aqua
+                    - animation: blink 5s ease infinite
+                  name:
+                    - color: aqua
+            show_name: true
+            show_state: false
+            layout:
+              - icon_name_state
+          - square: false
+            columns: 3
+            type: grid
+            cards:
+              - type: vertical-stack
+                cards:
+                  - type: custom:button-card
+                    styles:
+                      card:
+                        - background-color: aqua
+                        - '-box-shadow': 0px 0px 9px 3px aqua
+                        - box-shadow: 0px 0px 9px 3px aqua
+                        - '--mdc-ripple-color': red
+                        - '--mdc-ripple-press-opacity': 0.5
+                        - width: 117px
+                        - height: 38px
+                      icon:
+                        - animation: null
+                      name:
+                        - justify-self: start
+                        - font-size: 13px
+                        - font-weight: bold
+                        - color: red
+                    entity: light.sam
+                    name: SàM
+                    icon: mdi:chandelier
+                    color: red
+                    size: 28px
+                    state:
+                      - value: 'off'
+                        styles:
+                          card:
+                            - background-color: black
+                            - '-box-shadow': 0px 0px 9px 3px teal
+                            - box-shadow: 0px 0px 9px 3px teal
+                          icon:
+                            - color: teal
+                            - animation: null
+                          name:
+                            - color: teal
+                    show_name: false
+                    show_state: false
+                  - type: custom:button-card
+                    styles:
+                      card:
+                        - background-color: aqua
+                        - '-box-shadow': 0px 0px 9px 3px aqua
+                        - box-shadow: 0px 0px 9px 3px aqua
+                        - '--mdc-ripple-color': red
+                        - '--mdc-ripple-press-opacity': 0.5
+                        - width: 117px
+                        - height: 38px
+                      icon:
+                        - animation: null
+                      name:
+                        - justify-self: start
+                        - font-size: 13px
+                        - font-weight: bold
+                        - color: red
+                    entity: light.lampes_salon
+                    icon: mdi:lamps
+                    color: red
+                    size: 28px
+                    name: Lampes
+                    state:
+                      - value: 'off'
+                        icon: mdi:lamps-outline
+                        styles:
+                          card:
+                            - background-color: black
+                            - '-box-shadow': 0px 0px 9px 3px teal
+                            - box-shadow: 0px 0px 9px 3px teal
+                          icon:
+                            - color: teal
+                            - animation: null
+                          name:
+                            - color: teal
+                    show_name: false
+                    show_state: false
+                  - type: custom:button-card
+                    styles:
+                      card:
+                        - width: 117px
+                        - height: 38px
+                      name:
+                        - justify-self: start
+                        - font-size: 13px
+                        - font-weight: bold
+                    entity: switch.lumieres_tv
+                    name: Spots TV
+                    state:
+                      - value: 'off'
+                        icon: hue:lightstrip-tv-off
+                        color: teal
+                        styles:
+                          name:
+                            - color: teal
+                          icon:
+                            - width: 100%
+                            - animation: null
+                          card:
+                            - background-color: black
+                            - '-box-shadow': 0px 0px 9px 3px teal
+                            - box-shadow: 0px 0px 9px 3px teal
+                      - value: 'on'
+                        icon: hue:lightstrip-tv
+                        color: red
+                        styles:
+                          card:
+                            - background-color: aqua
+                            - '-box-shadow': 0px 0px 9px 3px aqua
+                            - box-shadow: 0px 0px 9px 3px aqua
+                          name:
+                            - color: red
+                          icon:
+                            - width: 60%
+                            - animation: null
+                    show_name: false
+                    show_state: false
+              - square: false
+                columns: 1
+                type: grid
+                cards:
+                  - type: custom:button-card
+                    styles:
+                      card:
+                        - width: 117px
+                        - height: 38px
+                      state:
+                        - justify-self: center
+                        - font-size: 13px
+                        - color: white
+                        - font-weight: bold
+                      icon:
+                        - justify-self: start
+                        - width: 100%
+                        - animation: blink 2s ease infinite
+                    entity: sensor.sonde_sam_temperature
+                    show_state: true
+                    show_name: false
+                    state:
+                      - value: 15
+                        operator: <=
+                        color: blue
+                        icon: mdi:thermometer-minus
+                      - value: 25
+                        operator: '>='
+                        color: red
+                        icon: mdi:thermometer-plus
+                      - operator: default
+                        color: lightgreen
+                        icon: mdi:thermometer
+                        styles:
+                          icon:
+                            - animation: null
+                    layout:
+                      - icon_state
+                    tap_action:
+                      action: navigate
+                      navigation_path: /lovelace/chauffage
+                  - type: custom:button-card
+                    styles:
+                      card:
+                        - height: 38px
+                        - width: 117px
+                      icon:
+                        - width: 100%
+                      name:
+                        - font-weight: bold
+                        - font-size: 13px
+                        - justify-self: start
+                    entity: vacuum.baymax
+                    icon: mdi:battery-charging
+                    tap_action:
+                      action: navigate
+                      navigation_path: /lovelace/baymax
+                    hold_action:
+                      action: call-service
+                      service: light.toggle
+                      service_data:
+                        entity_id: light.prise_sapin
+                    state:
+                      - value: docked
+                        name: Baymax
+                        icon: mdi:robot-vacuum
+                        styles:
+                          card:
+                            - background-color: black
+                            - '-box-shadow': 0px 0px 9px 3px teal
+                            - box-shadow: 0px 0px 9px 3px teal
+                          icon:
+                            - color: teal
+                          name:
+                            - color: teal
+                      - value: paused
+                        icon: mdi:pause
+                        name: En Pause
+                        styles:
+                          card:
+                            - background-color: black
+                            - '-box-shadow': 0px 0px 9px 3px teal
+                            - box-shadow: 0px 0px 9px 3px teal
+                          icon:
+                            - color: red
+                          name:
+                            - color: teal
+                      - value: returning
+                        icon: mdi:robot-vacuum-alert
+                        name: Retour
+                        styles:
+                          card:
+                            - background-color: black
+                            - '-box-shadow': 0px 0px 9px 3px orange
+                            - box-shadow: 0px 0px 9px 3px orange
+                          icon:
+                            - color: orange
+                            - animation: blink 2s ease infinite
+                          name:
+                            - color: orange
+                            - animation: blink 2s ease infinite
+                      - value: cleaning
+                        name: Nettoyage
+                        icon: mdi:robot-vacuum
+                        styles:
+                          card:
+                            - background-color: aqua
+                            - '-box-shadow': 0px 0px 9px 3px aqua
+                            - box-shadow: 0px 0px 9px 3px aqua
+                          icon:
+                            - color: red
+                            - animation: blink 2s ease infinite
+                          name:
+                            - color: red
+                            - animation: blink 2s ease infinite
+                      - value: unavailable
+                        name: Indisponible
+                        icon: mdi:sleep
+                        styles:
+                          card:
+                            - background-color: black
+                            - '-box-shadow': 0px 0px 9px 3px teal
+                            - box-shadow: 0px 0px 9px 3px teal
+                          icon:
+                            - color: teal
+                          name:
+                            - color: teal
+                      - value: idle
+                        name: Inactif
+                        icon: mdi:chat-sleep
+                        styles:
+                          card:
+                            - background-color: black
+                            - '-box-shadow': 0px 0px 9px 3px teal
+                            - box-shadow: 0px 0px 9px 3px teal
+                          icon:
+                            - color: teal
+                          name:
+                            - color: teal
+                      - value: dormant
+                        icon: mdi:chat-sleep-outlin
+                        name: Repos
+                        styles:
+                          card:
+                            - background-color: black
+                            - '-box-shadow': 0px 0px 9px 3px teal
+                            - box-shadow: 0px 0px 9px 3px teal
+                          icon:
+                            - color: teal
+                          name:
+                            - color: teal
+                    show_name: true
+                    show_state: false
+                    layout: icon_name
+                  - type: custom:button-card
+                    styles:
+                      card:
+                        - width: 117px
+                        - height: 38px
+                      name:
+                        - justify-self: start
+                        - font-size: 13px
+                        - font-weight: bold
+                    entity: switch.prise_multimedia
+                    name: TV
+                    double_tap_action:
+                      action: navigate
+                      navigation_path: /lovelace/telecommande
+                    state:
+                      - value: 'off'
+                        icon: mdi:television-off
+                        color: teal
+                        styles:
+                          name:
+                            - color: teal
+                          icon:
+                            - width: 100%
+                            - animation: null
+                          card:
+                            - background-color: black
+                            - '-box-shadow': 0px 0px 9px 3px teal
+                            - box-shadow: 0px 0px 9px 3px teal
+                      - value: 'on'
+                        icon: mdi:youtube-tv
+                        color: red
+                        styles:
+                          card:
+                            - background-color: aqua
+                            - '-box-shadow': 0px 0px 9px 3px aqua
+                            - box-shadow: 0px 0px 9px 3px aqua
+                          name:
+                            - color: red
+                          icon:
+                            - width: 60%
+                            - animation: null
+                    show_name: false
+                    show_state: false
+              - square: false
+                columns: 1
+                type: grid
+                cards:
+                  - type: custom:button-card
+                    styles:
+                      card:
+                        - width: 117px
+                        - height: 38px
+                      state:
+                        - justify-self: center
+                        - font-size: 13px
+                        - color: white
+                        - font-weight: bold
+                      icon:
+                        - justify-self: start
+                        - width: 100%
+                    state:
+                      - value: 50
+                        operator: <=
+                        color: blue
+                        icon: mdi:water-minus
+                      - value: 75
+                        operator: '>='
+                        color: red
+                        icon: mdi:water-plus
+                      - operator: default
+                        color: lightgreen
+                        icon: mdi:water
+                    entity: sensor.sonde_sam_humidity
+                    show_name: false
+                    show_state: true
+                    layout:
+                      - icon_state
+                    tap_action:
+                      action: navigate
+                      navigation_path: /lovelace/chauffage
+                  - type: custom:button-card
+                    styles:
+                      card:
+                        - width: 117px
+                        - height: 38px
+                      name:
+                        - justify-self: start
+                        - font-size: 13px
+                        - font-weight: bold
+                      icon:
+                        - width: 100%
+                    entity: binary_sensor.do_salon_terrass
+                    name: Terrasse
+                    state:
+                      - value: 'off'
+                        icon: mdi:window-closed-variant
+                        color: teal
+                        styles:
+                          name:
+                            - color: white
+                          card:
+                            - opacity: 0.5
+                          icon:
+                            - animation: null
+                      - value: 'on'
+                        icon: mdi:window-open-variant-open-variant
+                        color: red
+                        styles:
+                          card:
+                            - background-color: aqua
+                            - '-box-shadow': 0px 0px 9px 3px aqua
+                            - box-shadow: 0px 0px 9px 3px aqua
+                          name:
+                            - color: red
+                          icon:
+                            - animation: null
+                    show_name: true
+                    show_state: false
+                    layout:
+                      - icon_name
+                  - type: custom:button-card
+                    styles:
+                      card:
+                        - width: 117px
+                        - height: 38px
+                      name:
+                        - justify-self: start
+                        - font-size: 13px
+                        - font-weight: bold
+                      icon:
+                        - width: 100%
+                    entity: binary_sensor.do_salon_trottoi
+                    name: Trottoir
+                    tap_action:
+                      action: call-service
+                      service: cover.toggle
+                      service_data:
+                        entity_id: cover.volet_pf_trottoir
+                    state:
+                      - value: 'off'
+                        icon: mdi:window-closed-variant
+                        color: teal
+                        styles:
+                          name:
+                            - color: white
+                          icon:
+                            - animation: null
+                      - value: 'on'
+                        icon: mdi:window-open-variant-open-variant
+                        color: red
+                        styles:
+                          card:
+                            - background-color: aqua
+                            - '-box-shadow': 0px 0px 9px 3px aqua
+                            - box-shadow: 0px 0px 9px 3px aqua
+                          name:
+                            - color: red
+                          icon:
+                            - animation: null
+                    show_name: true
+                    show_state: false
+                    layout:
+                      - icon_name
+      - type: vertical-stack
+        cards:
+          - square: false
+            type: grid
+            cards:
+              - type: custom:button-card
+                styles:
+                  card:
+                    - background-color: black
+                    - '-box-shadow': 0px 0px 9px 3px aqua
+                    - box-shadow: 0px 0px 9px 3px aqua
+                    - '--mdc-ripple-color': red
+                    - '--mdc-ripple-press-opacity': 0.5
+                    - width: 117px
+                    - height: 47px
+                  icon:
+                    - animation: null
+                  name:
+                    - justify-self: start
+                    - font-size: 15px
+                    - font-weight: bold
+                    - color: aqua
+                entity: cover.volet_pf_trottoir
+                icon: mdi:window-shutter
+                color: aqua
+                size: 28px
+                name: Salon
+                tap_action:
+                  action: call-service
+                  service: cover.toggle
+                  service_data:
+                    entity_id: cover.volet_pf_trottoir
+                double_tap_action:
+                  action: call-service
+                  service: cover.stop_cover
+                  service_data:
+                    entity_id: cover.volet_pf_trottoir
+                state:
+                  - value: open
+                    icon: mdi:window-shutter-open
+                    styles:
+                      card:
+                        - background-color: black
+                        - '-box-shadow': 0px 0px 9px 3px teal
+                        - box-shadow: 0px 0px 9px 3px teal
+                      icon:
+                        - color: teal
+                        - animation: null
+                      name:
+                        - color: teal
+                show_name: true
+                show_state: false
+                layout:
+                  - icon_name
+              - type: custom:button-card
+                styles:
+                  card:
+                    - background-color: black
+                    - '-box-shadow': 0px 0px 9px 3px aqua
+                    - box-shadow: 0px 0px 9px 3px aqua
+                    - '--mdc-ripple-color': red
+                    - '--mdc-ripple-press-opacity': 0.5
+                    - width: 117px
+                    - height: 47px
+                  icon:
+                    - animation: null
+                  name:
+                    - justify-self: start
+                    - font-size: 15px
+                    - font-weight: bold
+                    - color: aqua
+                entity: cover.volet_timeo
+                icon: mdi:window-shutter
+                color: aqua
+                size: 28px
+                name: Timéo
+                tap_action:
+                  action: call-service
+                  service: cover.toggle
+                  service_data:
+                    entity_id: cover.volet_timeo
+                double_tap_action:
+                  action: call-service
+                  service: cover.stop_cover
+                  service_data:
+                    entity_id: cover.volet_timeo
+                state:
+                  - value: open
+                    icon: mdi:window-shutter-open
+                    styles:
+                      card:
+                        - background-color: black
+                        - '-box-shadow': 0px 0px 9px 3px teal
+                        - box-shadow: 0px 0px 9px 3px teal
+                      icon:
+                        - color: teal
+                        - animation: null
+                      name:
+                        - color: teal
+                show_name: true
+                show_state: false
+                layout:
+                  - icon_name
+              - type: custom:button-card
+                styles:
+                  card:
+                    - background-color: black
+                    - '-box-shadow': 0px 0px 9px 3px aqua
+                    - box-shadow: 0px 0px 9px 3px aqua
+                    - '--mdc-ripple-color': red
+                    - '--mdc-ripple-press-opacity': 0.5
+                    - width: 117px
+                    - height: 47px
+                  icon:
+                    - animation: null
+                  name:
+                    - justify-self: start
+                    - font-size: 15px
+                    - font-weight: bold
+                    - color: aqua
+                entity: cover.volet_chris
+                icon: mdi:window-shutter
+                color: aqua
+                size: 28px
+                name: Chris
+                tap_action:
+                  action: call-service
+                  service: cover.toggle
+                  service_data:
+                    entity_id: cover.volet_chris
+                double_tap_action:
+                  action: call-service
+                  service: cover.stop_cover
+                  service_data:
+                    entity_id: cover.volet_chris
+                state:
+                  - value: open
+                    icon: mdi:window-shutter-open
+                    styles:
+                      card:
+                        - background-color: black
+                        - '-box-shadow': 0px 0px 9px 3px teal
+                        - box-shadow: 0px 0px 9px 3px teal
+                      icon:
+                        - color: teal
+                        - animation: null
+                      name:
+                        - color: teal
+                show_name: true
+                show_state: false
+                layout:
+                  - icon_name
+            columns: 3
+          - type: custom:clock-weather-card
+            entity: weather.vandeins
+            hide_forecast_section: true
+          - type: custom:meteoalarm-card
+            entities:
+              - entity: sensor.01_weather_alert
+            integration: meteofrance
+            hide_when_no_warning: true
+          - type: custom:mini-media-player
+            entity: media_player.android_tv_192_168_1_9
+            volume_stateless: true
+            artwork: full-cover
+            source: icon
+            sound_mode: icon
+            info: short
+            max_volume: '100'
+            min_volume: '1'
+            volume_step: '10'
+            group: false
+            replace_mute: play_pause
+            hide:
+              state_label: true
+            tap_action:
+              action: navigate
+              navigation_path: /lovelace/telecommande
+            background: red
+            name: ' Pop'
+            icon: mdi:youtube-tv
+          - type: conditional
+            conditions:
+              - entity: media_player.salon
+                state: playing
+            card:
+              type: custom:mini-media-player
+              entity: media_player.salon
+              media-player-media-cover-info-color: green
+              toggle_power: false
+              icon_image: ' '
+              sound_mode: icon
+              source: icon
+              info: scroll
+              artwork: full-cover
+              volume_stateless: true
+              hide:
+                volume: true
+                power: true
+                state_label: false
+                progress: true
+                next: true
+                prev: true
+                play_pause: true
+              background: teal
+              name: ' '
+              icon: ' '
+              card_mod:
+                style: |
+                  :host {
+                    --card-mod-text-color: rgb(250, 0, 1);
+                  }
+              tap_action:
+                action: navigate
+                navigation_path: /lovelace/telecommande
+      - type: vertical-stack
+        cards:
+          - square: false
+            columns: 3
+            type: grid
+            cards:
+              - type: custom:button-card
+                styles:
+                  card:
+                    - background-color: black
+                    - '-box-shadow': 0px 0px 9px 3px aqua
+                    - box-shadow: 0px 0px 9px 3px aqua
+                    - '--mdc-ripple-color': red
+                    - '--mdc-ripple-press-opacity': 0.5
+                    - width: 123px
+                    - height: 47px
+                  icon:
+                    - animation: null
+                  name:
+                    - justify-self: center
+                    - font-size: 15px
+                    - font-weight: bold
+                    - color: black
+                entity: cover.volets
+                icon: mdi:window-shutter
+                color: aqua
+                size: 28px
+                name: Volets
+                tap_action:
+                  action: call-service
+                  service: cover.toggle
+                  service_data:
+                    entity_id: cover.volets
+                double_tap_action:
+                  action: call-service
+                  service: cover.stop_cover
+                  service_data:
+                    entity_id: cover.volets
+                state:
+                  - value: open
+                    icon: mdi:window-shutter-open
+                    styles:
+                      card:
+                        - background-color: black
+                        - '-box-shadow': 0px 0px 9px 3px teal
+                        - box-shadow: 0px 0px 9px 3px teal
+                      icon:
+                        - color: teal
+                        - animation: null
+                      name:
+                        - color: teal
+                show_name: false
+                show_state: false
+              - type: custom:button-card
+                styles:
+                  card:
+                    - height: 47px
+                    - width: 117px
+                    - background-color: aqua
+                    - '-box-shadow': 0px 0px 9px 3px aqua
+                    - box-shadow: 0px 0px 9px 3px aqua
+                    - '--mdc-ripple-color': red
+                    - '--mdc-ripple-press-opacity': 0.5
+                  icon:
+                    - width: 100%
+                    - animation: blink 5s ease infinite
+                entity: light.nuit
+                tap_action:
+                  action: call-service
+                  service: light.turn_off
+                  service_data:
+                    entity_id: light.nuit
+                double_tap_action:
+                  action: navigate
+                  navigation_path: /lovelace/lumiere
+                icon: phu:scene-nightlight
+                color: red
+                state:
+                  - value: 'off'
+                    styles:
+                      card:
+                        - background-color: black
+                        - '-box-shadow': 0px 0px 9px 3px teal
+                        - box-shadow: 0px 0px 9px 3px teal
+                      icon:
+                        - color: teal
+                        - animation: null
+                show_name: false
+              - type: custom:button-card
+                entities:
+                  - sensor.tablette_ha_battery_level
+                  - sensor.tablette_ha_battery_state
+                entity: sensor.tablette_ha_battery_level
+                styles:
+                  card:
+                    - height: 47px
+                    - width: 117px
+                    - background-color: black
+                    - '-box-shadow': 0px 0px 9px 3px teal
+                    - box-shadow: 0px 0px 9px 3px teal
+                  state:
+                    - justify-self: center
+                    - font-size: 15px
+                    - color: white
+                    - font-weight: bold
+                  icon:
+                    - justify-self: center
+                    - width: 50%
+                state:
+                  - value: 25
+                    operator: <=
+                    color: red
+                    icon: mdi:battery-alert-variant-outline
+                    styles:
+                      card:
+                        - background-color: aqua
+                        - '-box-shadow': 0px 0px 9px 3px red
+                        - box-shadow: 0px 0px 9px 3px red
+                        - animation: blink 2s ease infinite
+                      state:
+                        - color: red
+                  - value: 95
+                    operator: '>='
+                    color: teal
+                    icon: mdi:battery
+                    styles:
+                      state:
+                        - color: teal
+                  - value: 85
+                    operator: '>'
+                    color: teal
+                    icon: mdi:battery-90
+                    styles:
+                      state:
+                        - color: teal
+                  - value: 75
+                    operator: '>'
+                    color: teal
+                    icon: mdi:battery-80
+                    styles:
+                      state:
+                        - color: teal
+                  - value: 65
+                    operator: '>'
+                    color: teal
+                    icon: mdi:battery-70
+                    styles:
+                      state:
+                        - color: teal
+                  - value: 55
+                    operator: '>'
+                    color: teal
+                    icon: mdi:battery-60
+                    styles:
+                      state:
+                        - color: teal
+                  - value: 45
+                    operator: '>'
+                    color: orange
+                    icon: mdi:battery-50
+                    styles:
+                      state:
+                        - color: orange
+                      card:
+                        - '-box-shadow': 0px 0px 9px 3px orange
+                        - box-shadow: 0px 0px 9px 3px orange
+                  - value: 35
+                    operator: '>'
+                    color: orange
+                    icon: mdi:battery-40
+                    styles:
+                      state:
+                        - color: orange
+                      card:
+                        - '-box-shadow': 0px 0px 9px 3px orange
+                        - box-shadow: 0px 0px 9px 3px orange
+                  - value: 25
+                    operator: '>'
+                    icon: mdi:battery-30
+                    styles:
+                      icon:
+                        - color: orange
+                      state:
+                        - color: orange
+                      card:
+                        - '-box-shadow': 0px 0px 9px 3px orange
+                  - value: charging
+                    icon: mdi:battery-charging
+                    styles:
+                      icon:
+                        - color: teal
+                        - animation: blink 2s ease infinite
+                      state:
+                        - color: teal
+                show_name: false
+                show_state: true
+                layout:
+                  - icon_state
+          - type: custom:button-card
+            styles:
+              card:
+                - width: 369px
+                - height: 55px
+                - '-box-shadow': 0px 0px 9px 3px teal
+                - box-shadow: 0px 0px 9px 3px teal
+              state:
+                - justify-self: center
+                - font-weight: bold
+                - font-size: 12px
+                - color: teal
+              name:
+                - justify-self: start
+                - font-weight: bold
+                - font-size: 16px
+                - color: white
+              icon:
+                - width: 20%
+                - justify-self: center
+                - color: teal
+                - animation: null
+            entity: light.imprimante
+            tap_action:
+              action: call-service
+              service: light.turn_off
+              service_data:
+                entity_id: light.imprimante
+            icon: phu:rooms-bedroom
+            name: Chambre Parents ___ 🛌
+            state:
+              - value: 'on'
+                styles:
+                  card:
+                    - '-box-shadow': 0px 0px 9px 3px aqua
+                    - box-shadow: 0px 0px 9px 3px aqua
+                  icon:
+                    - color: aqua
+                    - animation: blink 10s ease infinite
+                  name:
+                    - color: aqua
+            show_name: true
+            show_state: false
+            layout:
+              - icon_name_state
+          - square: false
+            columns: 3
+            type: grid
+            cards:
+              - type: vertical-stack
+                cards:
+                  - type: custom:button-card
+                    styles:
+                      card:
+                        - width: 117px
+                        - height: 38px
+                      state:
+                        - justify-self: start
+                        - font-size: 13px
+                        - font-weight: bold
+                      icon:
+                        - width: 45%
+                    entity: binary_sensor.do_chambre_paren
+                    state:
+                      - value: 'off'
+                        icon: mdi:window-closed-variant
+                        color: teal
+                        styles:
+                          state:
+                            - color: white
+                          card:
+                            - opacity: 0.5
+                          icon:
+                            - animation: null
+                      - value: 'on'
+                        icon: mdi:window-open-variant
+                        color: red
+                        styles:
+                          card:
+                            - background-color: aqua
+                            - '-box-shadow': 0px 0px 9px 3px aqua
+                            - box-shadow: 0px 0px 9px 3px aqua
+                          state:
+                            - color: red
+                          icon:
+                            - animation: null
+                    show_name: false
+                    show_state: true
+                    layout:
+                      - icon_state
+                  - type: custom:button-card
+                    styles:
+                      card:
+                        - width: 117px
+                        - height: 38px
+                      name:
+                        - justify-self: start
+                        - font-size: 13px
+                        - font-weight: bold
+                      icon:
+                        - justify-self: start
+                        - width: 100%
+                    entity: device_tracker.portable_ludivine
+                    state:
+                      - value: home
+                        icon: cil:iphone_modern
+                        color: lightgreen
+                        styles:
+                          name:
+                            - color: lightgreen
+                      - value: not_home
+                        icon: mdi:cellphone-off
+                        color: silver
+                        styles:
+                          name:
+                            - color: silver
+                          card:
+                            - opacity: 0.5
+                    show_name: true
+                    show_state: false
+                    layout:
+                      - icon_name
+                  - type: custom:button-card
+                    styles:
+                      card:
+                        - background-color: aqua
+                        - '-box-shadow': 0px 0px 9px 3px aqua
+                        - box-shadow: 0px 0px 9px 3px aqua
+                        - '--mdc-ripple-color': red
+                        - '--mdc-ripple-press-opacity': 0.5
+                        - width: 117px
+                        - height: 38px
+                      icon:
+                        - animation: null
+                      name:
+                        - justify-self: center
+                        - font-size: 13px
+                        - font-weight: bold
+                        - color: red
+                    entity: light.imprimante
+                    name: HP Print
+                    icon: mdi:printer-wireless
+                    color: red
+                    size: 28px
+                    state:
+                      - value: 'off'
+                        icon: mdi:printer-off
+                        styles:
+                          card:
+                            - background-color: black
+                            - '-box-shadow': 0px 0px 9px 3px teal
+                            - box-shadow: 0px 0px 9px 3px teal
+                          icon:
+                            - color: teal
+                            - animation: null
+                          name:
+                            - color: teal
+                    show_name: false
+                    show_state: false
+              - square: false
+                columns: 1
+                type: grid
+                cards:
+                  - type: custom:button-card
+                    styles:
+                      card:
+                        - width: 117px
+                        - height: 38px
+                      state:
+                        - justify-self: center
+                        - font-size: 13px
+                        - color: white
+                        - font-weight: bold
+                      icon:
+                        - justify-self: start
+                        - width: 100%
+                    entity: sensor.temp_parents
+                    show_state: true
+                    show_name: false
+                    state:
+                      - value: 15
+                        operator: <=
+                        color: blue
+                        icon: mdi:thermometer-minus
+                      - value: 25
+                        operator: '>='
+                        color: red
+                        icon: mdi:thermometer-plus
+                      - operator: default
+                        color: lightgreen
+                        icon: mdi:thermometer
+                    layout:
+                      - icon_state
+                    tap_action:
+                      action: navigate
+                      navigation_path: /lovelace/chauffage
+                  - type: custom:button-card
+                    styles:
+                      card:
+                        - width: 117px
+                        - height: 38px
+                      name:
+                        - justify-self: start
+                        - font-size: 13px
+                        - font-weight: bold
+                      icon:
+                        - justify-self: start
+                        - width: 100%
+                    entity: device_tracker.sm_a336b
+                    state:
+                      - value: home
+                        icon: cil:iphone_modern
+                        color: lightgreen
+                        styles:
+                          name:
+                            - color: lightgreen
+                      - value: not_home
+                        icon: mdi:cellphone-off
+                        color: silver
+                        styles:
+                          name:
+                            - color: silver
+                          card:
+                            - opacity: 0.5
+                    show_name: true
+                    show_state: false
+                    layout:
+                      - icon_name
+                  - type: custom:button-card
+                    styles:
+                      card:
+                        - width: 117px
+                        - height: 38px
+                      state:
+                        - justify-self: center
+                        - font-size: 13px
+                        - font-weight: bold
+                        - color: siver
+                      icon:
+                        - justify-self: start
+                        - width: 100%
+                    entity: sensor.hp_printer_inkcartridge_black
+                    icon: mdi:cup-water
+                    color: black
+                    show_name: false
+                    show_state: true
+                    layout:
+                      - icon_state
+              - square: false
+                columns: 1
+                type: grid
+                cards:
+                  - type: custom:button-card
+                    styles:
+                      card:
+                        - width: 117px
+                        - height: 38px
+                      state:
+                        - justify-self: center
+                        - font-size: 13px
+                        - color: white
+                        - font-weight: bold
+                      icon:
+                        - justify-self: start
+                        - width: 100%
+                    state:
+                      - value: 50
+                        operator: <=
+                        color: blue
+                        icon: mdi:water-minus
+                      - value: 75
+                        operator: '>='
+                        color: red
+                        icon: mdi:water-plus
+                      - operator: default
+                        color: lightgreen
+                        icon: mdi:water
+                    entity: sensor.hum_parents
+                    show_name: false
+                    show_state: true
+                    layout:
+                      - icon_state
+                    tap_action:
+                      action: navigate
+                      navigation_path: /lovelace/chauffage
+                  - type: custom:button-card
+                    styles:
+                      card:
+                        - width: 117px
+                        - height: 38px
+                      name:
+                        - justify-self: center
+                        - font-size: 13px
+                        - font-weight: bold
+                      icon:
+                        - justify-self: start
+                        - width: 100%
+                    entity: device_tracker.pc_portable_maison
+                    state:
+                      - value: home
+                        icon: mdi:laptop
+                        color: lightgreen
+                        styles:
+                          name:
+                            - color: lightgreen
+                      - value: not_home
+                        icon: mdi:laptop-off
+                        color: silver
+                        styles:
+                          name:
+                            - color: silver
+                          card:
+                            - opacity: 0.5
+                    show_name: true
+                    show_state: false
+                    layout:
+                      - icon_name
+                  - type: custom:button-card
+                    styles:
+                      card:
+                        - width: 117px
+                        - height: 38px
+                      state:
+                        - justify-self: center
+                        - font-size: 13px
+                        - font-weight: bold
+                        - color: magenta
+                      icon:
+                        - justify-self: start
+                        - width: 100%
+                    entity: sensor.hp_printer_inkcartridge_cyanmagentayellow
+                    icon: mdi:cup-water
+                    color: cyan
+                    show_name: false
+                    show_state: true
+                    layout:
+                      - icon_state
+          - type: custom:button-card
+            styles:
+              card:
+                - width: 369px
+                - height: 55px
+                - '-box-shadow': 0px 0px 9px 3px teal
+                - box-shadow: 0px 0px 9px 3px teal
+              state:
+                - justify-self: center
+                - font-weight: bold
+                - font-size: 12px
+                - color: teal
+              name:
+                - justify-self: start
+                - font-weight: bold
+                - font-size: 16px
+                - color: white
+              icon:
+                - width: 20%
+                - justify-self: center
+            entity: sensor.temp_timeo
+            icon: mdi:bed
+            color: teal
+            name: Chambre Timéo _____ 🛌
+            show_name: true
+            show_state: false
+            layout:
+              - icon_name_state
+          - square: false
+            columns: 3
+            type: grid
+            cards:
+              - square: false
+                columns: 1
+                type: grid
+                cards:
+                  - type: custom:button-card
+                    styles:
+                      card:
+                        - width: 117px
+                        - height: 38px
+                      state:
+                        - justify-self: start
+                        - font-size: 13px
+                        - font-weight: bold
+                      icon:
+                        - width: 45%
+                    entity: binary_sensor.do_chambre_timeo
+                    tap_action:
+                      action: call-service
+                      service: cover.toggle
+                      service_data:
+                        entity_id: cover.volet_timeo
+                    state:
+                      - value: 'off'
+                        icon: mdi:window-closed-variant
+                        color: teal
+                        styles:
+                          state:
+                            - color: white
+                          icon:
+                            - animation: null
+                      - value: 'on'
+                        icon: mdi:window-open-variant
+                        color: red
+                        styles:
+                          card:
+                            - background-color: aqua
+                            - '-box-shadow': 0px 0px 9px 3px aqua
+                            - box-shadow: 0px 0px 9px 3px aqua
+                          state:
+                            - color: red
+                          icon:
+                            - animation: null
+                    show_name: false
+                    show_state: true
+                    layout:
+                      - icon_state
+                  - type: custom:button-card
+                    styles:
+                      card:
+                        - width: 117px
+                        - height: 38px
+                      name:
+                        - justify-self: start
+                        - font-size: 13px
+                        - font-weight: bold
+                      icon:
+                        - justify-self: start
+                        - width: 100%
+                    entity: device_tracker.portable_timeo
+                    state:
+                      - value: home
+                        icon: cil:iphone_modern
+                        color: lightgreen
+                        styles:
+                          name:
+                            - color: lightgreen
+                      - value: not_home
+                        icon: mdi:cellphone-off
+                        color: silver
+                        styles:
+                          name:
+                            - color: silver
+                          card:
+                            - opacity: 0.5
+                    show_name: true
+                    show_state: false
+                    layout:
+                      - icon_name
+              - square: false
+                columns: 1
+                type: grid
+                cards:
+                  - type: custom:button-card
+                    styles:
+                      card:
+                        - width: 117px
+                        - height: 38px
+                      state:
+                        - justify-self: center
+                        - font-size: 13px
+                        - color: white
+                        - font-weight: bold
+                      icon:
+                        - justify-self: start
+                        - width: 100%
+                    entity: sensor.temp_timeo
+                    show_state: true
+                    show_name: false
+                    state:
+                      - value: 15
+                        operator: <=
+                        color: blue
+                        icon: mdi:thermometer-minus
+                      - value: 25
+                        operator: '>='
+                        color: red
+                        icon: mdi:thermometer-plus
+                      - operator: default
+                        color: lightgreen
+                        icon: mdi:thermometer
+                    layout:
+                      - icon_state
+                    tap_action:
+                      action: navigate
+                      navigation_path: /lovelace/chauffage
+                  - type: custom:button-card
+                    styles:
+                      card:
+                        - width: 117px
+                        - height: 38px
+                      name:
+                        - justify-self: start
+                        - font-size: 13px
+                        - font-weight: bold
+                      icon:
+                        - justify-self: start
+                        - width: 100%
+                    entity: device_tracker.nintendo_switch
+                    state:
+                      - value: home
+                        icon: mdi:nintendo-switch
+                        color: lightgreen
+                        styles:
+                          name:
+                            - color: lightgreen
+                      - value: not_home
+                        icon: mdi:nintendo-switch
+                        color: silver
+                        styles:
+                          name:
+                            - color: silver
+                          card:
+                            - opacity: 0.5
+                    show_name: true
+                    show_state: false
+                    layout:
+                      - icon_name
+              - square: false
+                columns: 1
+                type: grid
+                cards:
+                  - type: custom:button-card
+                    styles:
+                      card:
+                        - width: 117px
+                        - height: 38px
+                      state:
+                        - justify-self: center
+                        - font-size: 13px
+                        - color: white
+                        - font-weight: bold
+                      icon:
+                        - justify-self: start
+                        - width: 100%
+                    state:
+                      - value: 50
+                        operator: <=
+                        color: blue
+                        icon: mdi:water-minus
+                      - value: 75
+                        operator: '>='
+                        color: red
+                        icon: mdi:water-plus
+                      - operator: default
+                        color: lightgreen
+                        icon: mdi:water
+                    entity: sensor.hum_timeo
+                    show_name: false
+                    show_state: true
+                    layout:
+                      - icon_state
+                    tap_action:
+                      action: navigate
+                      navigation_path: /lovelace/chauffage
+                  - type: custom:button-card
+                    styles:
+                      card:
+                        - width: 117px
+                        - height: 38px
+                      name:
+                        - justify-self: start
+                        - font-size: 13px
+                        - font-weight: bold
+                      icon:
+                        - justify-self: start
+                        - width: 100%
+                    entity: device_tracker.pc_portable_timeo
+                    state:
+                      - value: home
+                        icon: mdi:laptop
+                        color: lightgreen
+                        styles:
+                          name:
+                            - color: lightgreen
+                      - value: not_home
+                        icon: mdi:laptop-off
+                        color: silver
+                        styles:
+                          name:
+                            - color: silver
+                          card:
+                            - opacity: 0.5
+                    show_name: true
+                    show_state: false
+                    layout:
+                      - icon_name
+          - type: custom:button-card
+            styles:
+              card:
+                - width: 369px
+                - height: 55px
+                - '-box-shadow': 0px 0px 9px 3px teal
+                - box-shadow: 0px 0px 9px 3px teal
+              state:
+                - justify-self: center
+                - font-weight: bold
+                - font-size: 12px
+                - color: teal
+              name:
+                - justify-self: start
+                - font-weight: bold
+                - font-size: 16px
+                - color: white
+              icon:
+                - width: 40%
+                - justify-self: center
+                - color: teal
+                - animation: null
+            entity: light.veilleuse
+            tap_action:
+              action: call-service
+              service: light.turn_off
+              service_data:
+                entity_id: light.veilleuse
+            icon: mdi:bed
+            name: Chambre Chris ______ 🛌
+            state:
+              - value: 'on'
+                styles:
+                  card:
+                    - '-box-shadow': 0px 0px 9px 3px aqua
+                    - box-shadow: 0px 0px 9px 3px aqua
+                  icon:
+                    - color: aqua
+                    - animation: blink 10s ease infinite
+                  name:
+                    - color: aqua
+            show_name: true
+            show_state: false
+            layout:
+              - icon_name_state
+          - square: false
+            columns: 3
+            type: grid
+            cards:
+              - square: false
+                columns: 1
+                type: grid
+                cards:
+                  - type: custom:button-card
+                    styles:
+                      card:
+                        - width: 117px
+                        - height: 38px
+                      state:
+                        - justify-self: start
+                        - font-size: 13px
+                        - font-weight: bold
+                      icon:
+                        - width: 45%
+                    entity: binary_sensor.do_chambre_chris
+                    tap_action:
+                      action: call-service
+                      service: cover.toggle
+                      service_data:
+                        entity_id: cover.volet_chris
+                    state:
+                      - value: 'off'
+                        icon: mdi:window-closed-variant
+                        color: teal
+                        styles:
+                          state:
+                            - color: white
+                          icon:
+                            - animation: null
+                      - value: 'on'
+                        icon: mdi:window-open-variant
+                        color: red
+                        styles:
+                          card:
+                            - background-color: aqua
+                            - '-box-shadow': 0px 0px 9px 3px aqua
+                            - box-shadow: 0px 0px 9px 3px aqua
+                          state:
+                            - color: red
+                          icon:
+                            - animation: null
+                    show_name: false
+                    show_state: true
+                    layout:
+                      - icon_state
+                  - type: custom:button-card
+                    styles:
+                      card:
+                        - background-color: aqua
+                        - '-box-shadow': 0px 0px 9px 3px aqua
+                        - box-shadow: 0px 0px 9px 3px aqua
+                        - '--mdc-ripple-color': red
+                        - '--mdc-ripple-press-opacity': 0.5
+                        - width: 117px
+                        - height: 37px
+                        - alinement: end
+                      icon:
+                        - width: 60%
+                        - animation: null
+                    entity: light.veilleuse
+                    icon: mdi:lightbulb-night
+                    color: red
+                    size: 25px
+                    state:
+                      - value: 'off'
+                        icon: mdi:lightbulb-night-outline
+                        styles:
+                          card:
+                            - background-color: black
+                            - '-box-shadow': 0px 0px 9px 3px teal
+                            - box-shadow: 0px 0px 9px 3px teal
+                          icon:
+                            - color: teal
+                            - animation: null
+                    show_name: false
+              - square: false
+                columns: 1
+                type: grid
+                cards:
+                  - type: custom:button-card
+                    styles:
+                      card:
+                        - width: 117px
+                        - height: 38px
+                      state:
+                        - justify-self: center
+                        - font-size: 13px
+                        - color: white
+                        - font-weight: bold
+                      icon:
+                        - justify-self: start
+                        - width: 100%
+                    entity: sensor.temp_chris
+                    show_state: true
+                    show_name: false
+                    state:
+                      - value: 15
+                        operator: <=
+                        color: blue
+                        icon: mdi:thermometer-minus
+                      - value: 25
+                        operator: '>='
+                        color: red
+                        icon: mdi:thermometer-plus
+                      - operator: default
+                        color: lightgreen
+                        icon: mdi:thermometer
+                    layout:
+                      - icon_state
+                    tap_action:
+                      action: navigate
+                      navigation_path: /lovelace/chauffage
+                  - type: custom:button-card
+                    styles:
+                      card:
+                        - width: 117px
+                        - height: 38px
+                      name:
+                        - justify-self: start
+                        - font-size: 13px
+                        - font-weight: bold
+                      icon:
+                        - justify-self: start
+                        - width: 100%
+                    entity: device_tracker.portable_chris
+                    state:
+                      - value: home
+                        icon: cil:iphone_modern
+                        color: lightgreen
+                        styles:
+                          name:
+                            - color: lightgreen
+                      - value: not_home
+                        icon: mdi:cellphone-off
+                        color: silver
+                        styles:
+                          name:
+                            - color: silver
+                          card:
+                            - opacity: 0.5
+                    show_name: true
+                    show_state: false
+                    layout:
+                      - icon_name
+              - square: false
+                columns: 1
+                type: grid
+                cards:
+                  - type: custom:button-card
+                    styles:
+                      card:
+                        - width: 117px
+                        - height: 38px
+                      state:
+                        - justify-self: center
+                        - font-size: 13px
+                        - color: white
+                        - font-weight: bold
+                      icon:
+                        - justify-self: start
+                        - width: 100%
+                    state:
+                      - value: 50
+                        operator: <=
+                        color: blue
+                        icon: mdi:water-minus
+                      - value: 75
+                        operator: '>='
+                        color: red
+                        icon: mdi:water-plus
+                      - operator: default
+                        color: lightgreen
+                        icon: mdi:water
+                    entity: sensor.hum_chris
+                    show_name: false
+                    show_state: true
+                    layout:
+                      - icon_state
+                    tap_action:
+                      action: navigate
+                      navigation_path: /lovelace/chauffage
+                  - type: custom:button-card
+                    styles:
+                      card:
+                        - width: 117px
+                        - height: 38px
+                      name:
+                        - justify-self: start
+                        - font-size: 13px
+                        - font-weight: bold
+                      icon:
+                        - justify-self: start
+                        - width: 100%
+                    entity: device_tracker.tablette_chris
+                    state:
+                      - value: home
+                        icon: cil:tablet-android
+                        color: lightgreen
+                        styles:
+                          name:
+                            - color: lightgreen
+                      - value: not_home
+                        icon: cil:tablet-android
+                        color: silver
+                        styles:
+                          name:
+                            - color: silver
+                          card:
+                            - opacity: 0.5
+                    show_name: true
+                    show_state: false
+                    layout:
+                      - icon_name
+  - theme: 3ative_blue
+    title: Lumières
+    path: lumiere
+    icon: mdi:ceiling-light
+    layout:
+      type: custom:horizontal-layout
+      layout:
+        - width: 350
+        - columns: 3
+    type: custom:horizontal-layout
+    subview: true
+    badges: []
+    cards:
+      - type: vertical-stack
+        cards:
+          - type: entities
+            entities:
+              - type: custom:light-entity-row
+                entity: light.cuisine_2
+                icon: hue:room-dining
+                name: Cuisine
+                showColorPicker: false
+                showColorSliders: false
+              - type: custom:light-entity-row
+                entity: light.lum_bar
+                icon: hue:ceiling-fugato-two
+                name: Bar
+                showColorPicker: false
+                showColorSliders: false
+              - type: custom:light-entity-row
+                entity: light.spots_cuisine
+                icon: bha:ceiling-spot-lamp
+                name: Spots
+            state_color: true
+            theme: Caule Black Aqua Glass
+            footer:
+              type: buttons
+              entities:
+                - entity: light.thermomix
+                  name: Thermo
+                - entity: light.petit_dej
+                  name: Ptit Déj
+                - entity: light.nuit
+                  name: Nuit
+                - entity: light.veilleuse
+                  name: Chris
+      - type: entities
+        entities:
+          - type: custom:light-entity-row
+            entity: light.lum_canape_salon
+            icon: mdi:sofa
+            name: Salon
+            showColorPicker: false
+            showColorSliders: true
+            buttons:
+              - name: Rouge
+                service_data:
+                  color_name: red
+              - name: Orange
+                service_data:
+                  color_name: orange
+              - name: Jaune
+                service_data:
+                  color_name: yellow
+              - name: Vert
+                service_data:
+                  color_name: green
+              - name: Bleu
+                service_data:
+                  color_name: blue
+              - name: Indigo
+                service_data:
+                  color_name: indigo
+              - name: Violet
+                service_data:
+                  color_name: purple
+          - type: custom:light-entity-row
+            entity: light.lum_repas
+            icon: mdi:food-fork-drink
+            name: Repas
+            showColorPicker: false
+            showColorSliders: false
+          - type: custom:light-entity-row
+            entity: light.canape_milieu
+            icon: mdi:book-open-variant
+            name: Lecture
+            showColorPicker: false
+            showColorSliders: false
+        state_color: true
+        theme: Caule Black Aqua Glass
+        show_header_toggle: false
+        footer:
+          type: buttons
+          entities:
+            - entity: light.lampes_salon
+              name: Lampes
+            - entity: switch.lumieres_tv
+              name: Lum TV
+            - entity: switch.prise_multimedia
+              name: TV
+            - entity: light.sam
+              name: SAM
+      - type: vertical-stack
+        cards:
+          - type: entities
+            show_header_toggle: true
+            entities:
+              - type: custom:rgb-light-card
+                entity: light.lum_canape_salon
+                colors:
+                  - hs_color:
+                      - 60
+                      - 30
+                    brightness: 255
+                    transition: 1
+                  - rgb_color:
+                      - 255
+                      - 127
+                      - 255
+                    brightness: 220
+                    transition: 1
+                  - rgb_color:
+                      - 234
+                      - 136
+                      - 140
+                    brightness: 255
+                    transition: 1
+                  - rgb_color:
+                      - 251
+                      - 180
+                      - 139
+                    brightness: 200
+                    transition: 1
+                  - rgb_color:
+                      - 136
+                      - 198
+                      - 237
+                    brightness: 150
+                    transition: 1
+                  - rgb_color:
+                      - 255
+                      - 255
+                      - 255
+                    brightness: 255
+                    transition: 1
+                  - rgb_color:
+                      - 225
+                      - 175
+                      - 125
+                    brightness: 255
+                    transition: 1
+                  - rgb_color:
+                      - 0
+                      - 255
+                      - 255
+                    brightness: 125
+                    transition: 1
+                  - rgb_color:
+                      - 255
+                      - 0
+                      - 255
+                    brightness: 125
+                    transition: 1
+            state_color: true
+            title: Salon
+          - square: false
+            type: grid
+            cards:
+              - type: custom:mushroom-cover-card
+                entity: cover.volets
+                name: Tous
+                show_buttons_control: true
+                secondary_info: none
+              - type: custom:mushroom-cover-card
+                entity: cover.volet_pf_trottoir
+                show_buttons_control: true
+                show_tilt_position_control: false
+                show_position_control: false
+                name: Salon
+                icon: ''
+              - type: custom:mushroom-cover-card
+                entity: cover.volet_timeo
+                show_position_control: false
+                show_tilt_position_control: false
+                show_buttons_control: true
+                name: 'Timéo '
+                icon: ''
+              - type: custom:mushroom-cover-card
+                entity: cover.volet_chris
+                show_buttons_control: true
+                name: Chris
+                icon: ''
+            columns: 2
+          - type: entities
+            entities:
+              - entity: light.imprimante
+              - entity: light.prise_sapin
+                name: 'Prise Aspirateur '
+                icon: mdi:robot-vacuum
+              - entity: light.tablette_ha
+            state_color: true
+            theme: 3ative_blue
+  - theme: ios-dark-mode-blue-red-alternative
+    title: Vie Courante
+    path: vie-courante
+    icon: mdi:calendar-account-outline
+    subview: false
+    layout:
+      type: custom:horizontal-layout
+      layout:
+        - width: 350
+        - columns: 3
+    type: custom:horizontal-layout
+    badges: []
+    cards:
+      - type: vertical-stack
+        cards:
+          - type: custom:digital-clock
+          - type: custom:meteo-france-weather-card
+            entity: weather.vandeins
+            rainChanceEntity: sensor.vandeins_rain_chance
+            uvEntity: sensor.vandeins_uv
+            cloudCoverEntity: sensor.vandeins_cloud_cover
+            freezeChanceEntity: sensor.vandeins_freeze_chance
+            snowChanceEntity: sensor.vandeins_snow_chance
+            alertEntity: sensor.01_weather_alert
+            rainForecastEntity: sensor.vandeins_next_rain
+      - type: vertical-stack
+        cards:
+          - show_state: false
+            show_name: false
+            camera_view: live
+            type: picture-entity
+            image: https://demo.home-assistant.io/stub_config/bedroom.png
+            camera_image: camera.192_168_1_37
+            entity: camera.192_168_1_212
+          - show_state: false
+            show_name: false
+            camera_view: auto
+            type: picture-entity
+            image: https://demo.home-assistant.io/stub_config/bedroom.png
+            entity: camera.192_168_1_37
+            camera_image: camera.192_168_1_37
+          - show_state: false
+            show_name: false
+            camera_view: live
+            type: picture-entity
+            image: https://demo.home-assistant.io/stub_config/bedroom.png
+            entity: camera.192_168_1_101
+            camera_image: camera.192_168_1_101
+          - show_state: false
+            show_name: false
+            camera_view: live
+            type: picture-entity
+            image: https://demo.home-assistant.io/stub_config/bedroom.png
+            entity: camera.192_168_1_48
+            camera_image: camera.192_168_1_48
+      - initial_view: dayGridDay
+        type: calendar
+        entities:
+          - calendar.numeros_de_semaine
+          - calendar.menzago_free_fr
+          - calendar.ludi_menzago_gmail_com
+          - calendar.tech02_vincent
+        theme: 3ative_blue
+        title: Agenda
+  - theme: 3ative_blue
+    title: Météo
+    path: meteo
+    icon: mdi:weather-partly-cloudy
+    layout:
+      type: custom:horizontal-layout
+      layout:
+        - columns: 3
+    subview: true
+    badges: []
+    cards:
+      - square: false
+        columns: 1
+        type: grid
+        cards:
+          - type: custom:meteoalarm-card
+            entities:
+              - entity: sensor.01_weather_alert
+            integration: meteofrance
+            hide_when_no_warning: true
+            scaling_mode: headline_and_scale
+            disable_swiper: false
+          - type: custom:weather-radar-card
+            data_source: RainViewer-Original
+            map_style: Satellite
+            zoom_level: 7
+            show_recenter: false
+            square_map: true
+            extra_labels: false
+            show_playback: false
+            show_range: false
+            show_zoom: true
+            show_scale: true
+            show_marker: true
+            static_map: true
+      - square: false
+        columns: 3
+        type: grid
+        cards:
+          - type: custom:mushroom-entity-card
+            entity: weather.vandeins
+            name: Météo
+            layout: vertical
+          - type: custom:mushroom-entity-card
+            layout: vertical
+            entity: sensor.vandeins_temperature
+            name: Température
+          - type: custom:mushroom-entity-card
+            entity: sensor.01_weather_alert
+            name: Alerte
+            layout: vertical
+          - type: custom:mushroom-entity-card
+            entity: sensor.vandeins_pressure
+            name: Pression Atm
+            layout: vertical
+          - type: custom:mushroom-entity-card
+            layout: vertical
+            entity: sensor.vandeins_wind_speed
+            name: Vitesse Vent
+          - type: custom:mushroom-entity-card
+            layout: vertical
+            entity: sensor.vandeins_uv
+            name: UV
+          - type: custom:mushroom-entity-card
+            entity: sensor.vandeins_cloud_cover
+            name: Nuages
+            layout: vertical
+          - type: custom:mushroom-entity-card
+            layout: vertical
+            entity: sensor.vandeins_rain_chance
+            name: Pluie
+          - type: custom:mushroom-entity-card
+            entity: sensor.vandeins_daily_precipitation
+            name: Précipitations
+            layout: vertical
+          - type: custom:mushroom-entity-card
+            entity: sensor.vandeins_freeze_chance
+            name: Gel
+            layout: vertical
+          - type: custom:mushroom-entity-card
+            layout: vertical
+            entity: sensor.vandeins_snow_chance
+            name: Neige
+          - type: custom:mushroom-entity-card
+            entity: sensor.temp_salon
+            name: T°C Maison
+            layout: vertical
+          - type: custom:mushroom-entity-card
+            entity: sun.sun
+            name: 'Soleil '
+            layout: vertical
+          - type: custom:mushroom-entity-card
+            entity: sensor.moon_phase
+            name: 'Lune '
+            layout: vertical
+          - type: custom:mushroom-entity-card
+            layout: vertical
+            entity: sensor.season
+            name: 'Saison '
+      - square: false
+        columns: 1
+        type: grid
+        cards:
+          - type: custom:meteo-france-weather-card
+            entity: weather.vandeins
+            rainChanceEntity: sensor.vandeins_rain_chance
+            uvEntity: sensor.vandeins_uv
+            cloudCoverEntity: sensor.vandeins_cloud_cover
+            freezeChanceEntity: sensor.vandeins_freeze_chance
+            snowChanceEntity: sensor.vandeins_snow_chance
+            alertEntity: sensor.01_weather_alert
+            rainForecastEntity: sensor.vandeins_next_rain
+  - theme: 3ative_blue
+    title: Multimédia ______ 📺
+    path: telecommande
+    icon: mdi:remote-tv
+    subview: true
+    layout:
+      type: custom:horizontal-layout
+      layout:
+        - width: 350
+        - columns: 3
+    badges: []
+    cards:
+      - square: false
+        columns: 2
+        type: grid
+        cards:
+          - show_name: true
+            show_icon: true
+            show_state: false
+            type: glance
+            entities:
+              - entity: device_tracker.freebox_player_pop
+              - entity: device_tracker.freebox_v7_r1
+              - entity: device_tracker.sm_a336b
+              - entity: device_tracker.portable_ludivine
+              - entity: light.prise_multimedia
+              - entity: device_tracker.homeassistant
+              - entity: device_tracker.pc_portable_maison
+              - entity: device_tracker.imprimante
+              - entity: device_tracker.portable_timeo
+              - entity: device_tracker.pc_portable_timeo
+              - entity: device_tracker.portable_chris
+              - entity: device_tracker.tablette_chris
+              - entity: device_tracker.nintendo_switch
+              - entity: device_tracker.nintendo_3ds
+            state_color: true
+            theme: 3ative_blue
+            columns: 2
+          - type: custom:firemote-card
+            entity: media_player.android_tv_192_168_1_9
+            device_type: fire_tv_cube_third_gen
+            compatibility_mode: strong
+            app_launch_1: netflix
+            app_launch_2: disney-plus
+            app_launch_3: prime-video
+            app_launch_4: vlc
+            app_launch_5: oqee-by-free
+            app_launch_6: myCanal
+            visible_name_text: Pop
+            name_position: top
+            scale: '80'
+            device_family: amazon-fire
+            visible_name_text_color: '#00ffff'
+            defaultRemoteStyle_override: ''
+      - square: false
+        columns: 1
+        type: grid
+        cards:
+          - type: custom:mini-media-player
+            entity: media_player.salon
+            toggle_power: false
+            icon_image: ' '
+            sound_mode: icon
+            source: icon
+            info: scroll
+            artwork: none
+            volume_stateless: true
+            hide:
+              volume: true
+              power: true
+              state_label: true
+              progress: true
+              next: true
+              prev: true
+              play_pause: true
+            mini-media-player-media-cover-info-color: green
+            icon: mdi:play
+            name: 'Titre :'
+          - type: custom:mini-media-player
+            entity: media_player.android_tv_192_168_1_9
+            volume_stateless: true
+            artwork: full-cover
+            source: icon
+            sound_mode: icon
+            info: short
+            max_volume: '100'
+            min_volume: '1'
+            volume_step: '10'
+            group: false
+            replace_mute: play_pause
+            hide:
+              volume: true
+              power: true
+              state_label: true
+              progress: true
+              next: true
+              prev: true
+              play_pause: true
+            name: ' '
+            icon: ' '
+          - square: false
+            columns: 2
+            type: grid
+            cards:
+              - type: custom:mushroom-light-card
+                entity: light.prise_multimedia
+              - type: custom:mushroom-light-card
+                entity: light.lumieres_tv
+                icon: mdi:television-ambient-light
+                name: Éclairage TV
+              - type: custom:mushroom-light-card
+                entity: light.imprimante
+              - type: custom:mushroom-light-card
+                entity: light.tablette_ha
+                icon: mdi:home-assistant
+  - theme: Backend-selected
+    title: Alarme
+    path: alarme
+    icon: mdi:shield-home
+    subview: true
+    layout:
+      type: custom:horizontal-layout
+      layout:
+        - width: 350
+        - columns: 3
+    badges: []
+    cards:
+      - square: false
+        columns: 1
+        type: grid
+        cards:
+          - type: custom:alarmo-card
+            entity: alarm_control_panel.maison
+            name: Menzag'Home
+            button_scale_actions: 1
+            button_scale_keypad: 1
+            use_clear_icon: true
+            keep_keypad_visible: false
+            states:
+              armed_custom_bypass:
+                hide: true
+          - show_name: true
+            show_icon: true
+            show_state: true
+            type: glance
+            entities:
+              - entity: binary_sensor.do_porte_garage
+              - entity: binary_sensor.do_po_d_entree
+              - entity: binary_sensor.do_chambre_paren
+              - entity: binary_sensor.do_salon_terrass
+              - entity: binary_sensor.do_salon_terrass
+              - entity: binary_sensor.do_cuisine
+              - entity: binary_sensor.do_chambre_chris
+              - entity: binary_sensor.do_chambre_timeo
+            columns: 3
+            theme: 3ative_blue
+            state_color: true
+      - square: false
+        columns: 1
+        type: grid
+        cards:
+          - show_state: false
+            show_name: false
+            camera_view: auto
+            type: picture-entity
+            image: https://demo.home-assistant.io/stub_config/bedroom.png
+            entity: camera.192_168_1_212
+            camera_image: camera.192_168_1_212
+          - show_state: false
+            show_name: false
+            camera_view: live
+            type: picture-entity
+            entity: camera.192_168_1_48
+            camera_image: camera.192_168_1_48
+          - show_state: false
+            show_name: false
+            camera_view: live
+            type: picture-entity
+            entity: camera.192_168_1_37
+            camera_image: camera.192_168_1_37
+      - show_state: false
+        show_name: false
+        camera_view: auto
+        type: picture-entity
+        image: https://demo.home-assistant.io/stub_config/bedroom.png
+        entity: camera.192_168_1_101
+        camera_image: camera.192_168_1_101
+      - show_name: true
+        show_icon: true
+        show_state: true
+        type: glance
+        entities:
+          - entity: binary_sensor.cam_coul_entree
+          - entity: binary_sensor.cam_sejour
+          - entity: binary_sensor.cam_garage
+          - entity: binary_sensor.parking
+          - entity: binary_sensor.ext_terrasse
+          - entity: binary_sensor.ext_jeux
+          - entity: binary_sensor.df_couloir
+          - entity: binary_sensor.df_garage
+        columns: 3
+        theme: 3ative_blue
+        state_color: true
+  - theme: Fluent Green
+    title: 'Baymax '
+    path: baymax
+    icon: mdi:robot-vacuum
+    subview: true
+    badges: []
+    cards:
+      - type: custom:vacuum-card
+        entity: vacuum.baymax
+        compact_view: false
+        stats:
+          default:
+            - attribute: brush_life_level-15-2
+              unit: '%'
+              subtitle: Capteur
+            - attribute: filter.filter_life_level
+              unit: '%'
+              subtitle: Filtre
+            - attribute: brush_cleaner.brush_life_level
+              unit: '%'
+              subtitle: Brosse Moy
+            - attribute: brush_life_level-12-2
+              unit: '%'
+              subtitle: Brosse Lat
+        image: >-
+          https://www.researchgate.net/profile/Suraj-Sood/publication/334371307/figure/fig1/AS:806434895839232@1569280470078/Baymax-from-the-movie-Big-Hero-6.jpg
+      - type: custom:xiaomi-vacuum-map-card
+        map_source:
+          camera: camera.baymax
+        calibration_source:
+          camera: true
+        entity: vacuum.baymax
+        vacuum_platform: al-one/hass-xiaomi-miot
+        language: fr
+        debug: false
+        mode:
+          - predefined_zones
+          - go_to_target
+          - zoned_cleanup
+        map_modes:
+          - name: Pièces
+            icon: mdi:floor-plan
+            run_immediately: false
+            coordinates_rounding: true
+            selection_type: ROOM
+            max_selections: 1
+            repeats_type: EXTERNAL
+            max_repeats: 3
+            service_call_schema:
+              service: xiaomi_miot.call_action
+            predefined_selections:
+              - id: '1'
+                icon:
+                  name: mdi:broom
+                  x: 674.9997287988663
+                  'y': 1002.4672951549296
+                label:
+                  text: Entrée
+                  x: 674.9997287988663
+                  'y': 1002.4672951549296
+                  offset_y: 35
+                outline:
+                  - - -225.00028461217872
+                    - -522.5327275693412
+                  - - 1574.9997422099113
+                    - -522.5327275693412
+                  - - 1574.9997422099113
+                    - 2527.4673178792004
+                  - - -225.00028461217872
+                    - 2527.4673178792004
+              - id: '2'
+                icon:
+                  name: mdi:broom
+                  x: -1400.0003021210432
+                  'y': -6297.532813623548
+                label:
+                  text: Salle à Manger
+                  x: -1400.0003021210432
+                  'y': -6297.532813623548
+                  offset_y: 35
+                outline:
+                  - - -3525.0003337860107
+                    - -7822.532836347818
+                  - - 724.9997295439244
+                    - -7822.532836347818
+                  - - 724.9997295439244
+                    - -4772.532790899277
+                  - - -3525.0003337860107
+                    - -4772.532790899277
+              - id: '3'
+                icon:
+                  name: mdi:broom
+                  x: -1675.0003062188625
+                  'y': 577.4672888219361
+                label:
+                  text: SdB
+                  x: -1675.0003062188625
+                  'y': 577.4672888219361
+                  offset_y: 35
+                outline:
+                  - - -2475.0003181397915
+                    - -672.5327298045154
+                  - - -875.0002942979335
+                    - -672.5327298045154
+                  - - -875.0002942979335
+                    - 1827.4673074483876
+                  - - -2475.0003181397915
+                    - 1827.4673074483876
+              - id: '4'
+                icon:
+                  name: mdi:broom
+                  x: -150.00028349459163
+                  'y': 127.46728211641357
+                label:
+                  text: WC
+                  x: -150.00028349459163
+                  'y': 127.46728211641357
+                  offset_y: 35
+                outline:
+                  - - -625.0002905726432
+                    - -672.5327298045154
+                  - - 324.9997235834599
+                    - -672.5327298045154
+                  - - 324.9997235834599
+                    - 927.4672940373425
+                  - - -625.0002905726432
+                    - 927.4672940373425
+              - id: '5'
+                icon:
+                  name: mdi:broom
+                  x: -4400.000346824527
+                  'y': 977.4672947824006
+                label:
+                  text: 'Timéo '
+                  x: -4400.000346824527
+                  'y': 977.4672947824006
+                  offset_y: 35
+                outline:
+                  - - -6175.000373274088
+                    - -622.5327290594573
+                  - - -2625.0003203749657
+                    - -622.5327290594573
+                  - - -2625.0003203749657
+                    - 2577.4673186242585
+                  - - -6175.000373274088
+                    - 2577.4673186242585
+              - id: '6'
+                icon:
+                  name: mdi:broom
+                  x: 3074.999764561653
+                  'y': 127.46728211641357
+                label:
+                  text: 'Ch. Parents '
+                  x: 3074.999764561653
+                  'y': 127.46728211641357
+                  offset_y: 35
+                outline:
+                  - - 1574.9997422099113
+                    - -2272.5327536463733
+                  - - 4574.999786913395
+                    - -2272.5327536463733
+                  - - 4574.999786913395
+                    - 2527.4673178792004
+                  - - 1574.9997422099113
+                    - 2527.4673178792004
+              - id: '7'
+                icon:
+                  name: mdi:broom
+                  x: 2624.9997578561306
+                  'y': -3522.5327722728252
+                label:
+                  text: Cuisine
+                  x: 2624.9997578561306
+                  'y': -3522.5327722728252
+                  offset_y: 35
+                outline:
+                  - - 824.9997310340406
+                    - -5272.532798349857
+                  - - 4424.999784678221
+                    - -5272.532798349857
+                  - - 4424.999784678221
+                    - -1772.5327461957927
+                  - - 824.9997310340406
+                    - -1772.5327461957927
+              - id: '8'
+                icon:
+                  name: mdi:broom
+                  x: -1000.0002961605787
+                  'y': -3247.532768175006
+                label:
+                  text: Salon
+                  x: -1000.0002961605787
+                  'y': -3247.532768175006
+                  offset_y: 35
+                outline:
+                  - - -3475.0003330409527
+                    - -4822.532791644335
+                  - - 1474.9997407197952
+                    - -4822.532791644335
+                  - - 1474.9997407197952
+                    - -1672.5327447056766
+                  - - -3475.0003330409527
+                    - -1672.5327447056766
+              - id: '9'
+                icon:
+                  name: mdi:broom
+                  x: -4875.000353902578
+                  'y': -2922.5327633321285
+                label:
+                  text: Chris
+                  x: -4875.000353902578
+                  'y': -2922.5327633321285
+                  offset_y: 35
+                outline:
+                  - - -6175.000373274088
+                    - -5072.532795369625
+                  - - -3575.000334531069
+                    - -5072.532795369625
+                  - - -3575.000334531069
+                    - -772.5327312946315
+                  - - -6175.000373274088
+                    - -772.5327312946315
+              - id: '10'
+                icon:
+                  name: mdi:broom
+                  x: -1000.0002961605787
+                  'y': -1047.5327353924508
+                label:
+                  text: Couloir
+                  x: -1000.0002961605787
+                  'y': -1047.5327353924508
+                  offset_y: 35
+                outline:
+                  - - -3525.0003337860107
+                    - -1672.5327447056766
+                  - - 1524.9997414648533
+                    - -1672.5327447056766
+                  - - 1524.9997414648533
+                    - -422.5327260792251
+                  - - -3525.0003337860107
+                    - -422.5327260792251
+            variables: {}
+        tiles:
+          - tile_id: battery_level
+            entity: vacuum.baymax
+            label: Batterie
+            attribute: battery_level
+            icon: mdi:battery-90
+            unit: '%'
+          - tile_id: fan_speed
+            entity: vacuum.baymax
+            label: Puissance
+            attribute: fan_speed
+            icon: mdi:fan
+            translations:
+              silent: Silencieux
+              standard: Standard
+              medium: Moyen
+              turbo: Turbo
+              auto: Auto
+              gentle: Calme
+          - tile_id: status
+            attribute: vacuum.status_desc
+            label: Statut
+            icon: mdi:robot-vacuum
+            entity: vacuum.baymax
+            precision: 0
+            translations:
+              starting: Démarrage...
+              charger disconnected: Chargeur déconnecté
+              idle: Inactif
+              remote control active: Télécommande active
+              cleaning: Nettoyage
+              returning home: Retour à la station
+              manual mode: Mode manuel
+              charging: En charge
+              charging problem: Problème de chargement
+              paused: En pause
+              spot cleaning: Nettoyage ciblé
+              error: Erreur
+              shutting down: Arrêt en cours...
+              updating: Mise à jour
+              docking: Retour à la station
+              going to target: En route vers la cible
+              zoned cleaning: Nettoyage de zone
+              segment cleaning: Nettoyage de pièce
+              emptying the bin: Vidage du réservoir
+              charging complete: Chargement terminé
+              device offline: Hors ligne
+        icons:
+          - icon: mdi:play
+            conditions:
+              - entity: vacuum.baymax
+                value_not: cleaning
+              - entity: vacuum.baymax
+                value_not: error
+              - entity: vacuum.baymax
+                value_not: returning
+            tooltip: Démarrage
+            tap_action:
+              action: call-service
+              service: vacuum.start
+              service_data:
+                entity_id: vacuum.baymax
+          - icon: mdi:stop
+            conditions:
+              - entity: vacuum.baymax
+                value_not: docked
+              - entity: vacuum.baymax
+                value_not: idle
+              - entity: vacuum.baymax
+                value_not: error
+              - entity: vacuum.baymax
+                value_not: paused
+            tooltip: Stop
+            tap_action:
+              action: call-service
+              service: vacuum.stop
+              service_data:
+                entity_id: vacuum.baymax
+          - icon: mdi:home-map-marker
+            conditions:
+              - entity: vacuum.baymax
+                value_not: docked
+              - entity: vacuum.baymax
+                value_not: returning
+            tooltip: Retour à la station
+            tap_action:
+              action: call-service
+              service: vacuum.return_to_base
+              service_data:
+                entity_id: vacuum.baymax
+          - icon: mdi:fan-remove
+            conditions:
+              - entity: vacuum.baymax
+                attribute: fan_speed
+                value: Silent
+            tooltip: Changer la puissance
+            tap_action:
+              action: call-service
+              service: vacuum.set_fan_speed
+              service_data:
+                entity_id: vacuum.baymax
+                fan_speed: Basic
+          - icon: mdi:fan-speed-1
+            conditions:
+              - entity: vacuum.baymax
+                attribute: fan_speed
+                value: Basic
+            tooltip: Changer la puissance
+            tap_action:
+              action: call-service
+              service: vacuum.set_fan_speed
+              service_data:
+                entity_id: vacuum.baymax
+                fan_speed: Strong
+          - icon: mdi:fan-speed-2
+            conditions:
+              - entity: vacuum.baymax
+                attribute: fan_speed
+                value: Strong
+            tooltip: Changer la puissance
+            tap_action:
+              action: call-service
+              service: vacuum.set_fan_speed
+              service_data:
+                entity_id: vacuum.baymax
+                fan_speed: Full Speed
+          - icon: mdi:fan-speed-3
+            conditions:
+              - entity: vacuum.baymax
+                attribute: fan_speed
+                value: Full Speed
+            tooltip: Changer la puissance
+            tap_action:
+              action: call-service
+              service: vacuum.set_fan_speed
+              service_data:
+                entity_id: vacuum.baymax
+                fan_speed: Sweep
+          - icon: mdi:fan-alert
+            conditions:
+              - entity: vacuum.baymax
+                attribute: fan_speed
+                value: Sweep
+            tooltip: Changer la puissance
+            tap_action:
+              action: call-service
+              service: vacuum.set_fan_speed
+              service_data:
+                entity_id: vacuum.baymax
+                fan_speed: Silent
+          - icon: mdi:fan-alert
+            conditions:
+              - entity: vacuum.baymax
+                attribute: fan_speed
+                value_not: Silent
+              - entity: vacuum.baymax
+                attribute: fan_speed
+                value_not: Basic
+              - entity: vacuum.baymax
+                attribute: fan_speed
+                value_not: Strong
+              - entity: vacuum.baymax
+                attribute: fan_speed
+                value_not: Full Speed
+              - entity: vacuum.baymax
+                attribute: fan_speed
+                value_not: Sweep
+            tooltip: Changer la puissance
+            tap_action:
+              action: call-service
+              service: vacuum.set_fan_speed
+              service_data:
+                entity_id: vacuum.baymax
+                fan_speed: Silent
+        map_locked: true
+      - type: entities
+        entities:
+          - entity: sensor.roidmi_v60_f2ec_charging_state
+          - entity: sensor.roidmi_v60_f2ec_battery_level
+          - entity: sensor.roidmi_v60_f2ec_brush_left_time
+          - entity: sensor.roidmi_v60_f2ec_brush_left_time
+          - entity: sensor.roidmi_v60_f2ec_brush_left_time_3
+          - entity: sensor.roidmi_v60_f2ec_brush_left_time_3
+          - entity: sensor.roidmi_v60_f2ec_brush_life_level_2
+          - entity: sensor.roidmi_v60_f2ec_brush_life_level_3
+        title: 'Baymax '
+        state_color: true
+      - show_name: true
+        show_icon: true
+        type: button
+        tap_action:
+          action: toggle
+        entity: light.prise_sapin
+        name: 'Prise Baymax '
+        icon: phu:devices-plug
+        icon_height: 50px
+        show_state: true
+  - theme: ios-dark-mode-blue-red
+    title: 'Chauffage '
+    path: chauffage
+    icon: mdi:heating-coil
+    subview: true
+    layout:
+      type: custom:horizontal-layout
+      layout:
+        - columns: 3
+    badges: []
+    cards:
+      - type: vertical-stack
+        cards:
+          - type: custom:mushroom-title-card
+            title: Chambres
+            alignment: center
+          - square: false
+            columns: 3
+            type: grid
+            cards:
+              - type: custom:mushroom-light-card
+                entity: light.chauffage_parents
+                name: Parents
+                layout: vertical
+              - type: custom:mushroom-light-card
+                entity: light.chauffage_timeo
+                name: 'Timéo '
+                layout: vertical
+              - type: custom:mushroom-light-card
+                entity: light.chauffage_chris
+                name: Chris
+                layout: vertical
+              - type: custom:mushroom-entity-card
+                entity: sensor.temp_parents
+                layout: vertical
+                primary_info: none
+              - type: custom:mushroom-entity-card
+                entity: sensor.temp_timeo
+                layout: vertical
+                primary_info: none
+              - type: custom:mushroom-entity-card
+                entity: sensor.temp_chris
+                layout: vertical
+                primary_info: none
+              - type: custom:mushroom-entity-card
+                entity: sensor.hum_parents
+                layout: vertical
+                primary_info: none
+                icon_color: teal
+              - type: custom:mushroom-entity-card
+                entity: sensor.hum_timeo
+                layout: vertical
+                primary_info: none
+                icon_color: teal
+              - type: custom:mushroom-entity-card
+                entity: sensor.hum_chris
+                layout: vertical
+                primary_info: none
+                icon_color: teal
+          - chart_type: line
+            period: hour
+            days_to_show: 1
+            type: statistics-graph
+            entities:
+              - sensor.un_active_power_2
+            stat_types:
+              - max
+              - mean
+            hide_legend: false
+      - type: vertical-stack
+        cards:
+          - type: custom:mushroom-title-card
+            title: Pièces d'eau
+            alignment: center
+          - square: false
+            columns: 2
+            type: grid
+            cards:
+              - type: custom:mushroom-light-card
+                entity: light.chauffage_sdb
+                name: SdB
+                icon: mdi:radiator
+                layout: horizontal
+              - type: custom:mushroom-light-card
+                entity: light.chauffage_buanderie
+                name: Buanderie
+                layout: horizontal
+              - type: custom:mushroom-entity-card
+                entity: sensor.temp_sdb
+                primary_info: none
+              - type: custom:mushroom-entity-card
+                entity: sensor.sonde_buanderie_temperature
+                primary_info: none
+              - type: custom:mushroom-entity-card
+                entity: sensor.hum_sdb
+                primary_info: none
+                icon_color: teal
+              - type: custom:mushroom-entity-card
+                entity: sensor.sonde_buanderie_humidity
+                primary_info: none
+                icon_color: teal
+          - square: false
+            columns: 1
+            type: grid
+            cards:
+              - chart_type: line
+                period: hour
+                days_to_show: 1
+                type: statistics-graph
+                entities:
+                  - sensor.chauffage_sdb_active_power
+                stat_types:
+                  - max
+                  - mean
+                hide_legend: false
+              - chart_type: line
+                period: hour
+                days_to_show: 1
+                type: statistics-graph
+                entities:
+                  - sensor.lumi_lumi_switch_n0agl1_active_power_2
+                stat_types:
+                  - max
+                  - mean
+                hide_legend: false
+      - type: vertical-stack
+        cards:
+          - type: custom:mushroom-title-card
+            title: Autres
+            alignment: center
+          - square: false
+            columns: 3
+            type: grid
+            cards:
+              - type: custom:mushroom-entity-card
+                entity: sensor.temp_salon
+                layout: vertical
+                name: Cuisine
+              - type: custom:mushroom-entity-card
+                entity: sensor.sonde_sam_temperature
+                name: Séjour
+                layout: vertical
+              - type: custom:mushroom-entity-card
+                entity: sensor.temp_garage
+                name: Garage
+                layout: vertical
+              - type: custom:mushroom-entity-card
+                entity: sensor.hum_salon
+                icon_color: teal
+                layout: vertical
+                primary_info: none
+              - type: custom:mushroom-entity-card
+                layout: vertical
+                entity: sensor.sonde_sam_humidity
+                icon_color: teal
+                primary_info: none
+              - type: custom:mushroom-entity-card
+                entity: sensor.hum_garage
+                icon_color: teal
+                layout: vertical
+                primary_info: none
+          - chart_type: line
+            period: hour
+            days_to_show: 1
+            type: statistics-graph
+            entities:
+              - sensor.chauffage_timeo_active_power_2
+            stat_types:
+              - max
+              - mean
+            hide_legend: false
+title: Menzag'Home
