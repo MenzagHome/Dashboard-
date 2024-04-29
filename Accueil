@@ -1,1 +1,3833 @@
-gejekkrr
+views:
+  - title: Home
+    cards:
+      - square: false
+        type: grid
+        cards:
+          - type: custom:button-card
+            styles:
+              card:
+                - height: 50px
+                - background-color: black
+              name:
+                - font-size: 20px
+                - font-weight: normal
+                - color: lightgreen
+                - justify-self: end
+            entity: sensor.jour
+            name: >
+              [[[ return `<span>Bonjour, nous sommes le
+              ${states['sensor.jour'].state}
+              ${states['sensor.nom_mois'].state},</span></span>`;
+
+              ]]]
+            show_name: true
+            show_state: false
+            show_icon: false
+            layout:
+              - vertical
+          - type: custom:button-card
+            styles:
+              card:
+                - height: 154px
+              name:
+                - justify-self: center
+                - font-size: 25px
+                - font-weight: bold
+                - transform: rotate(350deg)
+              icon:
+                - justify-self: center
+                - transform: rotate(350deg)
+            entity: light.lumieres
+            name: Lumières
+            hold_action:
+              action: navigate
+              navigation_path: /lovelace/lumiere
+            tap_action:
+              action: call-service
+              service: honeycomb
+              service_data:
+                autoclose: true
+                buttons:
+                  - icon: mdi:sofa
+                    entity: light.salon_et_sam
+                    state:
+                      - value: 'off'
+                        icon: mdi:sofa-outline
+                        styles:
+                          icon:
+                            - color: lightblue
+                          card:
+                            - opacity: 0.7
+                            - background-color: teal
+                            - '--mdc-ripple-color': lightblue
+                            - '--mdc-ripple-press-opacity': 0.7
+                    styles:
+                      icon:
+                        - color: var(--button-card-light-color)
+                      card:
+                        - background-color: '#070235'
+                        - '--mdc-ripple-color': var(--button-card-light-color)
+                        - '--mdc-ripple-press-opacity': 0.7
+                    active: true
+                    tap_action:
+                      action: call-service
+                      service: honeycomb
+                      service_data:
+                        autoclose: true
+                        buttons:
+                          - icon: mdi:weather-night
+                            entity: light.lampes_salle_a_manger
+                            state:
+                              - value: 'off'
+                                icon: mdi:weather-night
+                                styles:
+                                  icon:
+                                    - color: lightblue
+                                  card:
+                                    - opacity: 0.7
+                          - background-color: teal
+                          - '--mdc-ripple-color': lightblue
+                          - '--mdc-ripple-press-opacity': 0.7
+                            styles:
+                              icon:
+                                - color: var(--button-card-light-color)
+                              card:
+                                - background-color: '#070235'
+                                - '--mdc-ripple-color': var(--button-card-light-color)
+                                - '--mdc-ripple-press-opacity': 0.7
+                            active: true
+                            tap_action:
+                              action: call-service
+                              service: scene.turn_on
+                              service_data:
+                                entity_id: scene.soir
+                            hold_action:
+                              action: call-service
+                              service: light.turn_off
+                              service_data:
+                                entity_id:
+                                  - light.lampes_salle_a_manger
+                                  - light.lumieres_tv_switch
+                          - icon: mdi:lightbulb-night
+                            entity: light.lampes_salle_a_manger
+                            state:
+                              - value: 'off'
+                                icon: mdi:lightbulb-night
+                                styles:
+                                  icon:
+                                    - color: lightblue
+                                  card:
+                                    - opacity: 0.7
+                          - background-color: teal
+                          - '--mdc-ripple-color': lightblue
+                          - '--mdc-ripple-press-opacity': 0.7
+                            styles:
+                              icon:
+                                - color: var(--button-card-light-color)
+                              card:
+                                - background-color: '#070235'
+                                - '--mdc-ripple-color': var(--button-card-light-color)
+                                - '--mdc-ripple-press-opacity': 0.7
+                            active: true
+                            tap_action:
+                              action: call-service
+                              service: scene.turn_on
+                              service_data:
+                                entity_id: scene.repas
+                            hold_action:
+                              action: call-service
+                              service: light.turn_off
+                              service_data:
+                                entity_id:
+                                  - light.lampes_salle_a_manger
+                                  - light.lumieres_tv_switch
+                  - icon: hue:room-kitchen
+                    entity: light.cuisine
+                    state:
+                      - value: 'off'
+                        icon: hue:room-kitchen
+                        styles:
+                          icon:
+                            - color: lightblue
+                          card:
+                            - opacity: 0.7
+                            - background-color: teal
+                            - '--mdc-ripple-color': lightblue
+                            - '--mdc-ripple-press-opacity': 0.7
+                    styles:
+                      icon:
+                        - color: var(--button-card-light-color)
+                      card:
+                        - background-color: '#070235'
+                        - '--mdc-ripple-color': var(--button-card-light-color)
+                        - '--mdc-ripple-press-opacity': 0.7
+                    active: true
+                    tap_action:
+                      action: call-service
+                      service: honeycomb
+                      service_data:
+                        autoclose: true
+                        buttons:
+                          - icon: mdi:weather-night
+                            entity: light.lampes_salle_a_manger
+                            state:
+                              - value: 'off'
+                                icon: mdi:weather-night
+                                styles:
+                                  icon:
+                                    - color: lightblue
+                                  card:
+                                    - opacity: 0.7
+                          - background-color: teal
+                          - '--mdc-ripple-color': lightblue
+                          - '--mdc-ripple-press-opacity': 0.7
+                            styles:
+                              icon:
+                                - color: var(--button-card-light-color)
+                              card:
+                                - background-color: '#070235'
+                                - '--mdc-ripple-color': var(--button-card-light-color)
+                                - '--mdc-ripple-press-opacity': 0.7
+                            active: true
+                            tap_action:
+                              action: call-service
+                              service: scene.turn_on
+                              service_data:
+                                entity_id: scene.soir
+                            hold_action:
+                              action: call-service
+                              service: light.turn_off
+                              service_data:
+                                entity_id:
+                                  - light.lampes_salle_a_manger
+                                  - light.lumieres_tv_switch
+                  - icon: mdi:bed
+                    entity: light.lumieres_chambres
+                    state:
+                      - value: 'off'
+                        icon: mdi:bed-outline
+                        styles:
+                          icon:
+                            - color: lightblue
+                          card:
+                            - opacity: 0.7
+                            - background-color: teal
+                            - '--mdc-ripple-color': lightblue
+                            - '--mdc-ripple-press-opacity': 0.7
+                    styles:
+                      icon:
+                        - color: var(--button-card-light-color)
+                      card:
+                        - background-color: '#070235'
+                        - '--mdc-ripple-color': var(--button-card-light-color)
+                        - '--mdc-ripple-press-opacity': 0.7
+                    active: true
+                  - icon: mdi:window-shutter-cog
+                    entity: cover.volets
+                    state:
+                      - value: 'off'
+                        icon: mdi:window-shutter-cog
+                        styles:
+                          icon:
+                            - color: lightblue
+                          card:
+                            - opacity: 0.7
+                            - background-color: teal
+                            - '--mdc-ripple-color': lightblue
+                            - '--mdc-ripple-press-opacity': 0.7
+                    styles:
+                      icon:
+                        - color: var(--button-card-light-color)
+                      card:
+                        - background-color: '#070235'
+                        - '--mdc-ripple-color': var(--button-card-light-color)
+                        - '--mdc-ripple-press-opacity': 0.7
+                    active: true
+                  - icon: mdi:garage-open-variant
+                    entity: button.garage
+                    styles:
+                      icon:
+                        - color: lightblue
+                      card:
+                        - opacity: 0.7
+                        - background-color: teal
+                        - '--mdc-ripple-color': lightblue
+                        - '--mdc-ripple-press-opacity': 0.7
+                    tap_action:
+                      action: call-service
+                      service: button.press
+                      service_data:
+                        entity_id: button.garage
+                    confirmation:
+                      text: Ouvrir / Fermer la Porte du Garage ?
+                    active: true
+            state:
+              - value: 'off'
+                icon: mdi:lightbulb-group-off
+                color: lightblue
+                styles:
+                  name:
+                    - color: lightblue
+                  card:
+                    - '-box-shadow': 0px 0px 9px 3px teal
+                    - box-shadow: 0px 0px 9px 3px teal
+                    - background-color: black
+                    - opacity: 0.7
+                    - '--mdc-ripple-color': lightblue
+                    - '--mdc-ripple-press-opacity': 0.7
+                  state:
+                    - color: lightblue
+              - value: 'on'
+                icon: hue:bulb-group-classic-3-alt
+                color: var(--button-card-light-color)
+                styles:
+                  card:
+                    - '-box-shadow': 0px 0px 9px 3px var(--button-card-light-color)
+                    - box-shadow: 0px 0px 9px 3px var(--button-card-light-color)
+                    - background-color: black
+                    - '--mdc-ripple-color': var(--button-card-light-color)
+                    - '--mdc-ripple-press-opacity': 0.7
+                  icon:
+                    - width: 100%
+                  name:
+                    - color: var(--button-card-light-color)
+                  state:
+                    - color: var(--button-card-light-color)
+            show_name: true
+            show_state: true
+            layout:
+              - icon_name
+          - type: custom:button-card
+            styles:
+              card:
+                - height: 154px
+                - '-box-shadow': 0px 0px 9px 3px aqua
+                - box-shadow: 0px 0px 9px 3px aqua
+                - background-color: black
+                - '--mdc-ripple-color': aqua
+                - '--mdc-ripple-press-opacity': 0.7
+              name:
+                - font-size: 25px
+                - font-weight: bold
+                - text-transform: capitalize
+              state:
+                - font-size: 17px
+                - padding-top: 10px
+              grid:
+                - grid-template-areas: '"imag nom nom" "imag nom nom" "veil veil veil"'
+                - grid-template-columns: 1fr 1fr 1fr
+                - grid-template-rows: 1fr min-content min-content min-content min-content
+              custom_fields:
+                imag:
+                  - justify-self: center
+                  - transform: rotate(350deg)
+                nom:
+                  - padding-top: 10px
+                  - justify-self: center
+                  - font-size: 25px
+                  - font-weight: bold
+                  - text-transform: capitalize
+                  - name: Multimédias
+                  - transform: rotate(350deg)
+                vent:
+                  - padding-top: 10px
+                  - justify-self: center
+                  - font-size: 15px
+                veil:
+                  - padding-top: 10px
+                  - justify-self: center
+                  - font-size: 100%
+            custom_fields:
+              vent: |
+                [[[
+                 if (states['binary_sensor.do_fenetre_chambre_parentale'].state == 'pihh')
+                  return `<ha-icon
+                    icon="mdi:window-open-variant"
+                    style="width:25px;height:25px;color:aqua">
+                    </ha-icon><span></span></span>`;
+                ]]]
+              nom: |
+                [[[
+                 if (states['media_player.medias'].state == 'off')
+                  return `<span><span style="color: lightblue;">Multimédias</span></span>`;
+
+                 if (states['sensor.source_tv'].state == 'Nintendo Switch')
+                  return `<span><span style="color: magenta;">Multimédias</span></span>`;
+                  
+                 if (states['sensor.appli_pop'].state == 'Prime Video')
+                  return `<span><span style="color: lightblue;">Multimédias</span></span>`;
+
+                 if (states['sensor.appli_pop'].state == 'Oqee')
+                  return `<span><span style="color: red;">Multimédias</span></span>`;
+
+                 if (states['sensor.appli_pop'].state == 'Netflix')
+                  return `<span><span style="color: red;">Multimédias</span></span>`;
+
+                 if (states['sensor.appli_pop'].state == 'Menu')
+                  return `<span><span style="color: aqua;">Pop</span></span>`;
+
+                 if (states['sensor.appli_pop'].state == 'Disney Plus')
+                  return `<span><span style="color: blue;">Multimédias</span></span>`;
+
+                 if (states['sensor.appli_pop'].state == 'Youtube')
+                  return `<span><span style="color: red;"> ${states['sensor.pop_nom_artiste'].state}</span></span>`;
+
+                 if (states['sensor.appli_pop'].state == 'VLC')
+                  return `<span><span style="color: orange;"> ${states['sensor.pop_nom_artiste'].state}</span></span>`;
+
+                 if (states['sensor.pop_nom_artiste'].state == 'unknown')
+                  return `<span><span style="color: magenta;">Multimédias</span></span>`;
+
+                 if (states['sensor.appli_pop'].state == 'Photos')
+                  return `<span><span style="color: aqua;"> ${states['sensor.pop_nom_artiste'].state}</span></span>`;
+
+                 if (states['sensor.appli_pop'].state == 'Amazon Music')
+                  return `<span><span style="color: lightblue;"> ${states['sensor.pop_nom_artiste'].state}</span></span>`;
+
+                 if (states['sensor.appli_pop'].state == 'Spotify')
+                  return `<span><span style="color: lightgreen;"> ${states['sensor.pop_nom_artiste'].state}</span></span>`;
+
+                 else 
+                  return `<span><span style="color: magenta;">Multimédias</span></span>`;
+                ]]]
+              imag: |
+                [[[
+                 if (states['media_player.medias'].state == 'off')
+                  return `<ha-icon
+                    icon="mdi:television-speaker-off"
+                    style="width:50%;color:lightblue">
+                    </ha-icon><span></span></span>`;
+
+                 if (states['sensor.appli_pop'].state == 'Spotify')
+                  return `<ha-icon
+                    icon="mdi:spotify"
+                    style="width:85%;color:lightgreen">
+                    </ha-icon><span></span></span>`;
+
+                 if (states['sensor.appli_pop'].state == 'Menu')
+                  return `<ha-icon
+                    icon="mdi:menu"
+                    style="width:85%;color:aqua">
+                    </ha-icon><span></span></span>`;
+
+                  if (states['sensor.appli_pop'].state == 'Amazon Music')
+                  return `<ha-icon
+                    icon="phu:amazon-logo"
+                    style="width:85%;color:lightblue">
+                    </ha-icon><span></span></span>`;
+
+                 if (states['sensor.appli_pop'].state == 'Prime Video')
+                  return `<ha-icon
+                    icon="phu:prime-video"
+                    style="width:85%;color:lightblue">
+                    </ha-icon><span></span></span>`;
+
+                 if (states['sensor.appli_pop'].state == 'Netflix')
+                  return `<ha-icon
+                    icon="mdi:netflix"
+                    style="width:85%;color:red">
+                    </ha-icon><span></span></span>`;
+
+                 if (states['sensor.appli_pop'].state == 'Disney Plus')
+                  return `<ha-icon
+                    icon="phu:disney-plus"
+                    style="width:85%;color:blue">
+                    </ha-icon><span></span></span>`;
+
+                 if (states['sensor.appli_pop'].state == 'VLC')
+                  return `<ha-icon
+                    icon="mdi:vlc"
+                    style="width:85%;color:orange">
+                    </ha-icon><span></span></span>`;
+
+                 if (states['sensor.appli_pop'].state == 'Youtube')
+                  return `<ha-icon
+                    icon="mdi:youtube"
+                    style="width:85%;color:red">
+                    </ha-icon><span></span></span>`;
+                    
+                 if (states['sensor.appli_pop'].state == 'Oqee')
+                  return `<ha-icon
+                    icon="phu:oqee"
+                    style="width:200px;height:140px;color:red">
+                    </ha-icon><span></span></span>`;
+
+                  if (states['sensor.source_tv'].state == 'Nintendo Switch')
+                  return `<ha-icon
+                    icon="mdi:nintendo-switch"
+                    style="width:85%px;color:magenta">
+                    </ha-icon><span></span></span>`;
+                 
+                 if (states['sensor.pop_nom_chanson'].state == 'unknown')
+                  return `<ha-icon
+                    icon="mdi:nintendo-switch"
+                    style="width:85%px;color:magenta">
+                    </ha-icon><span></span></span>`;
+                 
+                 if (states['media_player.medias'].state == 'on')
+                  return `<ha-icon
+                    icon="mdi:television-speaker"
+                    style="width:85%;color: aqua">
+                    </ha-icon><span></span></span>`;
+                ]]]
+              veil: |
+                [[[
+                 if (states['media_player.medias'].state == 'off')
+                  return `<span style="color: lightblue;">Éteint</span></span>`;
+
+                 if (states['sensor.appli_pop'].state == 'Oqee')
+                  return `<ha-icon
+                    icon="mdi:television-box"
+                    style="width:25px;height:25px;color:red">
+                    </ha-icon><span style="color: red;"> Pop</span></span>`;
+                    
+                 if (states['sensor.appli_pop'].state == 'Prime Video')
+                  return `<ha-icon
+                    icon="mdi:movie-open"
+                    style="width:25px;height:25px;color:lightblue">
+                    </ha-icon><span style="color: lightblue;"> Prime Vidéo</span></span>`;
+
+                 if (states['sensor.appli_pop'].state == 'Netflix')
+                  return `<ha-icon
+                    icon="mdi:movie-open"
+                    style="width:25px;height:25px;color:red">
+                    </ha-icon><span style="color: red;"> Netflix</span></span>`;
+
+                 if (states['sensor.source_tv'].state == 'Nintendo Switch')
+                  return `<ha-icon
+                    icon="mdi:gamepad"
+                    style="width:25px;height:25px;color:magenta">
+                    </ha-icon><span style="color: magenta;"> Switch</span></span>`;
+
+                  if (states['sensor.appli_pop'].state == 'Menu')
+                  return `<ha-icon
+                    icon="mdi:menu"
+                    style="width:25px;height:25px;color:aqua">
+                    </ha-icon><span style="color: aqua;"> Menu</span></span>`;
+                 
+                 if (states['sensor.appli_pop'].state == 'Disney Plus')
+                  return `<ha-icon
+                    icon="mdi:movie-open"
+                    style="width:25px;height:25px;color:blue">
+                    </ha-icon><span style="color: blue;"> Disney+</span></span>`;
+
+                 if (states['sensor.pop_nom_chanson'].state == 'unknown')
+                  return `<ha-icon
+                    icon="mdi:gamepad"
+                    style="width:25px;height:25px;color:magenta">
+                    </ha-icon><span style="color: magenta;"> Switch</span></span>`;
+                  
+                 if (states['sensor.appli_pop'].state == 'Youtube')
+                  return `<span><span style="color: red;"> ${states['sensor.pop_nom_chanson'].state}</span></span>`;
+
+                 if (states['sensor.appli_pop'].state == 'Photos')
+                  return `<span><span style="color: aqua;"> ${states['sensor.pop_nom_chanson'].state}</span></span>`;
+
+                 if (states['sensor.appli_pop'].state == 'VLC')
+                  return `<span><span style="color: orange;"> ${states['sensor.pop_nom_chanson'].state}</span></span>`;
+
+                 if (states['sensor.appli_pop'].state == 'Amazon Music')
+                  return `<span><span style="color: lightblue;"> ${states['sensor.pop_nom_chanson'].state}</span></span>`;
+
+                 if (states['sensor.appli_pop'].state == 'Spotify')
+                  return `<span><span style="color: lightgreen;"> ${states['sensor.pop_nom_chanson'].state}</span></span>`;
+
+                 else 
+                  return `<ha-icon
+                    icon="mdi:gamepad"
+                    style="width:25px;height:25px;color:magenta">
+                    </ha-icon><span style="color: magenta;"> Switch</span></span>`;
+                  
+                ]]]
+            entity: media_player.medias
+            name: Multimédias
+            hold_action:
+              action: navigate
+              navigation_path: /lovelace/telecommande
+            tap_action:
+              action: call-service
+              service: honeycomb
+              service_data:
+                buttons:
+                  - icon: mdi:power
+                    entity: media_player.android_tv_192_168_1_9
+                    state:
+                      - value: 'off'
+                        icon: mdi:power
+                        styles:
+                          icon:
+                            - color: lightblue
+                          card:
+                            - opacity: 0.7
+                            - background-color: teal
+                            - '--mdc-ripple-color': lightblue
+                            - '--mdc-ripple-press-opacity': 0.7
+                    styles:
+                      icon:
+                        - color: aqua
+                      card:
+                        - background-color: '#070235'
+                        - '--mdc-ripple-color': aqua
+                        - '--mdc-ripple-press-opacity': 0.7
+                    active: true
+                    tap_action:
+                      action: call-service
+                      service: androidtv.adb_command
+                      service_data:
+                        entity_id: media_player.android_tv_192_168_1_9
+                        command: POWER
+                  - icon: mdi:plus
+                    entity: media_player.android_tv_192_168_1_9
+                    state:
+                      - value: 'off'
+                        icon: mdi:plus
+                        styles:
+                          icon:
+                            - color: lightblue
+                          card:
+                            - opacity: 0.7
+                            - background-color: teal
+                            - '--mdc-ripple-color': lightblue
+                            - '--mdc-ripple-press-opacity': 0.7
+                    styles:
+                      icon:
+                        - color: aqua
+                      card:
+                        - background-color: '#070235'
+                        - '--mdc-ripple-color': aqua
+                        - '--mdc-ripple-press-opacity': 0.7
+                    active: true
+                    tap_action:
+                      action: call-service
+                      service: androidtv.adb_command
+                      service_data:
+                        entity_id: media_player.android_tv_192_168_1_9
+                        command: CHANNEL_UP
+                  - icon: mdi:volume-plus
+                    entity: media_player.android_tv_192_168_1_9
+                    state:
+                      - value: 'off'
+                        icon: mdi:volume-plus
+                        styles:
+                          icon:
+                            - color: lightblue
+                          card:
+                            - opacity: 0.7
+                            - background-color: teal
+                            - '--mdc-ripple-color': lightblue
+                            - '--mdc-ripple-press-opacity': 0.7
+                    styles:
+                      icon:
+                        - color: aqua
+                      card:
+                        - background-color: '#070235'
+                        - '--mdc-ripple-color': var(--button-card-light-color)
+                        - '--mdc-ripple-press-opacity': 0.7
+                    active: true
+                    tap_action:
+                      action: call-service
+                      service: androidtv.adb_command
+                      service_data:
+                        entity_id: media_player.android_tv_192_168_1_9
+                        command: VOLUME_UP
+                  - icon: mdi:television
+                    entity: light.prise_tv_switch
+                    state:
+                      - value: 'off'
+                        icon: mdi:television-off
+                        styles:
+                          icon:
+                            - color: lightblue
+                          card:
+                            - opacity: 0.7
+                            - background-color: teal
+                            - '--mdc-ripple-color': lightblue
+                            - '--mdc-ripple-press-opacity': 0.7
+                    styles:
+                      icon:
+                        - color: aqua
+                      card:
+                        - background-color: '#070235'
+                        - '--mdc-ripple-color': aqua
+                        - '--mdc-ripple-press-opacity': 0.7
+                    active: true
+                    tap_action:
+                      action: call-service
+                      service: light.turn_on
+                      service_data:
+                        entity_id: light.prise_tv_switch
+                    hold_action:
+                      action: call-service
+                      service: light.turn_off
+                      service_data:
+                        entity_id: light.prise_tv_switch
+                  - icon: mdi:minus
+                    entity: media_player.android_tv_192_168_1_9
+                    state:
+                      - value: 'off'
+                        icon: mdi:minus
+                        styles:
+                          icon:
+                            - color: lightblue
+                          card:
+                            - opacity: 0.7
+                            - background-color: teal
+                            - '--mdc-ripple-color': lightblue
+                            - '--mdc-ripple-press-opacity': 0.7
+                    styles:
+                      icon:
+                        - color: aqua
+                      card:
+                        - background-color: '#070235'
+                        - '--mdc-ripple-color': aqua
+                        - '--mdc-ripple-press-opacity': 0.7
+                    active: true
+                    tap_action:
+                      action: call-service
+                      service: androidtv.adb_command
+                      service_data:
+                        entity_id: media_player.android_tv_192_168_1_9
+                        command: CHANNEL_DOWN
+                  - icon: mdi:volume-minus
+                    entity: media_player.android_tv_192_168_1_9
+                    state:
+                      - value: 'off'
+                        icon: mdi:volume-minus
+                        styles:
+                          icon:
+                            - color: lightblue
+                          card:
+                            - opacity: 0.7
+                            - background-color: teal
+                            - '--mdc-ripple-color': lightblue
+                            - '--mdc-ripple-press-opacity': 0.7
+                    styles:
+                      icon:
+                        - color: aqua
+                      card:
+                        - background-color: '#070235'
+                        - '--mdc-ripple-color': aqua
+                        - '--mdc-ripple-press-opacity': 0.7
+                    active: true
+                    tap_action:
+                      action: call-service
+                      service: androidtv.adb_command
+                      service_data:
+                        entity_id: media_player.android_tv_192_168_1_9
+                        command: VOLUME_DOWN
+            state:
+              - value: 'off'
+                styles:
+                  card:
+                    - opacity: 0.7
+                    - '-box-shadow': 0px 0px 9px 3px teal
+                    - box-shadow: 0px 0px 9px 3px teal
+                    - background-color: black
+                    - '--mdc-ripple-color': lightblue
+                    - '--mdc-ripple-press-opacity': 0.7
+              - value: 'on'
+                styles:
+                  card:
+                    - '-box-shadow': 0px 0px 9px 3px aqua
+                    - box-shadow: 0px 0px 9px 3px aqua
+                    - background-color: black
+                    - '--mdc-ripple-color': aqua
+                    - '--mdc-ripple-press-opacity': 0.7
+            show_name: false
+            show_state: false
+            show_icon: false
+            layout:
+              - vertical
+          - type: custom:button-card
+            styles:
+              card:
+                - height: 154px
+              name:
+                - justify-self: center
+                - font-size: 25px
+                - font-weight: bold
+                - transform: rotate(350deg)
+              icon:
+                - justify-self: center
+                - transform: rotate(350deg)
+            entity: sensor.cameras_exterieures
+            name: Caméras
+            tap_action:
+              action: navigate
+              navigation_path: /lovelace/alarme
+            state:
+              - value: Désactivées
+                icon: mdi:cctv-off
+                color: lightblue
+                styles:
+                  name:
+                    - color: lightblue
+                  card:
+                    - opacity: 0.7
+                    - '-box-shadow': 0px 0px 9px 3px teal
+                    - box-shadow: 0px 0px 9px 3px teal
+                    - background-color: black
+                    - '--mdc-ripple-color': lightblue
+                    - '--mdc-ripple-press-opacity': 0.7
+                  state:
+                    - color: lightblue
+              - value: Activées
+                icon: mdi:cctv
+                color: aqua
+                styles:
+                  card:
+                    - '-box-shadow': 0px 0px 9px 3px aqua
+                    - box-shadow: 0px 0px 9px 3px aqua
+                    - background-color: black
+                    - '--mdc-ripple-color': aqua
+                    - '--mdc-ripple-press-opacity': 0.7
+                  icon:
+                    - width: 100%
+                  name:
+                    - color: aqua
+                  state:
+                    - color: aqua
+            show_name: true
+            show_state: true
+            layout:
+              - icon_name
+          - type: custom:button-card
+            styles:
+              card:
+                - height: 154px
+              icon:
+                - transform: rotate(350deg)
+              name:
+                - font-weight: bold
+                - font-size: 25px
+                - justify-self: center
+                - transform: rotate(350deg)
+            entity: sensor.etat_de_baymax
+            icon: mdi:battery-charging
+            tap_action:
+              action: navigate
+              navigation_path: /lovelace/baymax
+            state:
+              - value: En Charge
+                name: Baymax
+                icon: mdi:battery-charging
+                styles:
+                  card:
+                    - background-color: black
+                    - '-box-shadow': 0px 0px 9px 3px aqua
+                    - box-shadow: 0px 0px 9px 3px aqua
+                    - '--mdc-ripple-color': aqua
+                    - '--mdc-ripple-press-opacity': 0.7
+                  icon:
+                    - width: 100%
+                    - color: aqua
+                    - animation: blink 5s ease infinite
+                  name:
+                    - color: aqua
+                  state:
+                    - color: aqua
+              - value: En Pause
+                icon: mdi:pause
+                name: Baymax
+                styles:
+                  card:
+                    - background-color: black
+                    - '-box-shadow': 0px 0px 9px 3px teal
+                    - box-shadow: 0px 0px 9px 3px teal
+                    - '--mdc-ripple-color': orange
+                    - '--mdc-ripple-press-opacity': 0.7
+                  icon:
+                    - width: 100%
+                    - color: orange
+                  name:
+                    - color: teal
+                  state:
+                    - color: orange
+              - value: Retour à la Base
+                icon: mdi:robot-vacuum-alert
+                name: Baymax
+                styles:
+                  card:
+                    - background-color: black
+                    - '-box-shadow': 0px 0px 9px 3px orange
+                    - box-shadow: 0px 0px 9px 3px orange
+                    - '--mdc-ripple-color': orange
+                    - '--mdc-ripple-press-opacity': 0.7
+                  icon:
+                    - width: 100%
+                    - color: orange
+                    - animation: rotating 3s linear infinite
+                  name:
+                    - color: orange
+                    - animation: blink 3s ease infinite
+                  state:
+                    - color: orange
+                    - animation: blink 3s ease infinite
+              - value: Nettoyage en Cours
+                name: Baymax
+                icon: mdi:robot-vacuum
+                styles:
+                  card:
+                    - background-color: aqua
+                    - '-box-shadow': 0px 0px 9px 3px aqua
+                    - box-shadow: 0px 0px 9px 3px aqua
+                    - '--mdc-ripple-color': aqua
+                    - '--mdc-ripple-press-opacity': 0.7
+                  icon:
+                    - width: 100%
+                    - color: red
+                    - animation: rotating 3s alternate infinite
+                  name:
+                    - color: red
+                    - animation: blink 3s ease infinite
+                  state:
+                    - color: red
+                    - animation: blink 3s ease infinite
+              - value: Éteint
+                name: Baymax
+                icon: mdi:robot-vacuum-off
+                styles:
+                  card:
+                    - opacity: 0.7
+                    - background-color: black
+                    - '-box-shadow': 0px 0px 9px 3px teal
+                    - box-shadow: 0px 0px 9px 3px teal
+                    - '--mdc-ripple-color': lightblue
+                    - '--mdc-ripple-press-opacity': 0.7
+                  icon:
+                    - color: lightblue
+                  name:
+                    - color: lightblue
+                  state:
+                    - color: lightblue
+            show_name: true
+            show_state: true
+            layout: icon_name
+        columns: 1
+      - square: false
+        type: grid
+        cards:
+          - type: custom:button-card
+            styles:
+              card:
+                - height: 50px
+                - background-color: black
+              name:
+                - font-size: 20px
+                - font-weight: normal
+                - color: lightgreen
+            entity: sensor.jour
+            name: >
+              [[[ return `<span>il est ${states['sensor.heure'].state}, le temps
+              est ${states['sensor.nom_meteo'].state}</span></span>`;
+
+              ]]]
+            show_name: true
+            show_state: false
+            show_icon: false
+            layout:
+              - vertical
+          - type: custom:button-card
+            styles:
+              card:
+                - height: 154px
+              name:
+                - justify-self: center
+                - font-size: 25px
+                - font-weight: bold
+                - transform: rotate(350deg)
+              icon:
+                - justify-self: center
+                - transform: rotate(350deg)
+            entity: light.salon_2
+            name: Séjour
+            hold_action:
+              action: navigate
+              navigation_path: /lovelace/sejour
+            tap_action:
+              action: call-service
+              service: honeycomb
+              service_data:
+                autoclose: true
+                buttons:
+                  - icon: mdi:sofa
+                    entity: light.salon
+                    state:
+                      - value: 'off'
+                        icon: mdi:sofa-outline
+                        styles:
+                          icon:
+                            - color: lightblue
+                          card:
+                            - opacity: 0.7
+                            - background-color: teal
+                            - '--mdc-ripple-color': lightblue
+                            - '--mdc-ripple-press-opacity': 0.7
+                    styles:
+                      icon:
+                        - color: var(--button-card-light-color)
+                      card:
+                        - background-color: '#070235'
+                        - '--mdc-ripple-color': var(--button-card-light-color)
+                        - '--mdc-ripple-press-opacity': 0.7
+                    active: true
+                    tap_action:
+                      action: call-service
+                      service: scene.turn_on
+                      service_data:
+                        entity_id: scene.canape
+                    hold_action:
+                      action: call-service
+                      service: light.turn_off
+                      service_data:
+                        entity_id: light.salon
+                  - icon: mdi:lamps
+                    entity: light.lampes_salle_a_manger
+                    state:
+                      - value: 'off'
+                        icon: mdi:lamps-outline
+                        styles:
+                          icon:
+                            - color: lightblue
+                          card:
+                            - opacity: 0.7
+                            - background-color: teal
+                            - '--mdc-ripple-color': lightblue
+                            - '--mdc-ripple-press-opacity': 0.7
+                    styles:
+                      icon:
+                        - color: var(--button-card-light-color)
+                      card:
+                        - background-color: '#070235'
+                        - '--mdc-ripple-color': var(--button-card-light-color)
+                        - '--mdc-ripple-press-opacity': 0.7
+                    active: true
+                    tap_action:
+                      action: call-service
+                      service: scene.turn_on
+                      service_data:
+                        entity_id: scene.lampes
+                    hold_action:
+                      action: call-service
+                      service: light.turn_off
+                      service_data:
+                        entity_id: light.lampes_salle_a_manger
+                  - icon: mdi:robot-vacuum
+                    entity: light.baymax
+                    state:
+                      - value: 'off'
+                        icon: mdi:robot-vacuum-off
+                        styles:
+                          icon:
+                            - color: lightblue
+                          card:
+                            - opacity: 0.7
+                            - background-color: teal
+                            - '--mdc-ripple-color': lightblue
+                            - '--mdc-ripple-press-opacity': 0.7
+                    styles:
+                      icon:
+                        - color: var(--button-card-light-color)
+                      card:
+                        - background-color: '#070235'
+                        - '--mdc-ripple-color': var(--button-card-light-color)
+                        - '--mdc-ripple-press-opacity': 0.7
+                    active: true
+                    tap_action:
+                      action: call-service
+                      service: light.turn_on
+                      service_data:
+                        entity_id: light.baymax
+                    hold_action:
+                      action: call-service
+                      service: light.turn_off
+                      service_data:
+                        entity_id: light.baymax
+                  - icon: mdi:television
+                    entity: light.prise_tv_switch
+                    state:
+                      - value: 'off'
+                        icon: mdi:television-off
+                        styles:
+                          icon:
+                            - color: lightblue
+                          card:
+                            - opacity: 0.7
+                            - background-color: teal
+                            - '--mdc-ripple-color': lightblue
+                            - '--mdc-ripple-press-opacity': 0.7
+                    styles:
+                      icon:
+                        - color: aqua
+                      card:
+                        - background-color: '#070235'
+                        - '--mdc-ripple-color': var(--button-card-light-color)
+                        - '--mdc-ripple-press-opacity': 0.7
+                    active: true
+                    tap_action:
+                      action: call-service
+                      service: light.turn_on
+                      service_data:
+                        entity_id: light.prise_tv_switch
+                    hold_action:
+                      action: call-service
+                      service: light.turn_off
+                      service_data:
+                        entity_id: light.prise_tv_switch
+                  - icon: mdi:television-ambient-light
+                    entity: light.ambilight
+                    state:
+                      - value: 'off'
+                        icon: mdi:television-ambient-light
+                        styles:
+                          icon:
+                            - color: lightblue
+                          card:
+                            - opacity: 0.7
+                            - background-color: teal
+                            - '--mdc-ripple-color': lightblue
+                            - '--mdc-ripple-press-opacity': 0.7
+                    styles:
+                      icon:
+                        - color: var(--button-card-light-color)
+                      card:
+                        - background-color: '#070235'
+                        - '--mdc-ripple-color': var(--button-card-light-color)
+                        - '--mdc-ripple-press-opacity': 0.7
+                    active: true
+                    tap_action:
+                      action: call-service
+                      service: light.turn_on
+                      service_data:
+                        entity_id: light.ambilight
+                    hold_action:
+                      action: call-service
+                      service: light.turn_off
+                      service_data:
+                        entity_id: light.ambilight
+                  - icon: mdi:chandelier
+                    entity: light.lumieres_sam
+                    state:
+                      - value: 'off'
+                        icon: mdi:chandelier
+                        styles:
+                          icon:
+                            - color: lightblue
+                          card:
+                            - opacity: 0.7
+                            - background-color: teal
+                            - '--mdc-ripple-color': lightblue
+                            - '--mdc-ripple-press-opacity': 0.7
+                      - value: 'on'
+                        icon: mdi:chandelier
+                        styles:
+                          icon:
+                            - color: var(--button-card-light-color)
+                          card:
+                            - background-color: '#070235'
+                            - '--mdc-ripple-color': var(--button-card-light-color)
+                            - '--mdc-ripple-press-opacity': 0.7
+                    active: true
+                    tap_action:
+                      action: call-service
+                      service: light.turn_on
+                      service_data:
+                        entity_id: light.lumieres_sam
+                    hold_action:
+                      action: call-service
+                      service: light.turn_off
+                      service_data:
+                        entity_id: light.lumieres_sam
+            state:
+              - value: 'off'
+                icon: hue:room-living-off
+                color: lightblue
+                styles:
+                  name:
+                    - color: lightblue
+                  card:
+                    - opacity: 0.7
+                    - '-box-shadow': 0px 0px 9px 3px teal
+                    - box-shadow: 0px 0px 9px 3px teal
+                    - background-color: black
+                    - '--mdc-ripple-color': lightblue
+                    - '--mdc-ripple-press-opacity': 0.7
+                  state:
+                    - color: lightblue
+              - value: 'on'
+                icon: phu:living-room
+                color: var(--button-card-light-color)
+                styles:
+                  card:
+                    - '-box-shadow': 0px 0px 9px 3px var(--button-card-light-color)
+                    - box-shadow: 0px 0px 9px 3px var(--button-card-light-color)
+                    - background-color: black
+                    - '--mdc-ripple-color': var(--button-card-light-color)
+                    - '--mdc-ripple-press-opacity': 0.7
+                  icon:
+                    - width: 100%
+                  name:
+                    - color: var(--button-card-light-color)
+                  state:
+                    - color: var(--button-card-light-color)
+            show_name: true
+            show_state: true
+            layout:
+              - icon_name
+          - type: conditional
+            conditions:
+              - entity: input_boolean.lave_vaisselle_vide
+                state: 'off'
+            card:
+              type: custom:button-card
+              styles:
+                card:
+                  - height: 154px
+                  - '-box-shadow': 0px 0px 9px 3px aqua
+                  - box-shadow: 0px 0px 9px 3px aqua
+                  - background-color: black
+                  - '--mdc-ripple-color': aqua
+                  - '--mdc-ripple-press-opacity': 0.7
+                icon:
+                  - justify-self: center
+                  - width: 90%
+                  - transform: rotate(350deg)
+                name:
+                  - font-size: 25px
+                  - font-weight: bold
+                  - text-transform: capitalize
+                  - transform: rotate(350deg)
+                state:
+                  - font-size: 17px
+                  - padding-top: 10px
+                grid:
+                  - grid-template-areas: '"imag n n" "imag n n" "temp veil vent"'
+                  - grid-template-columns: 1fr 1fr 1fr
+                  - grid-template-rows: 1fr min-content min-content min-content min-content
+                custom_fields:
+                  imag:
+                    - justify-self: center
+                    - transform: rotate(350deg)
+                  temp:
+                    - padding-top: 10px
+                    - justify-self: center
+                    - font-size: 15px
+                    - color: aqua
+                  vent:
+                    - padding-top: 10px
+                    - justify-self: center
+                    - font-size: 15px
+                    - color: aqua
+                  veil:
+                    - padding-top: 10px
+                    - justify-self: center
+                    - font-size: 17px
+                    - color: lightblue
+              custom_fields:
+                vent: |
+                  [[[
+                   if (states['light.ptit_dej'].state == 'on')
+                    return `<ha-icon
+                      icon="mdi:coffee-maker"
+                      style="width:25px;height:25px;color: var(--button-card-light-color)">
+                      </ha-icon><span></span></span>`;
+
+                   if (states['light.thermomix'].state == 'on')
+                    return `<ha-icon
+                      icon="mdi:blender"
+                      style="width:25px;height:25px;color: var(--button-card-light-color)">
+                      </ha-icon><span></span></span>`;
+                  ]]]
+                temp: |
+                  [[[
+                   if (states['input_boolean.lave_vaisselle_en_marche'].state == 'on')
+                    return `<ha-icon
+                      icon="mdi:dishwasher-alert"
+                      style="width:25px;height:25px;animation:blink 2s ease infinite;color:yellow">
+                      </ha-icon><span></span></span>`;
+
+                    if (states['light.micro_ondes'].state == 'on')
+                    return `<ha-icon
+                      icon="mdi:microwave"
+                      style="width:25px;height:25px;color: var(--button-card-light-color)">
+                      </ha-icon><span></span></span>`;
+                  ]]]
+                imag: |
+                  [[[
+                   if (states['light.cuisine_2'].state == 'off')
+                    return `<ha-icon
+                      icon="hue:room-kitchen-off"
+                      style="width:50%;color:lightblue">
+                      </ha-icon><span></span></span>`;
+
+                   if (states['light.jarvis_power'].state == 'on')
+                    return `<ha-icon
+                      icon="cil:dishwasher-silverware"
+                      style="width:85%; animation: rotating 5s alternate infinite;color: red">
+                      </ha-icon><span></span></span>`;
+                      
+                   if (states['light.cuisine_2'].state == 'on')
+                    return `<ha-icon
+                      icon="phu:kitchen"
+                      style="width:85%;color: var(--button-card-light-color)">
+                      </ha-icon><span></span></span>`;
+                  ]]]
+                veil: |
+                  [[[
+                   if (states['binary_sensor.do_pf_cuisine'].state == 'on')
+                    return `<ha-icon
+                      icon="mdi:window-open-variant"
+                      style="width:25px;animation: blink 2s ease infinite;height:25px;color:red">
+                      </ha-icon><span></span></span>`;
+
+                  if (states['light.jarvis_power'].state == 'on')
+                    return `<ha-icon
+                      icon="mdi:timer"
+                      style="width:20px;color: var(--button-card-light-color)">
+                      </ha-icon><span style= "color: var(--button-card-light-color)"> ${states['sensor.fin_du_cycle_a'].state}</span></span>`;
+                   
+                   if (states['light.cuisine_2'].state == 'off')
+                    return `<span>Éteint</span></span>`;
+                    
+                   if (states['light.cuisine'].state == 'on')
+                    return `<ha-icon
+                      icon="mdi:lightbulb-on"
+                      style="width:25px;height:25px;color: var(--button-card-light-color)">
+                      </ha-icon><span></span></span>`;
+                  ]]]
+              entity: light.cuisine_2
+              name: Cuisine
+              hold_action:
+                action: navigate
+                navigation_path: /lovelace/cuisine
+              tap_action:
+                action: call-service
+                service: honeycomb
+                service_data:
+                  buttons:
+                    - icon: mdi:spotlight
+                      entity: light.cuisine
+                      state:
+                        - value: 'off'
+                          icon: mdi:spotlight
+                          styles:
+                            icon:
+                              - color: lightblue
+                            card:
+                              - opacity: 0.7
+                              - background-color: teal
+                              - '--mdc-ripple-color': lightblue
+                              - '--mdc-ripple-press-opacity': 0.7
+                      styles:
+                        icon:
+                          - color: var(--button-card-light-color)
+                        card:
+                          - background-color: '#070235'
+                          - '--mdc-ripple-color': var(--button-card-light-color)
+                          - '--mdc-ripple-press-opacity': 0.7
+                      active: true
+                      tap_action:
+                        action: call-service
+                        service: scene.turn_on
+                        service_data:
+                          entity_id: scene.cuisine
+                      hold_action:
+                        action: call-service
+                        service: light.turn_off
+                        service_data:
+                          entity_id: light.cuisine
+                    - icon: phu:table-lighting-alt
+                      entity: light.bar
+                      state:
+                        - value: 'off'
+                          icon: phu:table-lighting-alt
+                          styles:
+                            icon:
+                              - color: lightblue
+                            card:
+                              - opacity: 0.7
+                              - background-color: teal
+                              - '--mdc-ripple-color': lightblue
+                              - '--mdc-ripple-press-opacity': 0.7
+                      styles:
+                        icon:
+                          - color: var(--button-card-light-color)
+                        card:
+                          - background-color: '#070235'
+                          - '--mdc-ripple-color': var(--button-card-light-color)
+                          - '--mdc-ripple-press-opacity': 0.7
+                      active: true
+                      tap_action:
+                        action: call-service
+                        service: scene.turn_on
+                        service_data:
+                          entity_id: scene.bar
+                      hold_action:
+                        action: call-service
+                        service: light.turn_off
+                        service_data:
+                          entity_id: light.bar
+                    - icon: bha:ceiling-spot-lamp
+                      entity: light.spots_cuisine
+                      state:
+                        - value: 'off'
+                          icon: bha:ceiling-spot-lamp
+                          styles:
+                            icon:
+                              - color: lightblue
+                            card:
+                              - opacity: 0.7
+                              - background-color: teal
+                              - '--mdc-ripple-color': lightblue
+                              - '--mdc-ripple-press-opacity': 0.7
+                      styles:
+                        icon:
+                          - color: var(--button-card-light-color)
+                        card:
+                          - background-color: '#070235'
+                          - '--mdc-ripple-color': var(--button-card-light-color)
+                          - '--mdc-ripple-press-opacity': 0.7
+                      active: true
+                      tap_action:
+                        action: call-service
+                        service: scene.turn_on
+                        service_data:
+                          entity_id: scene.spots
+                      hold_action:
+                        action: call-service
+                        service: light.turn_off
+                        service_data:
+                          entity_id: light.spots_cuisine
+                    - icon: mdi:blender
+                      entity: light.thermomix
+                      state:
+                        - value: 'off'
+                          icon: mdi:blender-outline
+                          styles:
+                            icon:
+                              - color: lightblue
+                            card:
+                              - opacity: 0.7
+                              - background-color: teal
+                              - '--mdc-ripple-color': lightblue
+                              - '--mdc-ripple-press-opacity': 0.7
+                      styles:
+                        icon:
+                          - color: aqua
+                        card:
+                          - background-color: '#070235'
+                          - '--mdc-ripple-color': var(--button-card-light-color)
+                          - '--mdc-ripple-press-opacity': 0.7
+                      active: true
+                      tap_action:
+                        action: call-service
+                        service: light.turn_on
+                        service_data:
+                          entity_id: light.thermomix
+                      hold_action:
+                        action: call-service
+                        service: light.turn_off
+                        service_data:
+                          entity_id: light.thermomix
+                    - icon: mdi:microwave
+                      entity: light.micro_ondes
+                      state:
+                        - value: 'off'
+                          icon: mdi:microwave-off
+                          styles:
+                            icon:
+                              - color: lightblue
+                            card:
+                              - opacity: 0.7
+                              - background-color: teal
+                              - '--mdc-ripple-color': lightblue
+                              - '--mdc-ripple-press-opacity': 0.7
+                      styles:
+                        icon:
+                          - color: aqua
+                        card:
+                          - background-color: '#070235'
+                          - '--mdc-ripple-color': var(--button-card-light-color)
+                          - '--mdc-ripple-press-opacity': 0.7
+                      active: true
+                      tap_action:
+                        action: call-service
+                        service: light.turn_on
+                        service_data:
+                          entity_id: light.micro_ondes
+                      hold_action:
+                        action: call-service
+                        service: light.turn_off
+                        service_data:
+                          entity_id: light.micro_ondes
+                    - icon: mdi:coffee-maker
+                      entity: light.ptit_dej
+                      state:
+                        - value: 'off'
+                          icon: mdi:coffee-maker-outline
+                          styles:
+                            icon:
+                              - color: lightblue
+                            card:
+                              - opacity: 0.7
+                              - background-color: teal
+                              - '--mdc-ripple-color': lightblue
+                              - '--mdc-ripple-press-opacity': 0.7
+                      styles:
+                        icon:
+                          - color: aqua
+                        card:
+                          - background-color: '#070235'
+                          - '--mdc-ripple-color': var(--button-card-light-color)
+                          - '--mdc-ripple-press-opacity': 0.7
+                      active: true
+                      tap_action:
+                        action: call-service
+                        service: light.turn_on
+                        service_data:
+                          entity_id: light.ptit_dej
+                      hold_action:
+                        action: call-service
+                        service: light.turn_off
+                        service_data:
+                          entity_id: light.ptit_dej
+              state:
+                - value: 'off'
+                  icon: hue:room-kitchen-off
+                  color: lightblue
+                  styles:
+                    name:
+                      - color: lightblue
+                    card:
+                      - opacity: 0.7
+                      - '-box-shadow': 0px 0px 9px 3px teal
+                      - box-shadow: 0px 0px 9px 3px teal
+                      - background-color: black
+                      - '--mdc-ripple-color': lightblue
+                      - '--mdc-ripple-press-opacity': 0.7
+                    state:
+                      - color: lightblue
+                - value: 'on'
+                  icon: phu:kitchen
+                  color: var(--button-card-light-color)
+                  styles:
+                    card:
+                      - '-box-shadow': 0px 0px 9px 3px var(--button-card-light-color)
+                      - box-shadow: 0px 0px 9px 3px var(--button-card-light-color)
+                      - background-color: black
+                      - '--mdc-ripple-color': var(--button-card-light-color)
+                      - '--mdc-ripple-press-opacity': 0.7
+                    icon:
+                      - width: 100%
+                    name:
+                      - color: var(--button-card-light-color)
+                    state:
+                      - color: var(--button-card-light-color)
+              show_name: true
+              show_state: false
+              show_icon: false
+              layout:
+                - vertical
+          - type: conditional
+            conditions:
+              - entity: input_boolean.lave_vaisselle_vide
+                state: 'on'
+            card:
+              type: custom:button-card
+              styles:
+                card:
+                  - height: 154px
+                  - '--mdc-ripple-color': var(--button-card-light-color)
+                  - '--mdc-ripple-press-opacity': 0.7
+                name:
+                  - justify-self: center
+                  - font-size: 20px
+                  - font-weight: bold
+                  - transform: rotate(350deg)
+                icon:
+                  - justify-self: center
+                  - transform: rotate(350deg)
+              entity: sensor.jarvisprogression
+              name: Vider Lave-Vaisselle
+              hold_action:
+                action: navigate
+                navigation_path: /lovelace/cuisine
+              tap_action:
+                action: call-service
+                service: honeycomb
+                service_data:
+                  buttons:
+                    - icon: mdi:spotlight
+                      entity: light.cuisine
+                      state:
+                        - value: 'off'
+                          icon: mdi:spotlight
+                          styles:
+                            icon:
+                              - color: lightblue
+                            card:
+                              - opacity: 0.7
+                              - background-color: teal
+                              - '--mdc-ripple-color': lightblue
+                              - '--mdc-ripple-press-opacity': 0.7
+                      styles:
+                        icon:
+                          - color: var(--button-card-light-color)
+                        card:
+                          - background-color: '#070235'
+                          - '--mdc-ripple-color': var(--button-card-light-color)
+                          - '--mdc-ripple-press-opacity': 0.7
+                      active: true
+                      tap_action:
+                        action: call-service
+                        service: scene.turn_on
+                        service_data:
+                          entity_id: scene.cuisine
+                      hold_action:
+                        action: call-service
+                        service: light.turn_off
+                        service_data:
+                          entity_id: light.cuisine
+                    - icon: phu:table-lighting-alt
+                      entity: light.bar
+                      state:
+                        - value: 'off'
+                          icon: phu:table-lighting-alt
+                          styles:
+                            icon:
+                              - color: lightblue
+                            card:
+                              - opacity: 0.7
+                              - background-color: teal
+                              - '--mdc-ripple-color': lightblue
+                              - '--mdc-ripple-press-opacity': 0.7
+                      styles:
+                        icon:
+                          - color: var(--button-card-light-color)
+                        card:
+                          - background-color: '#070235'
+                          - '--mdc-ripple-color': var(--button-card-light-color)
+                          - '--mdc-ripple-press-opacity': 0.7
+                      active: true
+                      tap_action:
+                        action: call-service
+                        service: scene.turn_on
+                        service_data:
+                          entity_id: scene.bar
+                      hold_action:
+                        action: call-service
+                        service: light.turn_off
+                        service_data:
+                          entity_id: light.bar
+                    - icon: bha:ceiling-spot-lamp
+                      entity: light.spots_cuisine
+                      state:
+                        - value: 'off'
+                          icon: bha:ceiling-spot-lamp
+                          styles:
+                            icon:
+                              - color: lightblue
+                            card:
+                              - opacity: 0.7
+                              - background-color: teal
+                              - '--mdc-ripple-color': lightblue
+                              - '--mdc-ripple-press-opacity': 0.7
+                      styles:
+                        icon:
+                          - color: var(--button-card-light-color)
+                        card:
+                          - background-color: '#070235'
+                          - '--mdc-ripple-color': var(--button-card-light-color)
+                          - '--mdc-ripple-press-opacity': 0.7
+                      active: true
+                      tap_action:
+                        action: call-service
+                        service: scene.turn_on
+                        service_data:
+                          entity_id: scene.spots
+                      hold_action:
+                        action: call-service
+                        service: light.turn_off
+                        service_data:
+                          entity_id: light.spots_cuisine
+                    - icon: mdi:blender
+                      entity: light.thermomix
+                      state:
+                        - value: 'off'
+                          icon: mdi:blender-outline
+                          styles:
+                            icon:
+                              - color: lightblue
+                            card:
+                              - opacity: 0.7
+                              - background-color: teal
+                              - '--mdc-ripple-color': lightblue
+                              - '--mdc-ripple-press-opacity': 0.7
+                      styles:
+                        icon:
+                          - color: aqua
+                        card:
+                          - background-color: '#070235'
+                          - '--mdc-ripple-color': var(--button-card-light-color)
+                          - '--mdc-ripple-press-opacity': 0.7
+                      active: true
+                      tap_action:
+                        action: call-service
+                        service: light.turn_on
+                        service_data:
+                          entity_id: light.thermomix
+                      hold_action:
+                        action: call-service
+                        service: light.turn_off
+                        service_data:
+                          entity_id: light.thermomix
+                    - icon: mdi:microwave
+                      entity: light.micro_ondes
+                      state:
+                        - value: 'off'
+                          icon: mdi:microwave-off
+                          styles:
+                            icon:
+                              - color: lightblue
+                            card:
+                              - opacity: 0.7
+                              - background-color: teal
+                              - '--mdc-ripple-color': lightblue
+                              - '--mdc-ripple-press-opacity': 0.7
+                      styles:
+                        icon:
+                          - color: aqua
+                        card:
+                          - background-color: '#070235'
+                          - '--mdc-ripple-color': var(--button-card-light-color)
+                          - '--mdc-ripple-press-opacity': 0.7
+                      active: true
+                      tap_action:
+                        action: call-service
+                        service: light.turn_on
+                        service_data:
+                          entity_id: light.micro_ondes
+                      hold_action:
+                        action: call-service
+                        service: light.turn_off
+                        service_data:
+                          entity_id: light.micro_ondes
+                    - icon: mdi:coffee-maker
+                      entity: light.ptit_dej
+                      state:
+                        - value: 'off'
+                          icon: mdi:coffee-maker-outline
+                          styles:
+                            icon:
+                              - color: lightblue
+                            card:
+                              - opacity: 0.7
+                              - background-color: teal
+                              - '--mdc-ripple-color': lightblue
+                              - '--mdc-ripple-press-opacity': 0.7
+                      styles:
+                        icon:
+                          - color: aqua
+                        card:
+                          - background-color: '#070235'
+                          - '--mdc-ripple-color': var(--button-card-light-color)
+                          - '--mdc-ripple-press-opacity': 0.7
+                      active: true
+                      tap_action:
+                        action: call-service
+                        service: light.turn_on
+                        service_data:
+                          entity_id: light.ptit_dej
+                      hold_action:
+                        action: call-service
+                        service: light.turn_off
+                        service_data:
+                          entity_id: light.ptit_dej
+              state:
+                - value: Terminé
+                  icon: mdi:dishwasher-alert
+                  color: red
+                  styles:
+                    card:
+                      - '-box-shadow': 0px 0px 9px 3px red
+                      - box-shadow: 0px 0px 9px 3px red
+                      - background-color: black
+                      - '--mdc-ripple-color': red
+                      - '--mdc-ripple-press-opacity': 0.7
+                    icon:
+                      - width: 100%
+                      - animation: blink 2s ease infinite
+                    name:
+                      - color: red
+                    state:
+                      - color: red
+              show_name: true
+              show_state: true
+              layout:
+                - icon_name
+          - type: conditional
+            conditions:
+              - condition: state
+                entity: media_player.echo_chambre
+                state_not: playing
+            card:
+              type: custom:button-card
+              styles:
+                card:
+                  - height: 154px
+                  - '-box-shadow': 0px 0px 9px 3px aqua
+                  - box-shadow: 0px 0px 9px 3px aqua
+                  - background-color: black
+                  - '--mdc-ripple-color': aqua
+                  - '--mdc-ripple-press-opacity': 0.7
+                name:
+                  - font-size: 25px
+                  - font-weight: bold
+                  - text-transform: capitalize
+                  - transform: rotate(350deg)
+                state:
+                  - font-size: 17px
+                  - padding-top: 10px
+                grid:
+                  - grid-template-areas: '"imag n n" "imag n n" "temp veil vent"'
+                  - grid-template-columns: 1fr 1fr 1fr
+                  - grid-template-rows: 1fr min-content min-content min-content min-content
+                custom_fields:
+                  imag:
+                    - justify-self: center
+                    - transform: rotate(350deg)
+                  temp:
+                    - padding-top: 10px
+                    - justify-self: center
+                    - font-size: 15px
+                    - color: aqua
+                  vent:
+                    - padding-top: 10px
+                    - justify-self: center
+                    - font-size: 15px
+                    - color: aqua
+                  veil:
+                    - padding-top: 10px
+                    - justify-self: center
+                    - font-size: 17px
+                    - color: lightblue
+              custom_fields:
+                vent: |
+                  [[[
+                   if (states['binary_sensor.do_fenetre_chambre_parentale'].state == 'on')
+                    return `<ha-icon
+                      icon="mdi:window-open-variant"
+                      style="width:25px;animation: blink 2s ease infinite;height:25px;color:red">
+                      </ha-icon><span></span></span>`;
+                  ]]]
+                temp: |
+                  [[[
+                   if (states['light.prise_tv_chambre'].state == 'on')
+                    return `<ha-icon
+                      icon="mdi:television"
+                      style="width:25px;height:25px;color:aqua">
+                      </ha-icon><span></span></span>`;
+                  ]]]
+                imag: |
+                  [[[
+                   if (states['light.chambre_parentale'].state == 'off')
+                    return `<ha-icon
+                      icon="hue:room-guestroom-off"
+                      style="width:50%;color:lightblue">
+                      </ha-icon><span></span></span>`;
+                   if (states['light.chambre_parentale'].state == 'on')
+                    return `<ha-icon
+                      icon="phu:bedroom"
+                      style="width:85%;color: var(--button-card-light-color)">
+                      </ha-icon><span></span></span>`;
+                  ]]]
+                veil: |
+                  [[[
+                   if (states['light.chambre_parentale'].state == 'off')
+                    return `<span>Éteint</span></span>`;
+                    
+                   if (states['light.lum_chambre_parents'].state == 'on')
+                    return `<ha-icon
+                      icon="mdi:lightbulb-on"
+                      style="width:25px;height:25px;color: var(--button-card-light-color)">
+                      </ha-icon><span></span></span>`;
+                  ]]]
+              entity: light.chambre_parentale
+              name: Ch. Parentale
+              hold_action:
+                action: navigate
+                navigation_path: /lovelace/chambre-parentale
+              tap_action:
+                action: call-service
+                service: honeycomb
+                service_data:
+                  buttons:
+                    - icon: mdi:lightbulb
+                      entity: light.lum_chambre_parents
+                      state:
+                        - value: 'off'
+                          icon: mdi:lightbulb-off
+                          styles:
+                            icon:
+                              - color: lightblue
+                            card:
+                              - opacity: 0.7
+                              - background-color: teal
+                              - '--mdc-ripple-color': lightblue
+                              - '--mdc-ripple-press-opacity': 0.7
+                      styles:
+                        icon:
+                          - color: var(--button-card-light-color)
+                        card:
+                          - background-color: '#070235'
+                          - '--mdc-ripple-color': var(--button-card-light-color)
+                          - '--mdc-ripple-press-opacity': 0.7
+                      active: true
+                      tap_action:
+                        action: call-service
+                        service: scene.turn_on
+                        service_data:
+                          entity_id: scene.chambre_normal
+                      hold_action:
+                        action: call-service
+                        service: light.turn_off
+                        service_data:
+                          entity_id: light.lum_chambre_parents
+                    - icon: mdi:weather-night
+                      entity: light.lum_chambre_parents
+                      state:
+                        - value: 'off'
+                          icon: mdi:weather-night
+                          styles:
+                            icon:
+                              - color: lightblue
+                            card:
+                              - opacity: 0.7
+                              - background-color: teal
+                              - '--mdc-ripple-color': lightblue
+                              - '--mdc-ripple-press-opacity': 0.7
+                      styles:
+                        icon:
+                          - color: var(--button-card-light-color)
+                        card:
+                          - background-color: '#070235'
+                          - '--mdc-ripple-color': var(--button-card-light-color)
+                          - '--mdc-ripple-press-opacity': 0.7
+                      active: true
+                      tap_action:
+                        action: call-service
+                        service: scene.turn_on
+                        service_data:
+                          entity_id: scene.chambre_nuit
+                      hold_action:
+                        action: call-service
+                        service: light.turn_off
+                        service_data:
+                          entity_id: light.lum_chambre_parents
+                    - icon: mdi:lightbulb-night
+                      entity: light.lum_chambre_parents
+                      state:
+                        - value: 'off'
+                          icon: mdi:lightbulb-night-outline
+                          styles:
+                            icon:
+                              - color: lightblue
+                            card:
+                              - opacity: 0.7
+                              - background-color: teal
+                              - '--mdc-ripple-color': lightblue
+                              - '--mdc-ripple-press-opacity': 0.7
+                      styles:
+                        icon:
+                          - color: var(--button-card-light-color)
+                        card:
+                          - background-color: '#070235'
+                          - '--mdc-ripple-color': var(--button-card-light-color)
+                          - '--mdc-ripple-press-opacity': 0.7
+                      active: true
+                      tap_action:
+                        action: call-service
+                        service: scene.turn_on
+                        service_data:
+                          entity_id: scene.chambre_veilleuse
+                      hold_action:
+                        action: call-service
+                        service: light.turn_off
+                        service_data:
+                          entity_id: light.lum_chambre_parents
+                    - icon: mdi:television
+                      entity: light.prise_tv_chambre
+                      state:
+                        - value: 'off'
+                          icon: mdi:television-off
+                          styles:
+                            icon:
+                              - color: lightblue
+                            card:
+                              - opacity: 0.7
+                              - background-color: teal
+                              - '--mdc-ripple-color': lightblue
+                              - '--mdc-ripple-press-opacity': 0.7
+                      styles:
+                        icon:
+                          - color: aqua
+                        card:
+                          - background-color: '#070235'
+                          - '--mdc-ripple-color': var(--button-card-light-color)
+                          - '--mdc-ripple-press-opacity': 0.7
+                      active: true
+                      tap_action:
+                        action: call-service
+                        service: light.turn_on
+                        service_data:
+                          entity_id: light.prise_tv_chambre
+                      hold_action:
+                        action: call-service
+                        service: light.turn_off
+                        service_data:
+                          entity_id: light.prise_tv_chambre
+                    - icon: mdi:printer
+                      entity: light.imprimante
+                      state:
+                        - value: 'off'
+                          icon: mdi:printer-off
+                          styles:
+                            icon:
+                              - color: lightblue
+                            card:
+                              - opacity: 0.7
+                              - background-color: teal
+                              - '--mdc-ripple-color': lightblue
+                              - '--mdc-ripple-press-opacity': 0.7
+                      styles:
+                        icon:
+                          - color: aqua
+                        card:
+                          - background-color: '#070235'
+                          - '--mdc-ripple-color': var(--button-card-light-color)
+                          - '--mdc-ripple-press-opacity': 0.7
+                      active: true
+                      tap_action:
+                        action: call-service
+                        service: light.turn_on
+                        service_data:
+                          entity_id: light.imprimante
+                      hold_action:
+                        action: call-service
+                        service: light.turn_off
+                        service_data:
+                          entity_id: light.imprimante
+                    - icon: mdi:window-open-variant
+                      entity: binary_sensor.do_fenetre_chambre_parentale
+                      state:
+                        - value: 'off'
+                          icon: mdi:window-closed-variant
+                          styles:
+                            icon:
+                              - color: lightblue
+                            card:
+                              - opacity: 0.7
+                              - background-color: teal
+                              - '--mdc-ripple-color': lightblue
+                              - '--mdc-ripple-press-opacity': 0.7
+                      styles:
+                        icon:
+                          - color: aqua
+                        card:
+                          - background-color: '#070235'
+                          - '--mdc-ripple-color': var(--button-card-light-color)
+                          - '--mdc-ripple-press-opacity': 0.7
+                      active: true
+              state:
+                - value: 'off'
+                  styles:
+                    name:
+                      - color: lightblue
+                    card:
+                      - opacity: 0.7
+                      - '-box-shadow': 0px 0px 9px 3px teal
+                      - box-shadow: 0px 0px 9px 3px teal
+                      - background-color: black
+                      - '--mdc-ripple-color': lightblue
+                      - '--mdc-ripple-press-opacity': 0.7
+                    state:
+                      - color: lightblue
+                - value: 'on'
+                  styles:
+                    card:
+                      - '-box-shadow': 0px 0px 9px 3px var(--button-card-light-color)
+                      - box-shadow: 0px 0px 9px 3px var(--button-card-light-color)
+                      - background-color: black
+                      - '--mdc-ripple-color': var(--button-card-light-color)
+                      - '--mdc-ripple-press-opacity': 0.7
+                    name:
+                      - color: var(--button-card-light-color)
+                    state:
+                      - color: var(--button-card-light-color)
+              show_name: true
+              show_state: false
+              show_icon: true
+              layout:
+                - vertical
+          - type: conditional
+            conditions:
+              - condition: state
+                entity: media_player.echo_chambre
+                state: playing
+            card:
+              type: custom:button-card
+              styles:
+                card:
+                  - height: 154px
+                  - '-box-shadow': 0px 0px 9px 3px lightgrey
+                  - box-shadow: 0px 0px 9px 3px lightgrey
+                  - background-color: black
+                  - '--mdc-ripple-color': lightgrey
+                  - '--mdc-ripple-press-opacity': 0.7
+                name:
+                  - font-size: 25px
+                  - font-weight: bold
+                  - text-transform: capitalize
+                  - transform: rotate(350deg)
+                state:
+                  - font-size: 17px
+                  - padding-top: 10px
+                icon:
+                  - width: 90%
+                grid:
+                  - grid-template-areas: '"i vent vent" "i vent vent" "temp temp temp"'
+                  - grid-template-columns: 1fr 1fr 1fr
+                  - grid-template-rows: 1fr min-content min-content min-content min-content
+                custom_fields:
+                  imag:
+                    - justify-self: center
+                    - transform: rotate(350deg)
+                  temp:
+                    - padding-top: 10px
+                    - justify-self: center
+                    - font-size: 17px
+                    - color: lightgrey
+                  nom:
+                    - padding-top: 10px
+                    - justify-self: center
+                    - font-size: 17px
+                    - color: lightgrey
+                  vent:
+                    - padding-top: 10px
+                    - justify-self: center
+                    - font-size: 25px
+                    - font-weight: bold
+                    - color: lightgrey
+              custom_fields:
+                nom: |
+                  [[[
+                   if (states['light.chambre_parentale'].state == 'offhhj')
+                    return `<span><span style="color: lightblue;">Ch. Parentale</span></span>`;
+
+                   if (states['light.chambre_parentale'].state == 'onhfh')
+                    return `<span><span style="color: aqua;">Ch. Parentale</span></span>`;
+                  ]]]
+                vent: |
+                  [[[ 
+                   return `<span>${states['sensor.echo_chambre_nom_artiste'].state}</span></span>`
+                  ]]]
+                temp: |
+                  [[[
+                   return `<span>${states['sensor.echo_chambre_nom_chanson'].state}</span></span>`
+                  ]]]
+              entity_picture: >-
+                /api/media_player_proxy/media_player.echo_chambre?token=eee97c2664fd1eaaacfbddad81ca3a1aadf002d4684390cb9b83dc529557cd34&cache=660f0ee86da3d1b6
+              name: Ch. Parentale
+              hold_action:
+                action: navigate
+                navigation_path: /lovelace/chambre-parentale
+              tap_action:
+                action: call-service
+                service: honeycomb
+                service_data:
+                  buttons:
+                    - icon: mdi:lightbulb
+                      entity: light.lum_chambre_parents
+                      state:
+                        - value: 'off'
+                          icon: mdi:lightbulb-off
+                          styles:
+                            icon:
+                              - color: lightblue
+                            card:
+                              - opacity: 0.7
+                              - background-color: teal
+                              - '--mdc-ripple-color': lightblue
+                              - '--mdc-ripple-press-opacity': 0.7
+                      styles:
+                        icon:
+                          - color: var(--button-card-light-color)
+                        card:
+                          - background-color: '#070235'
+                          - '--mdc-ripple-color': var(--button-card-light-color)
+                          - '--mdc-ripple-press-opacity': 0.7
+                      active: true
+                      tap_action:
+                        action: call-service
+                        service: scene.turn_on
+                        service_data:
+                          entity_id: scene.chambre_normal
+                      hold_action:
+                        action: call-service
+                        service: light.turn_off
+                        service_data:
+                          entity_id: light.lum_chambre_parents
+                    - icon: mdi:weather-night
+                      entity: light.lum_chambre_parents
+                      state:
+                        - value: 'off'
+                          icon: mdi:weather-night
+                          styles:
+                            icon:
+                              - color: lightblue
+                            card:
+                              - opacity: 0.7
+                              - background-color: teal
+                              - '--mdc-ripple-color': lightblue
+                              - '--mdc-ripple-press-opacity': 0.7
+                      styles:
+                        icon:
+                          - color: var(--button-card-light-color)
+                        card:
+                          - background-color: '#070235'
+                          - '--mdc-ripple-color': var(--button-card-light-color)
+                          - '--mdc-ripple-press-opacity': 0.7
+                      active: true
+                      tap_action:
+                        action: call-service
+                        service: scene.turn_on
+                        service_data:
+                          entity_id: scene.chambre_nuit
+                      hold_action:
+                        action: call-service
+                        service: light.turn_off
+                        service_data:
+                          entity_id: light.lum_chambre_parents
+                    - icon: mdi:lightbulb-night
+                      entity: light.lum_chambre_parents
+                      state:
+                        - value: 'off'
+                          icon: mdi:lightbulb-night-outline
+                          styles:
+                            icon:
+                              - color: lightblue
+                            card:
+                              - opacity: 0.7
+                              - background-color: teal
+                              - '--mdc-ripple-color': lightblue
+                              - '--mdc-ripple-press-opacity': 0.7
+                      styles:
+                        icon:
+                          - color: var(--button-card-light-color)
+                        card:
+                          - background-color: '#070235'
+                          - '--mdc-ripple-color': var(--button-card-light-color)
+                          - '--mdc-ripple-press-opacity': 0.7
+                      active: true
+                      tap_action:
+                        action: call-service
+                        service: scene.turn_on
+                        service_data:
+                          entity_id: scene.chambre_veilleuse
+                      hold_action:
+                        action: call-service
+                        service: light.turn_off
+                        service_data:
+                          entity_id: light.lum_chambre_parents
+                    - icon: mdi:television
+                      entity: light.prise_tv_chambre
+                      state:
+                        - value: 'off'
+                          icon: mdi:television-off
+                          styles:
+                            icon:
+                              - color: lightblue
+                            card:
+                              - opacity: 0.7
+                              - background-color: teal
+                              - '--mdc-ripple-color': lightblue
+                              - '--mdc-ripple-press-opacity': 0.7
+                      styles:
+                        icon:
+                          - color: aqua
+                        card:
+                          - background-color: '#070235'
+                          - '--mdc-ripple-color': var(--button-card-light-color)
+                          - '--mdc-ripple-press-opacity': 0.7
+                      active: true
+                      tap_action:
+                        action: call-service
+                        service: light.turn_on
+                        service_data:
+                          entity_id: light.prise_tv_chambre
+                      hold_action:
+                        action: call-service
+                        service: light.turn_off
+                        service_data:
+                          entity_id: light.prise_tv_chambre
+                    - icon: mdi:printer
+                      entity: light.imprimante
+                      state:
+                        - value: 'off'
+                          icon: mdi:printer-off
+                          styles:
+                            icon:
+                              - color: lightblue
+                            card:
+                              - opacity: 0.7
+                              - background-color: teal
+                              - '--mdc-ripple-color': lightblue
+                              - '--mdc-ripple-press-opacity': 0.7
+                      styles:
+                        icon:
+                          - color: aqua
+                        card:
+                          - background-color: '#070235'
+                          - '--mdc-ripple-color': var(--button-card-light-color)
+                          - '--mdc-ripple-press-opacity': 0.7
+                      active: true
+                      tap_action:
+                        action: call-service
+                        service: light.turn_on
+                        service_data:
+                          entity_id: light.imprimante
+                      hold_action:
+                        action: call-service
+                        service: light.turn_off
+                        service_data:
+                          entity_id: light.imprimante
+                    - icon: mdi:window-open-variant
+                      entity: binary_sensor.do_fenetre_chambre_parentale
+                      state:
+                        - value: 'off'
+                          icon: mdi:window-closed-variant
+                          styles:
+                            icon:
+                              - color: lightblue
+                            card:
+                              - opacity: 0.7
+                              - background-color: teal
+                              - '--mdc-ripple-color': lightblue
+                              - '--mdc-ripple-press-opacity': 0.7
+                      styles:
+                        icon:
+                          - color: aqua
+                        card:
+                          - background-color: '#070235'
+                          - '--mdc-ripple-color': var(--button-card-light-color)
+                          - '--mdc-ripple-press-opacity': 0.7
+                      active: true
+              show_name: false
+              show_state: false
+              show_icon: false
+              show_entity_picture: true
+              layout:
+                - vertical
+          - type: custom:button-card
+            styles:
+              card:
+                - height: 154px
+                - '-box-shadow': 0px 0px 9px 3px aqua
+                - box-shadow: 0px 0px 9px 3px aqua
+                - background-color: black
+                - '--mdc-ripple-color': aqua
+                - '--mdc-ripple-press-opacity': 0.7
+              name:
+                - font-size: 25px
+                - font-weight: bold
+                - text-transform: capitalize
+                - transform: rotate(350deg)
+              state:
+                - font-size: 17px
+                - padding-top: 10px
+              grid:
+                - grid-template-areas: '"imag n n" "imag n n" "temp veil vent"'
+                - grid-template-columns: 1fr 1fr 1fr
+                - grid-template-rows: 1fr min-content min-content min-content min-content
+              custom_fields:
+                imag:
+                  - justify-self: center
+                  - transform: rotate(350deg)
+                temp:
+                  - padding-top: 10px
+                  - justify-self: center
+                  - font-size: 15px
+                  - color: aqua
+                vent:
+                  - padding-top: 10px
+                  - justify-self: center
+                  - font-size: 15px
+                  - color: aqua
+                veil:
+                  - padding-top: 10px
+                  - justify-self: center
+                  - font-size: 17px
+                  - color: lightblue
+            custom_fields:
+              vent: |
+                [[[
+                 if (states['binary_sensor.do_fenetre_chambre_timeo'].state == 'on')
+                  return `<ha-icon
+                    icon="mdi:window-open-variant"
+                    style="width:25px;animation: blink 2s ease infinite;height:25px;color:red">
+                    </ha-icon><span></span></span>`;
+                 ]]]
+              temp: |
+                [[[
+                 if (states['binary_sensor.do_fenetre_chambre_chris'].state == 'on')
+                  return `<ha-icon
+                    icon="mdi:window-open-variant"
+                    style="width:25px;animation: blink 2s ease infinite;height:25px;color:red">
+                    </ha-icon><span></span></span>`;
+                 ]]]
+              imag: |
+                [[[
+                 if (states['light.chambres_garcons'].state == 'off')
+                  return `<ha-icon
+                    icon="hue:room-guestroom-off"
+                    style="width:50%;color:lightblue">
+                    </ha-icon><span></span></span>`;
+                 if (states['light.chambres_garcons'].state == 'on')
+                  return `<ha-icon
+                    icon="phu:kids-room"
+                    style="width:85%;color: var(--button-card-light-color)">
+                    </ha-icon><span></span></span>`;
+                ]]]
+              veil: |
+                [[[
+                 if (states['light.chambres_garcons'].state == 'off')
+                  return `<span>Éteint</span></span>`;
+                  
+                 if (states['light.chambres_garcons'].state == 'on')
+                  return `<ha-icon
+                    icon="mdi:lightbulb-night"
+                    style="width:25px;height:25px;color: var(--button-card-light-color)">
+                    </ha-icon><span></span></span>`;
+                ]]]
+            entity: light.chambres_garcons
+            name: Ch. Garçons
+            hold_action:
+              action: navigate
+              navigation_path: /lovelace/chambre_garcons
+            tap_action:
+              action: call-service
+              service: honeycomb
+              service_data:
+                buttons:
+                  - icon: mdi:lightbulb
+                    entity: light.interrupteur_chambre_chris
+                    state:
+                      - value: 'off'
+                        icon: mdi:lightbulb-off
+                        styles:
+                          icon:
+                            - color: lightblue
+                          card:
+                            - opacity: 0.7
+                            - background-color: teal
+                            - '--mdc-ripple-color': lightblue
+                            - '--mdc-ripple-press-opacity': 0.7
+                    styles:
+                      icon:
+                        - color: var(--button-card-light-color)
+                      card:
+                        - background-color: '#070235'
+                        - '--mdc-ripple-color': var(--button-card-light-color)
+                        - '--mdc-ripple-press-opacity': 0.7
+                    active: true
+                  - icon: mdi:lightbulb
+                    entity: light.lumiere_chambre_timeo
+                    state:
+                      - value: 'off'
+                        icon: mdi:lightbulb-off
+                        styles:
+                          icon:
+                            - color: lightblue
+                          card:
+                            - opacity: 0.7
+                            - background-color: teal
+                            - '--mdc-ripple-color': lightblue
+                            - '--mdc-ripple-press-opacity': 0.7
+                    styles:
+                      icon:
+                        - color: var(--button-card-light-color)
+                      card:
+                        - background-color: '#070235'
+                        - '--mdc-ripple-color': var(--button-card-light-color)
+                        - '--mdc-ripple-press-opacity': 0.7
+                    active: true
+                  - icon: mdi:lightbulb-night
+                    entity: light.veilleuse
+                    state:
+                      - value: 'off'
+                        icon: mdi:lightbulb-night-outline
+                        styles:
+                          icon:
+                            - color: lightblue
+                          card:
+                            - opacity: 0.7
+                            - background-color: teal
+                            - '--mdc-ripple-color': lightblue
+                            - '--mdc-ripple-press-opacity': 0.7
+                    styles:
+                      icon:
+                        - color: var(--button-card-light-color)
+                      card:
+                        - background-color: '#070235'
+                        - '--mdc-ripple-color': var(--button-card-light-color)
+                        - '--mdc-ripple-press-opacity': 0.7
+                    active: true
+                    tap_action:
+                      action: call-service
+                      service: light.turn_on
+                      service_data:
+                        entity_id: light.veilleuse
+                    hold_action:
+                      action: call-service
+                      service: light.turn_off
+                      service_data:
+                        entity_id: light.veilleuse
+                  - icon: mdi:window-open-variant
+                    entity: binary_sensor.do_fenetre_chambre_timeo
+                    state:
+                      - value: 'off'
+                        icon: mdi:window-closed-variant
+                        styles:
+                          icon:
+                            - color: lightblue
+                          card:
+                            - opacity: 0.7
+                            - background-color: teal
+                            - '--mdc-ripple-color': lightblue
+                            - '--mdc-ripple-press-opacity': 0.7
+                    styles:
+                      icon:
+                        - color: aqua
+                      card:
+                        - background-color: '#070235'
+                        - '--mdc-ripple-color': var(--button-card-light-color)
+                        - '--mdc-ripple-press-opacity': 0.7
+                    active: true
+                  - icon: mdi:window-open-variant
+                    entity: binary_sensor.do_fenetre_chambre_chris
+                    state:
+                      - value: 'off'
+                        icon: mdi:window-closed-variant
+                        styles:
+                          icon:
+                            - color: lightblue
+                          card:
+                            - opacity: 0.7
+                            - background-color: teal
+                            - '--mdc-ripple-color': lightblue
+                            - '--mdc-ripple-press-opacity': 0.7
+                    styles:
+                      icon:
+                        - color: aqua
+                      card:
+                        - background-color: '#070235'
+                        - '--mdc-ripple-color': var(--button-card-light-color)
+                        - '--mdc-ripple-press-opacity': 0.7
+                    active: true
+            state:
+              - value: 'off'
+                styles:
+                  name:
+                    - color: lightblue
+                  card:
+                    - opacity: 0.7
+                    - '-box-shadow': 0px 0px 9px 3px teal
+                    - box-shadow: 0px 0px 9px 3px teal
+                    - background-color: black
+                    - '--mdc-ripple-color': lightblue
+                    - '--mdc-ripple-press-opacity': 0.7
+                  state:
+                    - color: lightblue
+              - value: 'on'
+                styles:
+                  card:
+                    - '-box-shadow': 0px 0px 9px 3px var(--button-card-light-color)
+                    - box-shadow: 0px 0px 9px 3px var(--button-card-light-color)
+                    - background-color: black
+                    - '--mdc-ripple-color': var(--button-card-light-color)
+                    - '--mdc-ripple-press-opacity': 0.7
+                  name:
+                    - color: var(--button-card-light-color)
+                  state:
+                    - color: var(--button-card-light-color)
+            show_name: true
+            show_state: false
+            show_icon: true
+            layout:
+              - vertical
+        columns: 1
+      - square: false
+        type: grid
+        cards:
+          - type: custom:button-card
+            styles:
+              card:
+                - height: 50px
+                - background-color: black
+              name:
+                - font-size: 20px
+                - font-weight: normal
+                - color: lightgreen
+                - justify-self: start
+            entity: sensor.vandeins_temperature
+            name: >
+              [[[ return `<span>et la température actuelle est de
+              ${states['sensor.vandeins_temperature'].state}°C</span></span>`;
+
+              ]]]
+            show_name: true
+            show_state: false
+            show_icon: false
+            layout:
+              - vertical
+          - type: conditional
+            conditions:
+              - entity: sun.sun
+                state: below_horizon
+            card:
+              type: custom:button-card
+              entity: weather.vandeins
+              name: Météo
+              styles:
+                icon:
+                  - width: 100%
+                  - justify-self: start
+                  - transform: rotate(350deg)
+                card:
+                  - height: 154px
+                  - '-box-shadow': 0px 0px 9px 3px aqua
+                  - box-shadow: 0px 0px 9px 3px aqua
+                  - background-color: black
+                  - '--mdc-ripple-color': aqua
+                  - '--mdc-ripple-press-opacity': 0.7
+                  - color: ivory
+                  - font-size: 15px
+                state:
+                  - font-size: 25px
+                  - font-weight: bold
+                  - transform: rotate(350deg)
+                grid:
+                  - grid-template-areas: '"i s s" "i s s" "temp vent vigi"'
+                  - grid-template-columns: 1fr 1fr 1fr
+                  - grid-template-rows: 1fr min-content min-content min-content min-content
+                name:
+                  - font-weight: bold
+                  - font-size: 25px
+                  - color: white
+                  - justify-self: start
+                custom_fields:
+                  temp:
+                    - padding-top: 10px
+                    - justify-self: center
+                    - '--text-color-sensor': >-
+                        [[[ if (states["sensor.vandeins_temperature"].state >=
+                        35) return "red";if
+                        (states["sensor.vandeins_temperature"].state >= 25)
+                        return "orange";if
+                        (states["sensor.vandeins_temperature"].state >= 15)
+                        return "green";if
+                        (states["sensor.vandeins_temperature"].state >= 5)
+                        return "lightblue";if
+                        (states["sensor.vandeins_temperature"].state < 5) return
+                        "aqua"; ]]]
+                  vent:
+                    - padding-top: 10px
+                    - justify-self: center
+                    - '--text-color-sensor': >-
+                        [[[ if (states["sensor.vandeins_wind_speed"].state >=
+                        75) return "red";if
+                        (states["sensor.vandeins_wind_speed"].state >= 50)
+                        return "orange";if
+                        (states["sensor.vandeins_wind_speed"].state >= 20)
+                        return "yellow";if
+                        (states["sensor.vandeins_wind_speed"].state < 20) return
+                        "lightgreen"; ]]]
+                  vigi:
+                    - padding-top: 10px
+                    - justify-self: center
+              custom_fields:
+                temp: |
+                  [[[
+                    return `<span><span style="color: var(--text-color-sensor);">${states['sensor.vandeins_temperature'].state}°C</span></span>`
+                  ]]]
+                vent: |
+                  [[[
+                    return `<span><span style="color: var(--text-color-sensor);">${states['sensor.vandeins_wind_speed'].state}km/h</span></span>`
+                  ]]]
+                vigi: >
+                  [[[
+
+                  if (states['sensor.meteo_alerte'].state == 'Vigilance jaune
+                  vent-violent')
+                    return `<ha-icon
+                      icon="mdi:weather-windy"
+                      style="width:25px;height:25px;color:yellow">
+                      </ha-icon><span> <span style="color: yellow;"></span></span>`;
+                  if (states['sensor.meteo_alerte'].state == 'Vigilance orange
+                  vent-violent')
+                    return `<ha-icon
+                      icon="mdi:weather-windy"
+                      style="width:25px;height:25px;color:orange">
+                      </ha-icon><span> <span style="color: orange;"></span></span>`;
+                  if (states['sensor.meteo_alerte'].state == 'Vigilance rouge
+                  vent-violent')
+                    return `<ha-icon
+                      icon="mdi:weather-windy"
+                      style="width:25px;height:25px;color:red">
+                      </ha-icon><span> <span style="color: red;"></span></span>`;
+                      
+                  if (states['sensor.meteo_alerte'].state == 'Vigilance jaune
+                  neige-verglas')
+                    return `<ha-icon
+                      icon="mdi:snowflake"
+                      style="width:25px;height:25px;color:yellow">
+                      </ha-icon><span> <span style="color: yellow;"></span></span>`;
+                  if (states['sensor.meteo_alerte'].state == 'Vigilance orange
+                  neige-verglas')
+                    return `<ha-icon
+                      icon="mdi:snowflake"
+                      style="width:25px;height:25px;color:orange">
+                      </ha-icon><span> <span style="color: orange;"></span></span>`;
+                  if (states['sensor.meteo_alerte'].state == 'Vigilance rouge
+                  neige-verglas')
+                    return `<ha-icon
+                      icon="mdi:snowflake"
+                      style="width:25px;height:25px;color:red">
+                      </ha-icon><span> <span style="color: red;"></span></span>`;
+
+                  if (states['sensor.meteo_alerte'].state == 'Vigilance jaune
+                  grand-froid')
+                    return `<ha-icon
+                      icon="mdi:snowman"
+                      style="width:25px;height:25px;color:yellow">
+                      </ha-icon><span> <span style="color: yellow;"></span></span>`;
+                  if (states['sensor.meteo_alerte'].state == 'Vigilance orange
+                  grand-froid')
+                    return `<ha-icon
+                      icon="mdi:snowman"
+                      style="width:25px;height:25px;color:orange">
+                      </ha-icon><span> <span style="color: orange;"></span></span>`;
+                  if (states['sensor.meteo_alerte'].state == 'Vigilance rouge
+                  grand-froid')
+                    return `<ha-icon
+                      icon="mdi:snowman"
+                      style="width:25px;height:25px;color:red">
+                      </ha-icon><span> <span style="color: red;"></span></span>`;
+                      
+                  if (states['sensor.meteo_alerte'].state == 'Vigilance jaune
+                  inondations')
+                    return `<ha-icon
+                      icon="mdi:waves-arrow-up"
+                      style="width:25px;height:25px;color:yellow">
+                      </ha-icon><span> <span style="color: yellow;"></span></span>`;
+                  if (states['sensor.meteo_alerte'].state == 'Vigilance orange
+                  inondations')
+                    return `<ha-icon
+                      icon="mdi:waves-arrow-up"
+                      style="width:25px;height:25px;color:orange">
+                      </ha-icon><span> <span style="color: orange;"></span></span>`;
+                  if (states['sensor.meteo_alerte'].state == 'Vigilance rouge
+                  inondations')
+                    return `<ha-icon
+                      icon="mdi:waves-arrow-up"
+                      style="width:25px;height:25px;color:red">
+                      </ha-icon><span> <span style="color: red;"></span></span>`;
+
+                  if (states['sensor.meteo_alerte'].state == 'Vigilance jaune
+                  orages')
+                    return `<ha-icon
+                      icon="mdi:lightning-bolt"
+                      style="width:25px;height:25px;color:yellow">
+                      </ha-icon><span> <span style="color: yellow;"></span></span>`;
+                  if (states['sensor.meteo_alerte'].state == 'Vigilance orange 
+                  orages')
+                    return `<ha-icon
+                      icon="mdi:lightning-bolt"
+                      style="width:25px;height:25px;color:orange">
+                      </ha-icon><span> <span style="color: orange;"></span></span>`;
+                  if (states['sensor.meteo_alerte'].state == 'Vigilance rouge
+                  orages')
+                    return `<ha-icon
+                      icon="mdi:lightning-bolt"
+                      style="width:25px;height:25px;color:red">
+                      </ha-icon><span> <span style="color: red;"></span></span>`;
+
+                  else 
+                    return `<ha-icon
+                      icon="mdi:thumb-up"
+                      style="width:25px;height:25px;color:lightgreen">
+                      </ha-icon><span> <span style="color: lightgreen;"></span></span>`;
+
+                  ]]]
+              tap_action:
+                action: navigate
+                navigation_path: /lovelace/meteo
+              state:
+                - value: lightning-rainy
+                  color: lightblue
+                  icon: mdi:weather-lightning-rainy
+                  styles:
+                    name:
+                      - color: lightblue
+                    state:
+                      - color: lightblue
+                    icon:
+                      - animation: blink 2s ease infinite
+                    card:
+                      - '-box-shadow': 0px 0px 9px 3px lightblue
+                      - box-shadow: 0px 0px 9px 3px lightblue
+                      - background-color: black
+                      - '--mdc-ripple-color': lightblue
+                      - '--mdc-ripple-press-opacity': 0.7
+                - value: hail
+                  color: lightgrey
+                  icon: mdi:weather-hail
+                  styles:
+                    name:
+                      - color: lightgrey
+                    state:
+                      - color: lightgrey
+                      - animation: blink 2s ease infinite
+                    icon:
+                      - animation: blink 2s ease infinite
+                    card:
+                      - '-box-shadow': 0px 0px 9px 3px white
+                      - box-shadow: 0px 0px 9px 3px white
+                      - background-color: black
+                      - '--mdc-ripple-color': lightgrey
+                      - '--mdc-ripple-press-opacity': 0.7
+                - value: partlycloudy
+                  color: purple
+                  icon: mdi:weather-night-partly-cloudy
+                  styles:
+                    name:
+                      - color: purple
+                    state:
+                      - color: purple
+                      - state_name: Nuit dégagée
+                    card:
+                      - '-box-shadow': 0px 0px 9px 3px purple
+                      - box-shadow: 0px 0px 9px 3px purple
+                      - background-color: black
+                      - '--mdc-ripple-color': puple
+                      - '--mdc-ripple-press-opacity': 0.7
+                - value: clear-night
+                  color: purple
+                  icon: mdi:weather-night
+                  styles:
+                    name:
+                      - color: purple
+                    state:
+                      - color: purple
+                      - name: Nuit claire
+                    card:
+                      - '-box-shadow': 0px 0px 9px 3px purple
+                      - box-shadow: 0px 0px 9px 3px purple
+                      - background-color: black
+                      - '--mdc-ripple-color': purple
+                      - '--mdc-ripple-press-opacity': 0.7
+                - value: lightning
+                  color: orange
+                  icon: mdi:weather-lightning
+                  styles:
+                    name:
+                      - color: orange
+                    state:
+                      - color: orange
+                    icon:
+                      - animation: blink 2s ease infinite
+                    card:
+                      - opacity: 0.75
+                      - '-box-shadow': 0px 0px 9px 3px orange
+                      - box-shadow: 0px 0px 9px 3px orange
+                      - background-color: black
+                      - '--mdc-ripple-color': orange
+                      - '--mdc-ripple-press-opacity': 0.7
+                - value: rainy
+                  color: blue
+                  icon: mdi:weather-rainy
+                  styles:
+                    name:
+                      - color: blue
+                    state:
+                      - color: blue
+                    card:
+                      - '-box-shadow': 0px 0px 9px 3px blue
+                      - box-shadow: 0px 0px 9px 3px blue
+                      - background-color: black
+                      - '--mdc-ripple-color': blue
+                      - '--mdc-ripple-press-opacity': 0.7
+                - value: sunny
+                  color: purple
+                  icon: mdi:weather-night
+                  styles:
+                    name:
+                      - color: purple
+                    state:
+                      - color: purple
+                      - name: Enlumineux
+                    card:
+                      - '-box-shadow': 0px 0px 9px 3px purple
+                      - box-shadow: 0px 0px 9px 3px purple
+                      - background-color: black
+                      - '--mdc-ripple-color': puple
+                      - '--mdc-ripple-press-opacity': 0.7
+                - value: cloudy
+                  color: lightgrey
+                  icon: mdi:cloud
+                  styles:
+                    name:
+                      - color: lightgrey
+                    state:
+                      - color: lightgrey
+                    card:
+                      - '-box-shadow': 0px 0px 9px 3px lightgrey
+                      - box-shadow: 0px 0px 9px 3px lightgrey
+                      - background-color: black
+                      - '--mdc-ripple-color': lightgrey
+                      - '--mdc-ripple-press-opacity': 0.7
+              show_name: false
+              show_state: true
+              layout:
+                - icon_name
+          - type: conditional
+            conditions:
+              - condition: state
+                entity: sun.sun
+                state_not: below_horizon
+            card:
+              type: custom:button-card
+              entity: weather.vandeins
+              name: Météo
+              styles:
+                icon:
+                  - width: 100%
+                  - justify-self: start
+                  - transform: rotate(350deg)
+                card:
+                  - height: 154px
+                  - '-box-shadow': 0px 0px 9px 3px aqua
+                  - box-shadow: 0px 0px 9px 3px aqua
+                  - background-color: black
+                  - '--mdc-ripple-color': aqua
+                  - '--mdc-ripple-press-opacity': 0.7
+                  - color: ivory
+                  - font-size: 15px
+                state:
+                  - font-size: 25px
+                  - font-weight: bold
+                  - transform: rotate(350deg)
+                grid:
+                  - grid-template-areas: '"i s s" "i s s" "temp vent vigi"'
+                  - grid-template-columns: 1fr 1fr 1fr
+                  - grid-template-rows: 1fr min-content min-content min-content min-content
+                name:
+                  - font-weight: bold
+                  - font-size: 25px
+                  - color: white
+                  - justify-self: start
+                custom_fields:
+                  temp:
+                    - padding-top: 10px
+                    - justify-self: center
+                    - '--text-color-sensor': >-
+                        [[[ if (states["sensor.vandeins_temperature"].state >=
+                        35) return "red";if
+                        (states["sensor.vandeins_temperature"].state >= 25)
+                        return "orange";if
+                        (states["sensor.vandeins_temperature"].state >= 15)
+                        return "green";if
+                        (states["sensor.vandeins_temperature"].state >= 5)
+                        return "lightblue";if
+                        (states["sensor.vandeins_temperature"].state < 5) return
+                        "aqua"; ]]]
+                  vent:
+                    - padding-top: 10px
+                    - justify-self: center
+                    - '--text-color-sensor': >-
+                        [[[ if (states["sensor.vandeins_wind_speed"].state >=
+                        75) return "red";if
+                        (states["sensor.vandeins_wind_speed"].state >= 50)
+                        return "orange";if
+                        (states["sensor.vandeins_wind_speed"].state >= 20)
+                        return "yellow";if
+                        (states["sensor.vandeins_wind_speed"].state < 20) return
+                        "lightgreen"; ]]]
+                  vigi:
+                    - padding-top: 10px
+                    - justify-self: center
+              custom_fields:
+                temp: |
+                  [[[
+                    return `<span><span style="color: var(--text-color-sensor);">${states['sensor.vandeins_temperature'].state}°C</span></span>`
+                  ]]]
+                vent: |
+                  [[[
+                    return `<span><span style="color: var(--text-color-sensor);">${states['sensor.vandeins_wind_speed'].state}km/h</span></span>`
+                  ]]]
+                vigi: >
+                  [[[
+
+                  if (states['sensor.meteo_alerte'].state == 'Vigilance jaune
+                  vent-violent')
+                    return `<ha-icon
+                      icon="mdi:weather-windy"
+                      style="width:25px;height:25px;color:yellow">
+                      </ha-icon><span> <span style="color: yellow;"></span></span>`;
+                  if (states['sensor.meteo_alerte'].state == 'Vigilance orange
+                  vent-violent')
+                    return `<ha-icon
+                      icon="mdi:weather-windy"
+                      style="width:25px;height:25px;color:orange">
+                      </ha-icon><span> <span style="color: orange;"></span></span>`;
+                  if (states['sensor.meteo_alerte'].state == 'Vigilance rouge
+                  vent-violent')
+                    return `<ha-icon
+                      icon="mdi:weather-windy"
+                      style="width:25px;height:25px;color:red">
+                      </ha-icon><span> <span style="color: red;"></span></span>`;
+                      
+                  if (states['sensor.meteo_alerte'].state == 'Vigilance jaune
+                  neige-verglas')
+                    return `<ha-icon
+                      icon="mdi:snowflake"
+                      style="width:25px;height:25px;color:yellow">
+                      </ha-icon><span> <span style="color: yellow;"></span></span>`;
+                  if (states['sensor.meteo_alerte'].state == 'Vigilance orange
+                  neige-verglas')
+                    return `<ha-icon
+                      icon="mdi:snowflake"
+                      style="width:25px;height:25px;color:orange">
+                      </ha-icon><span> <span style="color: orange;"></span></span>`;
+                  if (states['sensor.meteo_alerte'].state == 'Vigilance rouge
+                  neige-verglas')
+                    return `<ha-icon
+                      icon="mdi:snowflake"
+                      style="width:25px;height:25px;color:red">
+                      </ha-icon><span> <span style="color: red;"></span></span>`;
+
+                  if (states['sensor.meteo_alerte'].state == 'Vigilance jaune
+                  grand-froid')
+                    return `<ha-icon
+                      icon="mdi:snowman"
+                      style="width:25px;height:25px;color:yellow">
+                      </ha-icon><span> <span style="color: yellow;"></span></span>`;
+                  if (states['sensor.meteo_alerte'].state == 'Vigilance orange
+                  grand-froid')
+                    return `<ha-icon
+                      icon="mdi:snowman"
+                      style="width:25px;height:25px;color:orange">
+                      </ha-icon><span> <span style="color: orange;"></span></span>`;
+                  if (states['sensor.meteo_alerte'].state == 'Vigilance rouge
+                  grand-froid')
+                    return `<ha-icon
+                      icon="mdi:snowman"
+                      style="width:25px;height:25px;color:red">
+                      </ha-icon><span> <span style="color: red;"></span></span>`;
+                      
+                  if (states['sensor.meteo_alerte'].state == 'Vigilance jaune
+                  inondations')
+                    return `<ha-icon
+                      icon="mdi:waves-arrow-up"
+                      style="width:25px;height:25px;color:yellow">
+                      </ha-icon><span> <span style="color: yellow;"></span></span>`;
+                  if (states['sensor.meteo_alerte'].state == 'Vigilance orange
+                  inondations')
+                    return `<ha-icon
+                      icon="mdi:waves-arrow-up"
+                      style="width:25px;height:25px;color:orange">
+                      </ha-icon><span> <span style="color: orange;"></span></span>`;
+                  if (states['sensor.meteo_alerte'].state == 'Vigilance rouge
+                  inondations')
+                    return `<ha-icon
+                      icon="mdi:waves-arrow-up"
+                      style="width:25px;height:25px;color:red">
+                      </ha-icon><span> <span style="color: red;"></span></span>`;
+
+                  if (states['sensor.meteo_alerte'].state == 'Vigilance jaune
+                  orages')
+                    return `<ha-icon
+                      icon="mdi:lightning-bolt"
+                      style="width:25px;height:25px;color:yellow">
+                      </ha-icon><span> <span style="color: yellow;"></span></span>`;
+                  if (states['sensor.meteo_alerte'].state == 'Vigilance orange 
+                  orages')
+                    return `<ha-icon
+                      icon="mdi:lightning-bolt"
+                      style="width:25px;height:25px;color:orange">
+                      </ha-icon><span> <span style="color: orange;"></span></span>`;
+                  if (states['sensor.meteo_alerte'].state == 'Vigilance rouge
+                  orages')
+                    return `<ha-icon
+                      icon="mdi:lightning-bolt"
+                      style="width:25px;height:25px;color:red">
+                      </ha-icon><span> <span style="color: red;"></span></span>`;
+
+                  else 
+                    return `<ha-icon
+                      icon="mdi:thumb-up"
+                      style="width:25px;height:25px;color:lightgreen">
+                      </ha-icon><span> <span style="color: lightgreen;"></span></span>`;
+
+                  ]]]
+              tap_action:
+                action: navigate
+                navigation_path: /lovelace/meteo
+              state:
+                - value: lightning-rainy
+                  color: lightblue
+                  icon: mdi:weather-lightning-rainy
+                  styles:
+                    name:
+                      - color: lightblue
+                    state:
+                      - color: lightblue
+                    icon:
+                      - animation: blink 2s ease infinite
+                    card:
+                      - '-box-shadow': 0px 0px 9px 3px lightblue
+                      - box-shadow: 0px 0px 9px 3px lightblue
+                      - background-color: black
+                      - '--mdc-ripple-color': lightblue
+                      - '--mdc-ripple-press-opacity': 0.7
+                - value: hail
+                  color: lightgrey
+                  icon: mdi:weather-hail
+                  styles:
+                    name:
+                      - color: lightgrey
+                    state:
+                      - color: lightgrey
+                      - animation: blink 2s ease infinite
+                    icon:
+                      - animation: blink 2s ease infinite
+                    card:
+                      - '-box-shadow': 0px 0px 9px 3px white
+                      - box-shadow: 0px 0px 9px 3px white
+                      - background-color: black
+                      - '--mdc-ripple-color': lightgrey
+                      - '--mdc-ripple-press-opacity': 0.7
+                - value: fog
+                  color: grey
+                  icon: mdi:weather-fog
+                  styles:
+                    name:
+                      - color: grey
+                    state:
+                      - color: grey
+                      - animation: null
+                    icon:
+                      - animation: blink 2s ease infinite
+                    card:
+                      - '-box-shadow': 0px 0px 9px 3px white
+                      - box-shadow: 0px 0px 9px 3px white
+                      - background-color: black
+                      - '--mdc-ripple-color': grey
+                      - '--mdc-ripple-press-opacity': 0.7
+                - value: snowy
+                  color: white
+                  icon: mdi:snowflake
+                  styles:
+                    name:
+                      - color: white
+                    state:
+                      - color: white
+                      - animation: blink 2s ease infinite
+                    icon:
+                      - animation: rotating 5s linear infinite
+                    card:
+                      - '-box-shadow': 0px 0px 9px 3px white
+                      - box-shadow: 0px 0px 9px 3px white
+                      - background-color: black
+                      - '--mdc-ripple-color': white
+                      - '--mdc-ripple-press-opacity': 0.7
+                - value: partlycloudy
+                  color: yellow
+                  icon: mdi:weather-partly-cloudy
+                  styles:
+                    name:
+                      - color: yellow
+                    state:
+                      - color: yellow
+                    card:
+                      - '-box-shadow': 0px 0px 9px 3px yellow
+                      - box-shadow: 0px 0px 9px 3px yellow
+                      - background-color: black
+                      - '--mdc-ripple-color': yellow
+                      - '--mdc-ripple-press-opacity': 0.7
+                - value: clear-night
+                  color: purple
+                  icon: mdi:weather-night
+                  styles:
+                    name:
+                      - color: purple
+                    state:
+                      - color: purple
+                    card:
+                      - '-box-shadow': 0px 0px 9px 3px purple
+                      - box-shadow: 0px 0px 9px 3px purple
+                      - background-color: black
+                      - '--mdc-ripple-color': purple
+                      - '--mdc-ripple-press-opacity': 0.7
+                - value: lightning
+                  color: orange
+                  icon: mdi:weather-lightning
+                  styles:
+                    name:
+                      - color: orange
+                    state:
+                      - color: orange
+                    icon:
+                      - animation: blink 2s ease infinite
+                    card:
+                      - opacity: 0.75
+                      - '-box-shadow': 0px 0px 9px 3px orange
+                      - box-shadow: 0px 0px 9px 3px orange
+                      - background-color: black
+                      - '--mdc-ripple-color': orange
+                      - '--mdc-ripple-press-opacity': 0.7
+                - value: rainy
+                  color: blue
+                  icon: mdi:weather-rainy
+                  styles:
+                    name:
+                      - color: blue
+                    state:
+                      - color: blue
+                    card:
+                      - '-box-shadow': 0px 0px 9px 3px blue
+                      - box-shadow: 0px 0px 9px 3px blue
+                      - background-color: black
+                      - '--mdc-ripple-color': blue
+                      - '--mdc-ripple-press-opacity': 0.7
+                - value: sunny
+                  color: yellow
+                  icon: mdi:white-balance-sunny
+                  styles:
+                    name:
+                      - color: yellow
+                    state:
+                      - color: yellow
+                    icon:
+                      - animation: rotating 5s linear infinite
+                    card:
+                      - '-box-shadow': 0px 0px 9px 3px yellow
+                      - box-shadow: 0px 0px 9px 3px yellow
+                      - background-color: black
+                      - '--mdc-ripple-color': yellow
+                      - '--mdc-ripple-press-opacity': 0.7
+                - value: cloudy
+                  color: lightgrey
+                  icon: mdi:cloud
+                  styles:
+                    name:
+                      - color: lightgrey
+                    state:
+                      - color: lightgrey
+                    card:
+                      - '-box-shadow': 0px 0px 9px 3px lightgrey
+                      - box-shadow: 0px 0px 9px 3px lightgrey
+                      - background-color: black
+                      - '--mdc-ripple-color': lightgrey
+                      - '--mdc-ripple-press-opacity': 0.7
+              show_name: false
+              show_state: true
+          - type: custom:button-card
+            entity: sensor.temperature_moyenne
+            name: Température
+            styles:
+              icon:
+                - justify-self: end
+                - width: 65%
+                - transform: rotate(350deg)
+              card:
+                - height: 154px
+                - '-box-shadow': 0px 0px 9px 3px aqua
+                - box-shadow: 0px 0px 9px 3px aqua
+                - background-color: black
+                - '--mdc-ripple-color': aqua
+                - '--mdc-ripple-press-opacity': 0.7
+                - color: ivory
+                - font-size: 15px
+                - text-transform: capitalize
+              state:
+                - font-size: 25px
+                - font-weight: bold
+                - justify-self: center
+                - transform: rotate(350deg)
+              grid:
+                - grid-template-areas: '"i s s" "i s s" "vigi vent temp"'
+                - grid-template-columns: 1fr 1fr 1fr
+                - grid-template-rows: 1fr min-content min-content min-content min-content
+              name:
+                - font-weight: bold
+                - font-size: 25px
+                - color: white
+              custom_fields:
+                temp:
+                  - padding-top: 10px
+                  - justify-self: center
+                vent:
+                  - padding-top: 10px
+                  - justify-self: center
+                  - '--text-color-sensor': >-
+                      [[[ if
+                      (states["sensor.linky_19986107005309_consumption"].state
+                      >= 50) return "red";if
+                      (states["sensor.linky_19986107005309_consumption"].state
+                      >= 40) return "orange";if
+                      (states["sensor.linky_19986107005309_consumption"].state
+                      >= 30) return "yellow";if
+                      (states["sensor.linky_19986107005309_consumption"].state <
+                      30) return "lightgreen"; ]]]
+                vigi:
+                  - padding-top: 10px
+                  - justify-self: center
+                  - '--text-color-sensor': >-
+                      [[[ if (states["sensor.linky_prix_conso_jour_j_1"].state
+                      >= 12) return "red";if
+                      (states["sensor.linky_prix_conso_jour_j_1"].state >= 10)
+                      return "orange";if
+                      (states["sensor.linky_prix_conso_jour_j_1"].state >= 7)
+                      return "yellow";if
+                      (states["sensor.linky_prix_conso_jour_j_1"].state < 7)
+                      return "lightgreen"; ]]]
+            custom_fields:
+              temp: |
+                [[[
+                if (states['sensor.etat_du_chauffage'].state == 'Éteint')
+                  return `<ha-icon
+                    icon="mdi:power"
+                    style="width:25px;height:25px;color:blue">
+                    </ha-icon><span> <span style="color: blue;</span></span>`;
+                    
+                if (states['sensor.etat_du_chauffage'].state == 'Hors Gel')
+                  return `<ha-icon
+                    icon="tc:frost-point"
+                    style="width:25px;height:25px;color:aqua">
+                    </ha-icon><span> <span style="color: aqua;"></span></span>`;
+                    
+                if (states['sensor.etat_du_chauffage'].state == 'Éco')
+                  return `<ha-icon
+                    icon="mdi:leaf"
+                    style="width:25px;height:25px;color:lightgreen">
+                    </ha-icon><span> <span style="color: lightgreen;</span></span>`;
+                    
+                if (states['sensor.etat_du_chauffage'].state == 'Confort')
+                  return `<ha-icon
+                    icon="mdi:sofa"
+                    style="width:25px;height:25px;color:#FFC107">
+                    </ha-icon><span> <span style="color: #FFC107;"></span></span>`;
+                    
+                if (states['sensor.etat_du_chauffage'].state == 'Chauffe')
+                  return `<ha-icon
+                    icon="mdi:fire"
+                    style="width:25px;height:25px;color:#FFC107">
+                    </ha-icon><span> <span style="color: #FFC107;"></span></span>`;
+                    
+                if (states['sensor.etat_du_chauffage'].state == 'Boost')
+                  return `<ha-icon
+                    icon="mdi:rocket-launch"
+                    style="width:25px;height:25px;color:red">
+                    </ha-icon><span> <span style="color: red;"></span></span>`
+                    
+                if (states['sensor.etat_du_chauffage'].state == 'Mode Éte')
+                  return `<ha-icon
+                    icon="mdi:sun-snowflake-variant"
+                    style="width:25px;height:25px;color:lightblue">
+                    </ha-icon><span> <span style="color: lightblue;"></span></span>`
+                ]]]
+              vent: |
+                [[[
+                  return `<span><span style="color: var(--text-color-sensor);">${states['sensor.linky_19986107005309_consumption'].state}kwh</span></span>`
+                ]]]
+              vigi: |
+                [[[
+                  return `<span><span style="color: var(--text-color-sensor);">${states['sensor.linky_prix_conso_jour_j_1'].state}€</span></span>`
+                ]]]
+            tap_action:
+              action: navigate
+              navigation_path: /lovelace/chauffage
+            double_tap_action:
+              action: navigate
+              navigation_path: /lovelace/energie
+            hold_action:
+              action: navigate
+              navigation_path: /lovelace/chauffage2
+            state:
+              - value: 15
+                operator: <=
+                color: blue
+                icon: mdi:thermometer-minus
+                styles:
+                  name:
+                    - color: blue
+                  state:
+                    - color: blue
+                  card:
+                    - '-box-shadow': 0px 0px 9px 3px blue
+                    - box-shadow: 0px 0px 9px 3px blue
+                    - background-color: black
+                    - '--mdc-ripple-color': blue
+                    - '--mdc-ripple-press-opacity': 0.7
+              - value: 25
+                operator: '>='
+                color: red
+                icon: mdi:thermometer-plus
+                styles:
+                  name:
+                    - color: red
+                  state:
+                    - color: red
+                  card:
+                    - '-box-shadow': 0px 0px 9px 3px red
+                    - box-shadow: 0px 0px 9px 3px red
+                    - background-color: black
+                    - '--mdc-ripple-color': red
+                    - '--mdc-ripple-press-opacity': 0.7
+              - operator: default
+                color: lightgreen
+                icon: mdi:thermometer
+                styles:
+                  name:
+                    - color: lightgreen
+                  state:
+                    - color: lightgreen
+                  card:
+                    - '-box-shadow': 0px 0px 9px 3px lightgreen
+                    - box-shadow: 0px 0px 9px 3px lightgreen
+                    - background-color: black
+                    - '--mdc-ripple-color': lightgreen
+                    - '--mdc-ripple-press-opacity': 0.7
+            show_name: false
+            show_state: true
+            layout:
+              - icon_state
+          - type: conditional
+            conditions:
+              - condition: state
+                entity: input_boolean.poubelles
+                state: 'off'
+            card:
+              type: custom:button-card
+              styles:
+                icon:
+                  - width: 65%
+                  - justify-self: start
+                  - color: aqua
+                  - transform: rotate(350deg)
+                card:
+                  - height: 154px
+                  - '-box-shadow': 0px 0px 9px 3px aqua
+                  - box-shadow: 0px 0px 9px 3px aqua
+                  - background-color: black
+                  - '--mdc-ripple-color': aqua
+                  - '--mdc-ripple-press-opacity': 0.7
+                  - color: ivory
+                  - font-size: 15px
+                state:
+                  - font-size: 25px
+                  - font-weight: bold
+                  - color: aqua
+                grid:
+                  - grid-template-areas: '"i jour jour" "i jour jour" "temp temp vent"'
+                  - grid-template-columns: 1fr 1fr 1fr
+                  - grid-template-rows: 1fr min-content min-content min-content min-content
+                name:
+                  - font-weight: bold
+                  - font-size: 25px
+                  - color: white
+                  - justify-self: start
+                custom_fields:
+                  temp:
+                    - padding-top: 10px
+                    - justify-self: start
+                  vent:
+                    - padding-top: 10px
+                    - justify-self: center
+                  jour:
+                    - justify-self: center
+                    - font-weight: bold
+                    - font-size: 25px
+                    - transform: rotate(350deg)
+              custom_fields:
+                temp: |
+                  [[[
+                    return `<span><span style="color: lightgreen;">- ${states['sensor.prochain_evenement'].state}</span></span>`
+                  ]]]
+                vent: |
+                  [[[
+                    return `<span><span style="color: lightgreen;">${states['sensor.debut_prochain_evenement'].state} -</span></span>`
+                  ]]]
+                jour: |
+                  [[[
+                    return `<span><span style="color: aqua;">${states['sensor.jour'].state} ${states['sensor.nom_mois'].state}</span></span>`
+                  ]]]
+              entity: calendar.ludi_menzago_gmail_com
+              name: Agenda
+              icon: mdi:calendar
+              state:
+                - value: 'off'
+                  styles:
+                    card:
+                      - opacity: 0.7
+                      - '-box-shadow': 0px 0px 9px 3px teal
+                      - box-shadow: 0px 0px 9px 3px teal
+                      - background-color: black
+                      - '--mdc-ripple-color': lightblue
+                      - '--mdc-ripple-press-opacity': 0.7
+                    icon:
+                      - width: 50%
+              tap_action:
+                action: navigate
+                navigation_path: /lovelace/vie-courante
+              show_name: false
+              show_state: false
+              show_icon: true
+              layout:
+                - icon_state
+          - type: conditional
+            conditions:
+              - condition: state
+                entity: input_boolean.poubelles
+                state: 'on'
+            card:
+              type: custom:button-card
+              styles:
+                icon:
+                  - width: 65%
+                  - justify-self: start
+                  - color: aqua
+                  - transform: rotate(350deg)
+                card:
+                  - height: 154px
+                  - '-box-shadow': 0px 0px 9px 3px red
+                  - box-shadow: 0px 0px 9px 3px red
+                  - background-color: black
+                  - '--mdc-ripple-color': red
+                  - '--mdc-ripple-press-opacity': 0.7
+                  - color: ivory
+                  - font-size: 15px
+                state:
+                  - font-size: 25px
+                  - font-weight: bold
+                  - color: aqua
+                grid:
+                  - grid-template-areas: '"lave jour jour" "lave jour jour" "temp temp vent"'
+                  - grid-template-columns: 1fr 1fr 1fr
+                  - grid-template-rows: 1fr min-content min-content min-content min-content
+                name:
+                  - font-weight: bold
+                  - font-size: 25px
+                  - color: white
+                  - justify-self: start
+                custom_fields:
+                  temp:
+                    - padding-top: 10px
+                    - justify-self: start
+                  vent:
+                    - padding-top: 10px
+                    - justify-self: center
+                  jour:
+                    - font-size: 25px
+                    - font-weight: bold
+                    - justify-self: center
+                    - transform: rotate(350deg)
+                  lave:
+                    - transform: rotate(350deg)
+              custom_fields:
+                lave: >
+                  [[[
+                   if (states['sensor.couleur_poubelle'].state == 'Sortir Poubelle Jaune')     
+                    return `<ha-icon
+                      icon="cil:delete-alert"
+                      style="width:65%; animation:blink 2s ease infinite;color:yellow">
+                      </ha-icon><span></span></span>`;
+                  if (states['sensor.couleur_poubelle'].state == 'Sortir
+                  Poubelle Grise')
+                    return `<ha-icon
+                      icon="cil:delete-alert"
+                      style="width:65%; animation:blink 2s ease infinite;color:grey">
+                      </ha-icon><span></span></span>`;
+                  ]]]
+                temp: |
+                  [[[
+                    return `<span><span style="color: lightgreen;">- ${states['sensor.prochain_evenement'].state}</span></span>`
+                  ]]]
+                vent: |
+                  [[[
+                    return `<span><span style="color: lightgreen;">${states['sensor.debut_prochain_evenement'].state} -</span></span>`
+                  ]]]
+                jour: |
+                  [[[
+                    return `<span><span style="color: aqua;">${states['sensor.jour'].state} ${states['sensor.nom_mois'].state}</span></span>`
+                  ]]]
+              entity: sensor.jour
+              name: Agenda
+              icon: mdi:calendar
+              tap_action:
+                action: call-service
+                service: input_boolean.turn_off
+                service_data:
+                  entity_id: input_boolean.poubelles
+              show_name: false
+              show_state: false
+              show_icon: true
+              layout:
+                - icon_state
+          - type: conditional
+            conditions:
+              - condition: state
+                entity: binary_sensor.do_porte_de_garage
+                state: 'off'
+            card:
+              type: custom:button-card
+              styles:
+                card:
+                  - height: 154px
+                  - '-box-shadow': 0px 0px 9px 3px aqua
+                  - box-shadow: 0px 0px 9px 3px aqua
+                  - background-color: black
+                  - '--mdc-ripple-color': aqua
+                  - '--mdc-ripple-press-opacity': 0.7
+                  - color: ivory
+                  - font-size: 25px
+                  - font-weight: bold
+                  - text-transform: capitalize
+                grid:
+                  - grid-template-areas: '"lave gara gara" "lave gara gara" "temp vigi vent"'
+                  - grid-template-columns: 1fr 1fr 1fr
+                  - grid-template-rows: 1fr min-content min-content min-content min-content
+                name:
+                  - font-weight: bold
+                  - font-size: 25px
+                  - color: white
+                  - justify-self: start
+                state:
+                  - font-size: 25px
+                  - font-weight: bold
+                custom_fields:
+                  gara:
+                    - justify-self: center
+                    - transform: rotate(350deg)
+                  temp:
+                    - padding-top: 10px
+                    - justify-self: center
+                  vent:
+                    - padding-top: 10px
+                    - justify-self: center
+                  vigi:
+                    - padding-top: 10px
+                    - justify-self: center
+                  lave:
+                    - transform: rotate(350deg)
+              custom_fields:
+                gara: |
+                  [[[
+                    return `<span><span style="color: aqua;">${states['sensor.heure'].state}</span></span>`
+                  ]]]
+                lave: >
+                  [[[
+                   if (states['sensor.prise_machine_a_laver_active_power'].state > 5)
+                    return `<ha-icon
+                      icon="mdi:washing-machine"
+                      style="width:65%; animation:rotating 3s linear alternate infinite;color:red">
+                      </ha-icon><span></span></span>`;
+                  if (states['sensor.prise_machine_a_laver_active_power'].state
+                  <= 5)
+                    return `<ha-icon
+                      icon="mdi:home-circle"
+                      style="width:65%;color:aqua">
+                      </ha-icon><span></span></span>`;
+                  ]]]
+                temp: |
+                  [[[
+                   if (states['switch.prise_machine_a_laver'].state == 'on')
+                    return `<ha-icon
+                      icon="mdi:washing-machine"
+                      style="width:25px;height:25px;color:yellow">
+                      </ha-icon><span></span></span>`;
+                  if (states['switch.prise_machine_a_laver'].state == 'off')
+                    return `<ha-icon
+                      icon="mdi:washing-machine-off"
+                      style="width:25px;height:25px;color:lightblue">
+                      </ha-icon><span></span></span>`;
+                  ]]]
+                vent: |
+                  [[[
+                   if (states['light.prise_garage'].state == 'on')
+                    return `<ha-icon
+                      icon="phu:rooms-outdoor"
+                      style="width:25px;height:25px;color:yellow">
+                      </ha-icon><span></span></span>`;
+                  if (states['light.prise_garage'].state == 'off')
+                    return `<ha-icon
+                      icon="hue:room-outdoors-off"
+                      style="width:25px;height:25px;color:lightblue">
+                      </ha-icon><span></span></span>`;
+                  ]]]
+                vigi: |
+                  [[[
+                   if (states['binary_sensor.do_porte_de_garage'].state == 'on')
+                    return `<ha-icon
+                      icon="mdi:garage-open-variant"
+                      style="width:25px;height:25px;color:yellow">
+                      </ha-icon><span></span></span>`;
+                  if (states['binary_sensor.do_porte_de_garage'].state == 'off')
+                    return `<ha-icon
+                      icon="mdi:garage-variant-lock"
+                      style="width:25px;height:25px;color:lightblue">
+                      </ha-icon><span></span></span>`;
+                  ]]]
+              entity: switch.garage_buanderie
+              name: Autres Pièces
+              state:
+                - value: 'off'
+                  styles:
+                    name:
+                      - color: lightblue
+                    card:
+                      - opacity: 0.7
+                      - '-box-shadow': 0px 0px 9px 3px teal
+                      - box-shadow: 0px 0px 9px 3px teal
+                      - background-color: black
+                      - '--mdc-ripple-color': lightblue
+                      - '--mdc-ripple-press-opacity': 0.7
+                    state:
+                      - color: lightblue
+                - value: 'on'
+                  styles:
+                    card:
+                      - '-box-shadow': 0px 0px 9px 3px aqua
+                      - box-shadow: 0px 0px 9px 3px aqua
+                      - background-color: black
+                      - '--mdc-ripple-color': aqua
+                      - '--mdc-ripple-press-opacity': 0.7
+                    icon:
+                      - width: 100%
+                    name:
+                      - color: var(--button-card-light-color)
+                    state:
+                      - color: var(--button-card-light-color)
+              tap_action:
+                action: navigate
+                navigation_path: /lovelace/autres
+              show_name: false
+              show_state: false
+              show_icon: false
+              layout:
+                - vertical
+          - type: conditional
+            conditions:
+              - condition: state
+                entity: binary_sensor.do_porte_de_garage
+                state: 'on'
+            card:
+              type: custom:button-card
+              styles:
+                icon:
+                  - width: 90%
+                card:
+                  - height: 154px
+                  - '-box-shadow': 0px 0px 9px 3px ref
+                  - box-shadow: 0px 0px 9px 3px red
+                  - background-color: black
+                  - '--mdc-ripple-color': red
+                  - '--mdc-ripple-press-opacity': 0.7
+                  - color: ivory
+                  - font-size: 25px
+                  - font-weight: bold
+                  - text-transform: capitalize
+                grid:
+                  - grid-template-areas: '"vigi i i" "vigi i i" "temp lave vent"'
+                  - grid-template-columns: 1fr 1fr 1fr
+                  - grid-template-rows: 1fr min-content min-content min-content min-content
+                state:
+                  - font-size: 25px
+                  - font-weight: bold
+                custom_fields:
+                  gara:
+                    - justify-self: center
+                  temp:
+                    - padding-top: 10px
+                    - justify-self: center
+                  vent:
+                    - padding-top: 10px
+                    - justify-self: center
+                  lave:
+                    - padding-top: 10px
+                    - justify-self: center
+                  vigi:
+                    - transform: rotate(350deg)
+              custom_fields:
+                lave: >
+                  [[[
+                   if (states['sensor.prise_machine_a_laver_active_power'].state > 5)
+                    return `<ha-icon
+                      icon="mdi:washing-machine"
+                      style="width:25px; animation:rotating 3s linear alternate infinite;color:red">
+                      </ha-icon><span></span></span>`;
+                  if (states['sensor.prise_machine_a_laver_active_power'].state
+                  <= 5)
+                    return `<span><span style="color: aqua;">${states['sensor.heure'].state}</span></span>`
+                  ]]]
+                temp: |
+                  [[[
+                   if (states['switch.prise_machine_a_laver'].state == 'on')
+                    return `<ha-icon
+                      icon="mdi:washing-machine"
+                      style="width:25px;height:25px;color:yellow">
+                      </ha-icon><span></span></span>`;
+                  if (states['switch.prise_machine_a_laver'].state == 'off')
+                    return `<ha-icon
+                      icon="mdi:washing-machine-off"
+                      style="width:25px;height:25px;color:lightblue">
+                      </ha-icon><span></span></span>`;
+                  ]]]
+                vent: |
+                  [[[
+                   if (states['light.prise_garage'].state == 'on')
+                    return `<ha-icon
+                      icon="phu:rooms-outdoor"
+                      style="width:25px;height:25px;color:yellow">
+                      </ha-icon><span></span></span>`;
+                  if (states['light.prise_garage'].state == 'off')
+                    return `<ha-icon
+                      icon="hue:room-outdoors-off"
+                      style="width:25px;height:25px;color:lightblue">
+                      </ha-icon><span></span></span>`;
+                  ]]]
+                vigi: |
+                  [[[ return `<ha-icon
+                      icon="mdi:garage-open-variant"
+                      style="width:65%;animation: blink 2s ease infinite;color:red">
+                      </ha-icon><span></span></span>`;
+                  ]]]
+              entity: camera.camera_garage
+              tap_action:
+                action: call-service
+                service: button.press
+                service_data:
+                  entity_id: button.garage
+              confirmation:
+                text: Fermer la Porte du Garage ?
+              hold_action:
+                action: navigate
+                navigation_path: /lovelace/autres
+              show_name: false
+              show_state: false
+              show_live_stream: true
+              layout:
+                - vertical
+        columns: 1
